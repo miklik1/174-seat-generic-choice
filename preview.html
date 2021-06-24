@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>TACTIC™ Preview</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<script type="text/javascript">
+
+		// Sample URL:
+		// http://127.0.0.1:8080/preview.html?actual=1&extract=FG&wait=10
+
+		var
+
+				/**
+				 * @function
+				 * @param object
+				 * @return {Boolean}
+				 * @description Checks if argument is an array.
+				 */
+				isArray = function (object) {
+					return Object.prototype.toString.call(object) === '[object Array]';
+				},
+
+				/**
+				 * @function
+				 * @param {String} key
+				 * @param {String} [query_string]
+				 * @param {Array} [custom]
+				 * @return {String}
+				 * @description Get query string parameter.
+				 */
+				getQsParam = function (key, query_string, custom) {
+					var param   = undefined;
+					var reindex = isArray(custom) ? '|' + custom.join('|') : '';
+					param = decodeURIComponent((query_string || window.location.search).replace(new RegExp("^(?:.*[?|&" + reindex + "]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+					return param;
+				};
+
+		var
+
+				/**
+				 * @type {Boolean}
+				 */
+				actual = getQsParam('actual') ? true : false,
+
+				/**
+				 * @type {Object}
+				 */
+				dictionary = {
+					'BN_XS': 'XS',
+					'BN_S': 'S',
+					'BN_M': 'M',
+					'BN_L': 'L',
+					'BN_T2': 'VERY TALL (1:4)',
+					'BN_T1': 'TALL (1:2)',
+					'BN_E0': 'EQUAL (1:1)',
+					'BN_E0_T': 'EQUAL (3:4)',
+					'BN_E0_W': 'EQUAL (4:3)',
+					'BN_W1': 'WIDE (3:1)',
+					'BN_W2': 'VERY WIDE (6:1)'
+				},
+
+				/**
+				 * @type {Array}
+				 */
+				tenses = ['BN_T2', 'BN_T1', 'BN_E0_T', 'BN_E0', 'BN_E0_W', 'BN_W1', 'BN_W2'],
+				// tenses = ['BN_T2', 'BN_T1', 'BN_E0', 'BN_W1', 'BN_W2'],
+
+				/**
+				 * @type {Array}
+				 */
+				scales = ['BN_M', 'BN_S'],
+				// scales = ['BN_M', 'BN_S', 'BN_XS'],
+				// scales = ['BN_M'],
+
+				/**
+				 * Wait for certain time (ms) before banner iframes are loaded and extraction method executed.
+				 *
+				 * @type {Number}
+				 */
+				extract_wait = getQsParam('wait') ? Number(getQsParam('wait')) * 1000 : 5000,
+
+				/**
+				 * @type {String}
+				 */
+				extract_layer = getQsParam('extract') ? getQsParam('extract') : 'CV',
+
+				/**
+				 * @type {Object}
+				 */
+				extract_object = {
+
+					/**
+					 * @type {Object}
+					 */
+					sizes: {
+
+						/**
+						 * @type {Array}
+						 */
+						list: []
+
+					},
+
+					/**
+					 * @type {Object}
+					 */
+					scales: {
+
+						/**
+						 * @type {Array}
+						 */
+						list: []
+
+					},
+
+					/**
+					 * @type {Object}
+					 */
+					tensions: {
+
+						/**
+						 * @type {Array}
+						 */
+						list: []
+
+					},
+
+					/**
+					 * @type {Object}
+					 */
+					ratios: {
+
+						/**
+						 * @type {Array}
+						 */
+						list: []
+
+					}
+
+				},
+
+				/**
+				 * @type {Function}
+				 */
+				extractTrace = function () {
+
+					var
+
+							/**
+							 * @type {String}
+							 */
+							trace = '';
+
+					trace += '\n\n';
+
+					trace += '<data ng-init="$variations = {';
+
+					trace += '\n';
+
+					trace += '	CV_size:' + JSON.stringify(extract_object.sizes.list).split('"').join('\'');
+					trace += ',\n';
+					trace += '	CV_scale:' + JSON.stringify(extract_object.scales.list).split('"').join('\'');
+					trace += ',\n';
+					trace += '	CV_tens:' + JSON.stringify(extract_object.tensions.list).split('"').join('\'');
+					trace += ',\n';
+
+					var
+
+							/**
+							 * @type {Array}
+							 */
+							layers = ['BG', 'FG', 'MS'];
+
+					for (var layer in layers) {
+
+						trace += '	' + layers[layer] + '_orient' + ':' + JSON.stringify([layers[layer] + '_orient_p', layers[layer] + '_orient_s', layers[layer] + '_orient_l']).split('"').join('\'');
+						trace += ',\n';
+						// if (Number(layer) === (layers.length - 1)) {
+						// 	trace += '\n';
+						// } else {
+						// 	trace += ',\n';
+						// }
+
+					}
+
+					trace += '}"></data>';
+
+					trace += '\n\n';
+
+					trace += '<data ng-init="$relations = {';
+
+					trace += '\n';
+
+					for (var tension in extract_object.tensions) {
+
+						if (tension !== 'list') {
+							trace += '	' + tension + ':' + JSON.stringify(extract_object.tensions[tension]).split('"').join('\'');
+							trace += ',\n';
+						}
+
+					}
+
+					for (var scale in extract_object.scales) {
+
+						if (scale !== 'list') {
+							trace += '	' + scale + ':' + JSON.stringify(extract_object.scales[scale]).split('"').join('\'');
+							trace += ',\n';
+						}
+
+					}
+
+					trace += '}"></data>';
+
+					trace += '\n\n\n';
+
+					trace += extract_layer + ' ratios:';
+
+					trace += '\n\n';
+
+					for (var ratio in extract_object.ratios) {
+
+						if (ratio !== 'list') {
+							trace += '		' + ratio + ':{';
+							trace += '\n';
+							trace += '			label:\'' + extract_object.ratios[ratio].label + '\',';
+							trace += '\n';
+							trace += '			value:\'' + extract_object.ratios[ratio].value + '\'';
+							trace += '\n';
+							trace += '		' + '}';
+							trace += ',\n';
+						}
+
+					}
+
+					trace += '\n\n';
+
+					console.log(trace);
+
+				},
+
+				/**
+				 * @type {Function}
+				 * @param banner {tactic.builder.layers.BannerLayer}
+				 */
+				extractRecord = function(banner) {
+
+					var
+
+							/**
+							 * @type {String}
+							 */
+							BN_name = banner.getMacros()['name'],
+
+							/**
+							 * @type {String}
+							 */
+							BN_size = banner.getMacros()['size'],
+
+							/**
+							 * @type {(tactic.builder.layers.SequenceLayer)}
+							 */
+							CV_layer = banner.getLayer('CV', 5),
+
+							/**
+							 * @type {String}
+							 */
+							CV_tension = CV_layer.props.tension.name + '_' + CV_layer.props.tension.value,
+
+							/**
+							 * @type {String}
+							 */
+							CV_scale = CV_layer.props.scale.name + '_' + CV_layer.props.scale.value,
+
+							/**
+							 * @type {String}
+							 */
+							CV_size = CV_layer.props.size.name + '_' + CV_layer.props.size.value,
+
+							/**
+							 * @type {(tactic.builder.layers.SequenceLayer)}
+							 */
+							SQ_layer = banner.getLayer('SQ', 5),
+
+							/**
+							 * @type {(tactic.builder.layers.AbstractLayer)}
+							 */
+							layer = SQ_layer.current.getLayer(extract_layer, 10);
+
+					if (!layer) {
+
+						layer = banner.getLayer(extract_layer, 10);
+
+					}
+
+					// Identify size.
+
+					if (!extract_object.sizes[CV_size]) {
+
+						extract_object.sizes.list.push(CV_size);
+
+					}
+
+					// Identify tension.
+
+					if (!extract_object.tensions[CV_tension]) {
+
+						extract_object.tensions.list.push(CV_tension);
+
+						extract_object.tensions[CV_tension] = [];
+
+					}
+
+					extract_object.tensions[CV_tension].push( CV_layer.props.size.value);
+
+					// Identify scale.
+
+					if (!extract_object.scales[CV_scale]) {
+
+						extract_object.scales.list.push(CV_scale);
+
+						extract_object.scales[CV_scale] = [];
+
+					}
+
+					extract_object.scales[CV_scale].push( CV_layer.props.size.value);
+
+					// Identify custom extraction layer.
+
+					if (!extract_object.ratios[CV_size]) {
+
+						extract_object.ratios.list.push(CV_size);
+
+						extract_object.ratios[CV_size] = {
+							label: BN_name !== 'RxR' ? BN_name : BN_size !== '1x1' ? BN_size : CV_layer.props.size.value,
+							value: layer.width() + 'x' + layer.height()
+						};
+
+					}
+
+				};
+
+		window.onload = function () {
+
+			/**
+			 * @type {Array}
+			 */
+			var banners = [];
+
+			/**
+			 * @type {XMLHttpRequest}
+			 */
+			var request = new XMLHttpRequest();
+
+			/**
+			 * @typedef {Function} XMLHttpRequest.open
+			 */
+			request.open('GET', './manifest.json?ts=' + new Date().getTime(), true);
+
+			/**
+			 * @typedef {Function} XMLHttpRequest.onload
+			 */
+			request.onload = function (e) {
+
+				//Check if response status is successful.
+				if (request && request.status >= 200 && request.status < 400) {
+
+					var
+
+							/**
+							 * @type {Object}
+							 */
+							data = JSON.parse(request.responseText);
+
+					document.title = document.title + ' - ' + data.name;
+
+					var
+
+							/**
+							 * @type {Element}
+							 */
+							title = document.createElement('h1');
+
+					title.innerHTML = data.name;
+
+					document.body.appendChild(title);
+
+					var
+
+							/**
+							 * @type {Element}
+							 */
+							subtitle = document.createElement('h4');
+
+					subtitle.innerHTML = '<i>' + '@brand <b>' + data.brand + '</b> @author <b>' + data.author + '</b> @created <b>' + data.created + '</b> @updated <b>' + data.updated + '</b>' + '</i>';
+
+					// <h1>Elon Generic</h1>
+					// <h4><i>Product frame layout. All elements enabled. 10 May 2021.</i></h4>
+					// <h4><i>Product frame layout. Sponsor element disabled. 10 May 2021.</i></h4>
+					// <h4><i>Message frame layout. All elements enabled. 10 May 2021.</i></h4>
+					// <h4><i>Message frame layout.Sponsor element disabled. 10 May 2021.</i></h4>
+
+					document.body.appendChild(subtitle);
+
+					var
+
+							/**
+							 * @type {Number}
+							 */
+							delay = 100,
+
+							/**
+							 * @type {Array}
+							 */
+							sizes = data.sizes,
+
+							/**
+							 * @type {Element}
+							 */
+							html = document.createElement('div'),
+
+							/**
+							 * @type {Element}
+							 */
+							banner,
+
+							/**
+							 * @type {Element}
+							 */
+							iframe,
+
+							/**
+							 * @type {Element}
+							 */
+							text;
+
+					var
+
+							/**
+							 * @type {Function}
+							 * @param string {String}
+							 */
+							translate = function (string) {
+								return dictionary[string] ? dictionary[string] : string;
+							}
+
+					if (!actual) {
+
+						for (var tens_index in tenses) {
+
+							var group = document.createElement('div');
+
+							group.className = 'WR';
+
+							html.appendChild(group);
+
+							for (var scale_index in scales) {
+
+								function append(group, tens, scale, delay) {
+
+									setTimeout(function () {
+
+										banner = document.createElement('div');
+										banner.className = 'BN ' + tens + ' ' + scale;
+
+										iframe = document.createElement('iframe');
+										iframe.id = banners.length;
+										iframe.src = './0x0.html';
+
+										text = document.createElement('p');
+										text.innerHTML = translate(tens) + ', ' + translate(scale);
+
+										banner.appendChild(iframe);
+										banner.appendChild(text);
+										group.appendChild(banner);
+
+										iframe.contentWindow.location.reload();
+
+										// Push banner to the list.
+										banners.push({
+
+											/**
+											 * @type {Element}
+											 */
+											iframe: iframe
+
+										});
+
+									}, delay);
+
+								}
+
+								append(group, tenses[tens_index], scales[scale_index], scale_index * delay);
+
+							}
+
+						}
+
+					}
+
+					else {
+
+						html.className = 'WR';
+
+						for (var size_index in sizes) {
+
+							function append(size, delay) {
+
+								setTimeout(function () {
+
+									if (size.type !== 'RESPONSIVE') {
+
+										banner = document.createElement('div');
+										banner.className = 'BN';
+										banner.style.width = size.width + 'px';
+										banner.style.height = size.height + 'px';
+
+										iframe = document.createElement('iframe');
+										iframe.id = banners.length;
+										iframe.src = './' + size.index;
+										// iframe.src = './' + size.width + 'x' + size.height + '.html';
+
+										text = document.createElement('p');
+										text.innerHTML = size.name;
+
+										banner.appendChild(iframe);
+										banner.appendChild(text);
+										html.appendChild(banner);
+
+										iframe.contentWindow.location.reload();
+
+										// Push banner to the list.
+										banners.push({
+
+											/**
+											 * @type {Element}
+											 */
+											iframe: iframe
+
+										});
+
+									}
+
+								}, delay);
+
+							}
+
+							append(sizes[size_index], size_index * delay);
+
+						}
+
+					}
+
+					// Append all banners to DOM.
+					document.body.appendChild(html);
+
+					// Wait before iframes load.
+					setTimeout(function () {
+
+						// Loop all created iframes (banners).
+						for (var index in window.frames) {
+
+							// Check if index is object is valid.
+							if (!isNaN(index) && window.frames[index]['BN']) {
+
+								// Execute custom extraction method.
+								extractRecord(window.frames[index]['BN']);
+
+							}
+
+						}
+
+						extractTrace();
+
+					}, extract_wait);
+
+				}
+
+			};
+
+			/**
+			 * @typedef {Function} XMLHttpRequest.onerror
+			 */
+			request.onerror = function (e) {};
+
+			/**
+			 * @typedef {Function} XMLHttpRequest.send
+			 */
+			request.send();
+
+		}
+
+	</script>
+
+	<!-- Include styles that are common for all banner sizes -->
+	<link type="text/css" rel="stylesheet" href="styles/preset.css">
+
+	<style type="text/css">
+
+		:root {
+			--offset: 2rem;
+			--step: 1em;
+			--ratio-xs: 2;
+			--ratio-s: 4;
+			--ratio-m: 6;
+		}
+
+		html {
+			font-size: 4px;
+		}
+
+		body, html {
+			overflow: visible;
+			text-align: left;
+			vertical-align: top;
+			font-family: "Trebuchet MS", sans-serif;
+		}
+
+		iframe {
+			position: absolute;
+			overflow: hidden;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			box-shadow: 0 0 0 1px #999;
+			background: #999;
+		}
+
+		p {
+			position: absolute;
+			left: 0;
+			bottom: -20px;
+			font-size: 10px;
+			line-height: 1;
+			white-space: nowrap;
+			color: #999;
+		}
+
+		h1 {
+			font-size: 6rem;
+			padding: calc(var(--offset) * 3);
+			padding-bottom: 0;
+			color: #111;
+		}
+
+		h4 {
+			font-size: 3rem;
+			padding: calc(var(--offset) * 3);
+			padding-top: var(--offset);
+			/*padding-bottom: calc(var(--offset) * 1);*/
+			color: #999;
+		}
+
+		i,
+		i b {
+			font-style: italic;
+		}
+
+		b {
+			font-weight: bold;
+		}
+
+		.WR {
+			display: inline-block;
+			position: relative;
+			width: auto;
+			height: auto;
+			margin: calc(var(--offset) * 2);
+		}
+
+		.BN {
+			display: inline-block;
+			position: relative;
+			margin: var(--offset);
+			margin-bottom: calc(var(--offset) + 20px);
+		}
+
+		.BN.BN_XS {
+			font-size: calc(var(--step) * var(--ratio-xs));
+		}
+
+		.BN.BN_S {
+			font-size: calc(var(--step) * var(--ratio-s));
+		}
+
+		.BN.BN_M {
+			font-size: calc(var(--step) * var(--ratio-m));
+		}
+
+		.BN.BN_T2 {
+			/* 196 (0.25) */
+			width: calc(var(--step) * 7);
+			height: calc(var(--step) * 28);
+		}
+
+		.BN.BN_T1 {
+			/* 200 (0.50) */
+			width: calc(var(--step) * 10);
+			height: calc(var(--step) * 20);
+		}
+
+		.BN.BN_E0 {
+			/* 196 (1.00) */
+			width: calc(var(--step) * 14);
+			height: calc(var(--step) * 14);
+		}
+
+		.BN.BN_E0_T {
+			/* 192 (0.75) */
+			width: calc(var(--step) * 12);
+			height: calc(var(--step) * 16);
+		}
+
+		.BN.BN_E0_W {
+			/* 198 (1.33) */
+			width: calc(var(--step) * 16);
+			height: calc(var(--step) * 12);
+		}
+
+		.BN.BN_W1 {
+			/* 192 (3.00) */
+			width: calc(var(--step) * 24);
+			height: calc(var(--step) * 8);
+		}
+
+		.BN.BN_W1_T {
+			/* 200 (2.00) */
+			width: calc(var(--step) * 20);
+			height: calc(var(--step) * 10);
+		}
+
+		.BN.BN_W1_W {
+			/* 189 (3.86) */
+			width: calc(var(--step) * 27);
+			height: calc(var(--step) * 7);
+		}
+
+		.BN.BN_W2 {
+			/* 216 (6) */
+			width: calc(1em * 36);
+			height: calc(1em * 6);
+		}
+
+	</style>
+
+</head>
+<body class="ready">
+
+</body>
+</html>

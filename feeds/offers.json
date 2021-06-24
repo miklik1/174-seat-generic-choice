@@ -1,0 +1,64 @@
+{
+  "data": {
+    "index": [
+      "id",
+      "title",
+      "description",
+      "button",
+      "availability",
+      "condition",
+      "price",
+      "link",
+      "image",
+      "disclaimer"
+    ],
+    "items": [
+      [
+        "",
+        "Höj den elektriska stämningen",
+        "Business Lease från X kr/månad inklusive service och försäkring. Förmånsvärde från X kr/månad.",
+        "Boka en laddbar provkörning",
+        "",
+        "",
+        "2.75",
+        "https://tacticrealtime.com/1/",
+        "//cdn.app.tacticrealtime.com/library/1036/28284/1/084a8f2f6bdf128b478562ddd23f7c26/size/960.png",
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offigcia deserunt mollit anim id est laborum."
+      ],
+      [
+        "",
+        "Title",
+        "A strong coffee made by forcing pressurized water through finely ground coffee beans.",
+        "Button 2",
+        "",
+        "",
+        "1.90",
+        "https://tacticrealtime.com/2/",
+        "//cdn.app.tacticrealtime.com/library/1036/28283/1/ab81479bb24dbff6cfbd191020039576/size/960.png",
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offigcia deserunt mollit anim id est laborum."
+      ],
+      [
+        "",
+        "Mocha",
+        "Also called a café mocha, this drink is widely varied depending on the coffeehouse making it. ",
+        "Buy Now",
+        "",
+        "",
+        "3.90",
+        "https://tacticrealtime.com/3/",
+        "//cdn.app.tacticrealtime.com/library/1036/28282/1/7d331ed505e4395ccf7d3d05a687173b/size/960.png"
+      ],
+      [
+        "",
+        "Cafe Au Lait",
+        "This is a traditional French drink made with brewed coffee instead of espresso. ",
+        "Buy Now",
+        "",
+        "",
+        "4.90",
+        "https://tacticrealtime.com/4/",
+        "//cdn.app.tacticrealtime.com/library/1036/28281/1/35028944b8e55f0bb52c9063b4da599e/size/960.png"
+      ]
+    ]
+  }
+}

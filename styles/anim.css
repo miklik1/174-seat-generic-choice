@@ -1,0 +1,218 @@
+
+/*
+ * Sequence animations.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+[data-key=CV] [data-key*=SQ_].SQ_layout_logo {
+	transition: background 0.4s ease-out, opacity 0.4s ease-in-out;
+}
+
+[data-key=CV] [data-key=SQ].move {
+	transition-duration: .0s;
+}
+
+/*
+ * Background animations.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+[data-key=CV] .BG_anim.BG_anim_out,
+[data-key=CV] .BG_anim.BG_anim_fade_out {
+	transition: opacity 0.25s ease 0.5s, transform 0.25s ease 0.5s !important;
+	transform: scale(1) translateX(0) translateX(0) !important;
+	opacity: 0 !important;
+}
+
+[data-key=CV] .BG_anim.BG_anim_fade_out {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s !important;
+}
+
+/*
+ * Foreground animations.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+/*[data-key=CV] [data-key=FG] .FG_anim {
+	transform: translateX(2.5rem);
+	opacity: 0;
+}
+
+[data-key=CV] [data-key=FG] .FG_anim.FG_anim_in,
+[data-key=CV] [data-key=FG] .FG_anim.FG_anim_out {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s;
+	transform: translateX(0);
+	opacity: 1;
+}
+
+[data-key=CV] [data-key=FG] .FG_anim.FG_anim_skip {
+	transition: opacity .0s, transform .0s !important;
+}*/
+
+/*
+ * Sponsor logo animations.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+[data-key=CV] [data-key=LS] .LS_anim {
+	transform: translateY(-2.5rem);
+	opacity: 0;
+}
+
+[data-key=CV] [data-key=LS] .LS_anim.LS_anim_in,
+[data-key=CV] [data-key=LS] .LS_anim.LS_anim_out {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s;
+	transform: translateY(0);
+	opacity: 1;
+}
+
+[data-key=CV] .LS_anim.LS_anim_skip {
+	transition: opacity .0s, transform .0s !important;
+}
+
+/*
+ * Message animations.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+[data-key=CV] [data-key=MS] [class*=_anim] {
+	transform: translateY(2.5rem);
+	opacity: 0;
+}
+
+[data-key=CV] [data-key=MS] [class*=_anim][class*=_anim_in] {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s;
+	transform: translateX(0);
+	opacity: 1;
+}
+
+[data-key=CV] [data-key=MS] [class*=_anim][class*=_anim_out] {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s;
+	transform: translateX(0);
+	opacity: 0;
+}
+
+[data-key=CV] [data-key=MS] [data-key*=_TXT_1][class*=_anim][class*=_anim_in] {
+	transition-delay: calc(0.05s * 1);
+}
+
+[data-key=CV] [data-key=MS] [data-key*=_TXT_2][class*=_anim][class*=_anim_in] {
+	transition-delay: calc(0.05s * 2);
+}
+
+[data-key=CV] [data-key=MS] [data-key*=_TXT_3][class*=_anim][class*=_anim_in] {
+	transition-delay: calc(0.05s * 3);
+}
+
+/*
+ * Description animations.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+/*
+[data-key=CV] .DS_anim {
+	transform: translateX(2.5rem);
+	opacity: 0;
+}
+
+[data-key=CV] .DS_anim.DS_anim_in {
+	transition: opacity 0.25s ease 0.5s, transform 0.25s ease 0.5s;
+	transform: translateX(0);
+	opacity: 1;
+}
+
+[data-key=CV] .DS_anim.DS_anim_out {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s;
+	transform: translateX(0);
+	opacity: 0;
+}
+
+[data-key=CV][class*=CV_tens_t2] .DS_anim {
+	transform: translateY(2.5rem);
+}
+
+[data-key=CV][class*=CV_tens_t2] .DS_anim.DS_anim_in {
+	transform: translateY(0);
+}
+
+[data-key=CV][class*=CV_tens_t2] .DS_anim.DS_anim_out {
+	transform: translateY(0);
+}
+
+[data-key=CV] .DS_anim.DS_anim_skip {
+	transition: opacity .0s, transform .0s !important;
+} */
+
+/*
+ * Button animations.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+[data-key=CV] .BT_anim {
+	opacity: 0;
+}
+
+[data-key=CV] .BT_anim.BT_anim_in {
+	transition: opacity 0.25s ease 0.75s, transform 0.25s ease 0.75s;
+	opacity: 1;
+}
+
+[data-key=CV].CV_scale_xs .BT_anim.BT_anim_in {
+	transition: opacity 0.25s ease 0.25s, transform 0.25s ease 0.25s;
+}
+
+[data-key=CV] .BT_anim.BT_anim_out {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s;
+	opacity: 0;
+}
+
+[data-key=CV] .BT_anim.BT_anim_skip {
+	transition: opacity .0s, transform .0s !important;
+}
+
+/*
+ * Logotype area animations.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+[data-key=CV] .LG_anim {
+	opacity: 0;
+}
+
+[data-key=CV] .LG_anim.LG_anim_in {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s;
+	opacity: 1;
+}
+
+[data-key=CV] .LG_anim.LG_anim_out {
+	transition: opacity 0.25s ease .0s, transform 0.25s ease .0s;
+	opacity: 0;
+}
+
+[data-key=CV] .LG_anim.LG_anim_in svg,
+[data-key=CV] .LG_anim.LG_anim_out svg {
+	transition: fill 0.25s ease .0s;
+}
+
+/*
+ * Global animation overrides.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+*[class*=_out],
+*[class*=_out] * {
+	pointer-events: none;
+}
+
+*.anim_no,
+*.anim_no * {
+	animation: none !important;
+	transition: none !important;
+}
+
+*.anim_no,
+*.anim_no *,
+*.anim_no_dur,
+*.anim_no_dur * {
+	animation-duration: .0s !important;
+	transition-duration: .0s !important;
+}
