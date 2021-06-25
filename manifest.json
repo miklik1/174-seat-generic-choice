@@ -221,7 +221,7 @@
                   "t2"
                 ],
                 [
-                  0.5,
+                  0.7,
                   "t1"
                 ],
                 [
@@ -905,6 +905,10 @@
                       "value": 1,
                       "global": true
                     },
+                    "LS_source": {
+                      "value": null,
+                      "global": true
+                    },
                     "excepts": {
                       "preset": {
                         "enabled": false,
@@ -930,7 +934,6 @@
                         }
                       },
                       "layers": [
-                        null,
                         {
                           "macros": {
                             "ratio": {
@@ -950,35 +953,6 @@
                             "limit": {
                               "min": "$[LS_limit_min]",
                               "max": "$[LS_limit_max]"
-                            },
-                            "excepts": {
-                              "CV_tens_t2": {
-                                "method": "replace",
-                                "data": {
-                                  "align": [
-                                    "center",
-                                    "top"
-                                  ]
-                                }
-                              },
-                              "CV_tens_t1": {
-                                "method": "replace",
-                                "data": {
-                                  "align": [
-                                    "center",
-                                    "top"
-                                  ]
-                                }
-                              },
-                              "CV_tens_e0": {
-                                "method": "replace",
-                                "data": {
-                                  "align": [
-                                    "left",
-                                    "bottom"
-                                  ]
-                                }
-                              }
                             }
                           },
                           "anims": {
@@ -1060,29 +1034,29 @@
                         }
                       },
                       "layers": {
-                        "LG": {
+                        "LD": {
                           "type": "JointLayer",
                           "enabled": true,
                           "macros": {
-                            "LG_type": {
+                            "LD_type": {
                               "value": "default"
                             }
                           },
                           "attrs": {
-                            "LG_type": {
-                              "name": "LG_type_$[LG_type]"
+                            "LD_type": {
+                              "name": "LD_type_$[LD_type]"
                             }
                           },
                           "layers": {
-                            "LG_IMG": {
+                            "LD_IMG": {
                               "type": "JointLayer",
                               "layers": [
                                 {
                                   "type": "JointLayer"
                                 },
                                 {
-                                "params": {
-                                  "wrapper": "LG",
+                                  "params": {
+                                  "wrapper": "LD",
                                   "scale": "fit",
                                   "polite": false,
                                   "ratio": "$[ratio]"
@@ -1092,8 +1066,8 @@
                             }
                           },
                           "anims": {
-                            "LG_anim": {
-                              "name": "LG_anim"
+                            "LD_anim": {
+                              "name": "LD_anim"
                             }
                           }
                         },
@@ -1804,96 +1778,64 @@
                               ]
                             }
                           }
-                        },
-                        "BT": {
-                          "type": "JointLayer",
-                          "enabled": true,
-                          "layers": {
-                            "BT_TXT": {
-                              "type": "JointLayer",
-                              "layers": [
-                                {
-                                  "type": "TextLayer",
-                                  "feed": {
-                                    "line": "$[index]",
-                                    "name": "button"
-                                  },
-                                  "clone": [
-                                    {
-                                      "key": "MS_TXT_2",
-                                      "wrapper": "MS",
-                                      "holder": "MS_TXT"
-                                    }
-                                  ],
-                                  "macros": {
-                                    "BT_color": {
-                                      "value": "default"
-                                    }
-                                  },
-                                  "params": {
-                                    "holder": "BT_TXT",
-                                    "wrapper": "BT",
-                                    "tags": [
-                                      "p",
-                                      "button"
-                                    ]
-                                  },
-                                  "attrs": {
-                                    "BT_font": {
-                                      "name": "font_A_600"
-                                    },
-                                    "BT_style": {
-                                      "selector": "button",
-                                      "css": {
-                                        "font-size": {
-                                          "value": 0,
-                                          "calc": "(1.2+($[value]*$[value]*0.1)) + 'em'"
-                                        }
-                                      }
-                                    },
-                                    "BT_color": {
-                                      "name": "BT_color_$[BT_color]"
-                                    }
-                                  },
-                                  "anims": {
-                                    "BT_anim": {
-                                      "name": "BT_anim"
-                                    }
-                                  },
-                                  "sources": [
-                                    {
-                                      "text": "$[feed]"
-                                    }
-                                  ],
-                                  "excepts": {
-                                    "preset": {
-                                      "enabled": false,
-                                      "data": {
-                                        "sources": [
-                                          {
-                                            "text": ""
-                                          }
-                                        ],
-                                        "attrs": {
-                                          "BT_style": {
-                                            "css": {
-                                              "font-size": {
-                                                "value": 0
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
                         }
                       }
                     }
                   ]
+                },
+                "LG": {
+                  "type": "JointLayer",
+                  "enabled": true,
+                  "macros": {
+                    "LG_type": {
+                      "value": "default"
+                    }
+                  },
+                  "attrs": {
+                    "LG_type": {
+                      "name": "LG_type_$[LG_type]",
+                      "global": true
+                    }
+                  },
+                  "layers": {
+                    "LG_IMG": {
+                      "type": "JointLayer",
+                      "layers": [
+                        {
+                          "type": "JointLayer",
+                          "enabled": true,
+                          "anims": {
+                            "LG_anim": {
+                              "name": "LG_anim"
+                            }
+                          },
+                          "excepts": {
+                            "LG_type_partner": {
+                              "data": {
+                                "enabled": false
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "type": "JointLayer",
+                          "enabled": false,
+                          "anims": {
+                            "LG_anim": {
+                              "name": "LG_anim"
+                            }
+                          },
+                          "excepts": {
+                            "LG_type_partner": {
+                              "data": {
+                                "enabled": true
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
                 },
                 "CN": {
                   "type": "JointLayer",
@@ -1910,6 +1852,7 @@
                     "CN_TXT": {
                       "type": "JointLayer",
                       "layers": [
+                        null,
                         {
                           "type": "TextLayer",
                           "feed": {
@@ -1942,6 +1885,83 @@
                           "anims": {
                             "CN_anim": {
                               "name": "CN_anim"
+                            }
+                          },
+                          "sources": [
+                            {
+                              "text": "$[feed]"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "excepts":{
+                    "CV_tens_t2": {
+                      "attrs": {
+                        "CN_style": {
+                          "css": {
+                            "vertical-align": "center",
+                            "text-align": "left"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "BT": {
+                  "type": "JointLayer",
+                  "enabled": true,
+                  "layers": {
+                    "BT_TXT": {
+                      "type": "JointLayer",
+                      "layers": [
+                        {
+                          "type": "TextLayer",
+                          "clone": [
+                            {
+                              "key": "CN_TXT_0",
+                              "wrapper": "CN",
+                              "holder": "CN_TXT"
+                            }
+                          ],
+                          "feed": {
+                            "line": "$[index]",
+                            "name": "button"
+                          },
+                          "macros": {
+                            "BT_color": {
+                              "value": "default"
+                            }
+                          },
+                          "params": {
+                            "holder": "BT_TXT",
+                            "wrapper": "BT",
+                            "tags": [
+                              "p",
+                              "button"
+                            ]
+                          },
+                          "attrs": {
+                            "BT_font": {
+                              "name": "font_A_600"
+                            },
+                            "BT_style": {
+                              "selector": "button",
+                              "css": {
+                                "font-size": {
+                                  "value": 0,
+                                  "calc": "(1..1+($[value]*$[value]*0.1)) + 'em'"
+                                }
+                              }
+                            },
+                            "BT_color": {
+                              "name": "BT_color_$[BT_color]"
+                            }
+                          },
+                          "anims": {
+                            "BT_anim": {
+                              "name": "BT_anim"
                             }
                           },
                           "sources": [

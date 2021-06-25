@@ -34,33 +34,35 @@
 
 
 
-[data-key=CV].CV_theme_white [data-key*=SQ_] [data-key=LG],
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_white [data-key=LG]  {
+[data-key=CV].CV_theme_white [data-key*=SQ_] [data-key=LD],
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_white [data-key=LD]  {
 	fill: #000;
 }
 
-[data-key=CV].CV_theme_light-blue [data-key*=SQ_] [data-key=LG],
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_light-blue [data-key=LG] {
+[data-key=CV].CV_theme_light-blue [data-key*=SQ_] [data-key=LD],
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_light-blue [data-key=LD] {
 	fill: #001e50;
 }
 
-[data-key=CV].CV_theme_black [data-key*=SQ_] [data-key=LG],
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_black [data-key=LG],
-[data-key=CV].CV_theme_default [data-key*=SQ_] [data-key=LG],
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_default [data-key=LG] {
+[data-key=CV].CV_theme_black  [data-key=LG],
+[data-key=CV].CV_theme_black  [data-key=LD],
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_black [data-key=LD],
+[data-key=CV].CV_theme_default [data-key=LG],
+[data-key=CV].CV_theme_default [data-key=LD],
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_default [data-key=LD] {
 	fill: #fff;
 }
 
-[data-key=CV].CV_theme_black [data-key*=SQ_] [data-key*=LG_ST_],
-[data-key=CV].CV_theme_default [data-key*=SQ_] [data-key*=LG_ST_] {
+[data-key=CV].CV_theme_black [data-key*=LG_ST_],
+[data-key=CV].CV_theme_default [data-key*=LG_ST_] {
 	background: #fff;
 }
 
-[data-key=CV].CV_theme_white [data-key*=SQ_] [data-key*=LG_ST_] {
+[data-key=CV].CV_theme_white [data-key*=LG_ST_] {
 	background: #000;
 }
 
-[data-key=CV].CV_theme_light-blue [data-key*=SQ_] [data-key*=LG_ST_] {
+[data-key=CV].CV_theme_light-blue [data-key*=LG_ST_] {
 	background: #001e50;
 }
 

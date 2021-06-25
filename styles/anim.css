@@ -5,7 +5,7 @@
  */
 
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo {
-	transition: background 0.4s ease-out, opacity 0.4s ease-in-out;
+	transition: background 0.2s ease-out, opacity 0.2s ease-in-out;
 }
 
 [data-key=CV] [data-key=SQ].move {

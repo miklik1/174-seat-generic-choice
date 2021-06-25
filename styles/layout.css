@@ -62,12 +62,26 @@
 }
 
 [data-key=CV] [data-key=CN_TXT_0] {
+	margin-bottom: 1em;
+}
+
+[data-key=CV] [data-key=CN_TXT_1] {
 	text-align: left;
 }
 
 [data-key=CV]:not(.CV_tens_w2) [data-key=MS_TXT_2] {
 	display: none;
 }
+
+
+[data-key=CV]:not(.CV_tens_w2) [data-key=MS_TXT_2] {
+	display: none;
+}
+
+[data-key=CV] .BT_WIDE{
+	display: none;
+}
+
 /*
  * Global logotype layer styles.
  * ------------------------------------------------------------------------------------------------------------------
@@ -80,7 +94,11 @@
 	top: 1rem;
 }
 
-[data-key=CV] [data-key=LG].anim_LG_in {
+[data-key=CV] [data-key=LD] {
+	opacity: 0;
+}
+
+[data-key=CV] [data-key=LD].LD_anim_in {
 	opacity: 1;
 }
 
@@ -100,7 +118,8 @@
 	right: calc(100% + 1em);
 }
 
-[data-key=CV] [data-key=LG] [data-key*=LG_IMG_] svg  {
+[data-key=CV] [data-key=LG] [data-key*=LG_IMG_] svg,
+[data-key=CV] [data-key=LD] svg  {
 	right: 0;
 	bottom: 0;
 	width: 100%;
@@ -129,8 +148,8 @@
 	overflow: hidden;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LG],
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LG].LG_type_custom{
+[data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LD],
+[data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LD].LD_type_custom{
 	top: 50%;
 	width: calc(100% - 3rem);
 	left: 50%;
@@ -140,6 +159,10 @@
 	max-width: 80%;
 }
 
+[data-key=CV] [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LD]{
+	display: none;
+}
+
 
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LG_ST_R],
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LG_ST_L]{
@@ -147,18 +170,22 @@
 }
 
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo .MS_ARE {
-	display: none;
+	display: none !important;
 }
 
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo .BT_ARE {
+	display: none !important;
+}
+
+[data-key=CV] [data-key*=SQ_].SQ_layout_logo .BT_ARE {
+	display: none !important;
+}
+
+[data-key=CV] [data-key=LD].LD_type_custom [data-key=LD_IMG_0]{
 	display: none;
 }
 
-[data-key=CV] [data-key*=SQ_] [data-key=LG].LG_type_custom [data-key=LG_IMG_0]{
-	display: none;
-}
-
-[data-key=CV] [data-key*=SQ_] [data-key=LG].LG_type_default [data-key=LG_IMG_1]{
+[data-key=CV] [data-key=LD].LD_type_default [data-key=LD_IMG_1]{
 	display: none;
 }
 
@@ -204,7 +231,7 @@
 	top: 2rem;
 }
 
-[data-key=CV].CV_tens_t2 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_custom {
+[data-key=CV].CV_tens_t2 [data-key=LG].LG_type_partner {
 	width: 7rem;
 	left: calc(50% - 3.5em);
 }
@@ -221,29 +248,28 @@
 	left: 1.5rem;
 	bottom: 2rem;
 	width: calc(100% - (1.5rem * 2));
-	height: 5rem;
+	height: 9rem;
 }
 
 [data-key=CV].CV_tens_t2  [data-key=WR]:not(.LS_disabled) [data-key=CN] {
 	width: calc(100% - (1.5rem * 2));
-	height: 5em;
+	height: 9em;
 	bottom: 2rem;
 	left: 1.5rem;
 }
 
-[data-key=CV].CV_tens_t2 [data-key*=SQ_] .BT_ARE {
+/* [data-key=CV].CV_tens_t2 [data-key*=SQ_] .BT_ARE {
 	bottom: calc(2rem + 5rem + 1rem);
 	left: 1.5rem;
 	width: calc(100% - (1.5 * 2rem));
 	height: 2.5rem;
-}
+} */
 
 [data-key=CV].CV_tens_t2 [data-key=LS] {
 	bottom: calc(2rem + 5rem + 1.5rem + 2.5rem + 0.5rem);
 	height: 3rem;
+	right: 1.5rem;
 }
-
-
 
 /*
  * Layer styles for tall formats (e.g 300x600, e.t.c.).
@@ -255,7 +281,7 @@
 	top: 2rem;
 }
 
-[data-key=CV].CV_tens_t1 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_custom {
+[data-key=CV].CV_tens_t1 [data-key=LG].LG_type_partner {
 	width: 7rem;
 	left: calc(50% - 3.5em);
 }
@@ -265,19 +291,21 @@
 	bottom: 6rem;
 	width: calc(100% - (2rem * 2));
 	top: calc(2rem + 5rem + 1rem);
-	height: calc(100% - (2rem + 5rem + 1rem + 50%));
+	height: calc(100% - (1rem + 5rem + 1rem + 50%));
+}
+
+[data-key=CV].CV_tens_t2 [data-key=CN] {
+	left: 1.5rem;
+	bottom: 2rem;
+	width: calc(100% - (1.5rem * 2));
+	height: 9rem;
 }
 
 [data-key=CV].CV_tens_t1  [data-key=WR]:not(.LS_disabled) [data-key=CN] {
 	width: calc(100% - (3rem + 5rem + 2rem));
+	height: 9rem;
 }
 
-[data-key=CV].CV_tens_t1 [data-key*=SQ_] .BT_ARE {
-	bottom: calc(2.5rem + 4rem);
-	left: 2rem;
-	width: calc(100% - (2 * 2rem));
-	height: 2.5rem;
-}
 
 /*
  * Layer styles for equal formats (e.g 300x250, 468x400, e.t.c.).
@@ -289,7 +317,7 @@
 	top: 2rem;
 }
 
-[data-key=CV].CV_tens_e0 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_custom {
+[data-key=CV].CV_tens_e0 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_partne {
 	width: 6.5rem;
 }
 
@@ -303,7 +331,7 @@
 	bottom: 6rem;
 	width: calc(100% - (5rem + 2rem + 2rem + 2rem));
 	top: 2rem;
-	height: calc(100% - (2rem + 55%));
+	height: calc(100% - (1rem + 55%));
 }
 
 [data-key=CV].CV_tens_e0 [data-key*=SQ_] .BT_ARE {
@@ -314,7 +342,7 @@
 }
 
 [data-key=CV].CV_tens_e0 [data-key=CN] {
-	height: 2rem;
+	height: 6rem;
 	bottom: 2rem;
 	left: 2rem;
 }
@@ -333,7 +361,7 @@
 	top: 1.5rem;
 }
 
-[data-key=CV].CV_tens_w1 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_custom {
+[data-key=CV].CV_tens_w1 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_partner {
 	width: 7rem;
 }
 
@@ -354,14 +382,18 @@
 	margin-top: 0.5rem;
 }
 
+[data-key=CV].CV_tens_w1 [data-key=CN_TXT_0] {
+	margin-bottom: 0.5rem;
+}
+
 [data-key=CV].CV_tens_w1 [data-key=CN] {
-	height: 2rem;
+	height: calc(100% - ((100% - (2rem + 42%) + 3.5rem)));
 	bottom: 1.5rem;
 	left: 1.5rem;
 }
 
 [data-key=CV].CV_tens_w1  [data-key=WR]:not(.LS_disabled) [data-key=CN] {
-	width: calc(100% - (3rem + 5rem + 1rem));
+	width: calc(100% - (4rem + 5rem));
 }
 
 [data-key=CV].CV_tens_w1 [data-key=LS] {
@@ -383,11 +415,12 @@
 [data-key=CV].CV_tens_w2 [data-key=LG] {
 	right: 2rem;
 	top: 1.5rem;
-	width: 3em;
-	height: 3em;
+	width: 4em;
+	height: 4em;
+	max-height: 40%;
 }
 
-[data-key=CV].CV_tens_w2 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_custom {
+[data-key=CV].CV_tens_w2 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_partner {
 	width: 7rem;
 	height: 4rem;
 }
@@ -417,15 +450,39 @@
 
 [data-key=CV].CV_tens_w2 [data-key=LS] {
 	bottom: 1.5rem;
-	height: 3rem;
+	height: calc( 100% - ((1.5rem * 2) + 4rem + 1.5rem));
 }
 
 [data-key=CV].CV_tens_w2 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]) {
 	margin-top: 0.5rem;
 }
 
-[data-key=CV].CV_tens_w2  [data-key=BT] {
+[data-key=CV].CV_tens_w2 [data-key=CN_TXT_0] {
+	margin-left: 0.5em;
 	display: none;
+}
+
+[data-key=CV].CV_tens_w2 [data-key=CN_TXT_1] {
+	float: left;
+}
+
+/* [data-key=CV].CV_tens_w2 [data-key*=CN_TXT_] {
+	display: inline;
+} */
+
+[data-key=CV].CV_tens_w2 [data-key=CN]  [data-key=BT] {
+	display: none;
+}
+
+[data-key=CV].CV_tens_w2 .BT_WIDE{
+	display: block;
+}
+
+[data-key=CV].CV_tens_w2 .BT_WIDE{
+	bottom: 1.5rem;
+	right: 8rem;
+	width: calc(100% - (100% - (5rem + 2rem + 2rem + 1rem + 30%) + 11rem));
+	height: 2rem;
 }
 
 
