@@ -5,10 +5,10 @@
  */
 
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo {
-	transition: background 0.2s ease-out, opacity 0.2s ease-in-out;
+	transition: background 0.2s ease-out;
 }
 
-[data-key=CV] [data-key=SQ].move {
+[data-key=CV] [data-key=SQ].move
 	transition-duration: .0s;
 }
 
@@ -215,4 +215,11 @@
 *.anim_no_dur * {
 	animation-duration: .0s !important;
 	transition-duration: .0s !important;
+}
+
+
+[data-key=CV] [data-key=WR].SQ_layout_partner [data-key=LG],
+[data-key=CV] [data-key=WR].SQ_layout_partner [data-key=CA],
+[data-key=CV] [data-key=WR].SQ_layout_partner [data-key=LS]{
+	opacity: 0;
 }

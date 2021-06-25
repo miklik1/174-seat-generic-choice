@@ -101,7 +101,9 @@
   "data": {
     "editor": {
       "scope": [
-        0, "CV", ""
+        0,
+        "CV",
+        ""
       ],
       "frame": 0,
       "jump": true
@@ -173,7 +175,9 @@
       "params": {
         "wait": {
           "fonts": [
-            "font_A_400", "font_A_600", ""
+            "font_A_400",
+            "font_A_600",
+            ""
           ],
           "assets": []
         },
@@ -221,7 +225,7 @@
                   "t2"
                 ],
                 [
-                  0.7,
+                  0.6,
                   "t1"
                 ],
                 [
@@ -287,7 +291,7 @@
                       },
                       "SQ_style_p": {
                         "selector": [
-                          "! [data-key=CV].CV_theme_custom [data-key*=SQ_].SQ_theme_default p"
+                          "! [data-key=CV].CV_theme_custom  p"
                         ],
                         "css": {
                           "color": "#fff",
@@ -315,16 +319,12 @@
                       },
                       "SQ_style_button": {
                         "selector": [
-                          "! [data-key=CV].CV_theme_custom [data-key*=SQ_].SQ_theme_default button"
+                          "! [data-key=CV].CV_theme_custom button"
                         ],
                         "css": {
-                          "background": "#f7b141",
+                          "background": "#fff",
                           "border-color": "transparent",
-                          "color": "#fff",
-                          "box-shadow": {
-                            "calc": "0.1rem 0.1rem 0 $[value]",
-                            "value": "rgba(0, 0, 0, 1.0)"
-                          }
+                          "color": "#000"
                         }
                       }
                     }
@@ -553,7 +553,7 @@
                     "BG_style": {
                       "css": {
                         "opacity": {
-                          "value":  10,
+                          "value": 10,
                           "calc": "$[value]/10"
                         },
                         "overflow": "visible"
@@ -755,8 +755,7 @@
                           "excepts": {
                             "preset": {
                               "enabled": false,
-                              "data": {
-                              }
+                              "data": {}
                             }
                           }
                         }
@@ -870,8 +869,7 @@
                           "excepts": {
                             "preset": {
                               "enabled": false,
-                              "data": {
-                              }
+                              "data": {}
                             }
                           }
                         }
@@ -963,8 +961,7 @@
                           "excepts": {
                             "preset": {
                               "enabled": false,
-                              "data": {
-                              }
+                              "data": {}
                             }
                           }
                         }
@@ -1056,10 +1053,10 @@
                                 },
                                 {
                                   "params": {
-                                  "wrapper": "LD",
-                                  "scale": "fit",
-                                  "polite": false,
-                                  "ratio": "$[ratio]"
+                                    "wrapper": "LD",
+                                    "scale": "fit",
+                                    "polite": false,
+                                    "ratio": "$[ratio]"
                                   }
                                 }
                               ]
@@ -1285,7 +1282,7 @@
                             "FG_style": {
                               "css": {
                                 "opacity": {
-                                  "value":  10,
+                                  "value": 10,
                                   "calc": "$[value]/10"
                                 },
                                 "overflow": "visible"
@@ -1489,8 +1486,7 @@
                                   "excepts": {
                                     "preset": {
                                       "enabled": false,
-                                      "data": {
-                                      }
+                                      "data": {}
                                     }
                                   }
                                 }
@@ -1639,10 +1635,6 @@
                                       "holder": "MS_TXT"
                                     }
                                   ],
-                                  "feed": {
-                                    "line": "$[index]",
-                                    "name": "title"
-                                  },
                                   "params": {
                                     "holder": "TL_TXT",
                                     "wrapper": "TL",
@@ -1672,7 +1664,7 @@
                                   },
                                   "sources": [
                                     {
-                                      "text": "$[feed]"
+                                      "text": "Höj den elektriska stämningen"
                                     }
                                   ],
                                   "excepts": {
@@ -1710,10 +1702,6 @@
                               "layers": [
                                 {
                                   "type": "TextLayer",
-                                  "feed": {
-                                    "line": "$[index]",
-                                    "name": "description"
-                                  },
                                   "clone": [
                                     {
                                       "key": "MS_TXT_1",
@@ -1750,7 +1738,7 @@
                                   },
                                   "sources": [
                                     {
-                                      "text": "$[feed]"
+                                      "text": "Business Lease från X kr/månad inklusive service och försäkring. Förmånsvärde från X kr/månad."
                                     }
                                   ],
                                   "excepts": {
@@ -1837,6 +1825,39 @@
                     }
                   }
                 },
+                "CA": {
+                  "type": "JointLayer",
+                  "enabled": true,
+                  "attrs": {
+                    "CA_style": {
+                      "css": {
+                        "vertical-align": "bottom",
+                        "text-align": "left"
+                      }
+                    }
+                  },
+                  "layers": {
+                    "CA_TXT": {
+                      "type": "JointLayer",
+                      "layers": [
+                        null,
+                        null
+                      ]
+                    }
+                  },
+                  "excepts": {
+                    "CV_tens_t2": {
+                      "attrs": {
+                        "CA_style": {
+                          "css": {
+                            "vertical-align": "center",
+                            "text-align": "left"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "CN": {
                   "type": "JointLayer",
                   "enabled": true,
@@ -1855,10 +1876,13 @@
                         null,
                         {
                           "type": "TextLayer",
-                          "feed": {
-                            "line": "$[index]",
-                            "name": "disclaimer"
-                          },
+                          "clone": [
+                            {
+                              "key": "CA_TXT_1",
+                              "wrapper": "CA",
+                              "holder": "CA_TXT"
+                            }
+                          ],
                           "params": {
                             "holder": "CN_TXT",
                             "wrapper": "CN",
@@ -1889,23 +1913,11 @@
                           },
                           "sources": [
                             {
-                              "text": "$[feed]"
+                              "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offigcia deserunt mollit anim id est laborum."
                             }
                           ]
                         }
                       ]
-                    }
-                  },
-                  "excepts":{
-                    "CV_tens_t2": {
-                      "attrs": {
-                        "CN_style": {
-                          "css": {
-                            "vertical-align": "center",
-                            "text-align": "left"
-                          }
-                        }
-                      }
                     }
                   }
                 },
@@ -1920,15 +1932,11 @@
                           "type": "TextLayer",
                           "clone": [
                             {
-                              "key": "CN_TXT_0",
-                              "wrapper": "CN",
-                              "holder": "CN_TXT"
+                              "key": "CA_TXT_0",
+                              "wrapper": "CA",
+                              "holder": "CA_TXT"
                             }
                           ],
-                          "feed": {
-                            "line": "$[index]",
-                            "name": "button"
-                          },
                           "macros": {
                             "BT_color": {
                               "value": "default"
@@ -1951,7 +1959,7 @@
                               "css": {
                                 "font-size": {
                                   "value": 0,
-                                  "calc": "(1..1+($[value]*$[value]*0.1)) + 'em'"
+                                  "calc": "(1+($[value]*$[value]*0.1)) + 'em'"
                                 }
                               }
                             },
@@ -1966,7 +1974,7 @@
                           },
                           "sources": [
                             {
-                              "text": "$[feed]"
+                              "text": "Boka en laddbar provkörning"
                             }
                           ]
                         }

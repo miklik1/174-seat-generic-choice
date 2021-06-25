@@ -19,7 +19,7 @@
 
 [data-key=CV] [data-key=LS],
 [data-key=CV] [data-key=LG],
-[data-key=CV] [data-key=CN],
+[data-key=CV] [data-key=CA],
 [data-key=CV] [data-key=BT] {
 	z-index: 70;
 }
@@ -61,11 +61,11 @@
 	text-align: left;
 }
 
-[data-key=CV] [data-key=CN_TXT_0] {
+[data-key=CV] [data-key=CA_TXT_0] {
 	margin-bottom: 1em;
 }
 
-[data-key=CV] [data-key=CN_TXT_1] {
+[data-key=CV] [data-key=CA_TXT_1] {
 	text-align: left;
 }
 
@@ -177,7 +177,7 @@
 	display: none !important;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo .BT_ARE {
+[data-key=CV] [data-key*=SQ_].SQ_layout_logo .FG_ARE {
 	display: none !important;
 }
 
@@ -195,7 +195,7 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
- [data-key=CV] [data-key=CN] {
+ [data-key=CV] [data-key=CA] {
 	width: calc(100% - 4rem);
 	height: 4rem;
 	bottom: 2rem;
@@ -244,14 +244,14 @@
 	height: calc(100% - (2rem + 5rem + 1rem + 55%));
 }
 
-[data-key=CV].CV_tens_t2 [data-key=CN] {
+[data-key=CV].CV_tens_t2 [data-key=CA] {
 	left: 1.5rem;
 	bottom: 2rem;
 	width: calc(100% - (1.5rem * 2));
 	height: 9rem;
 }
 
-[data-key=CV].CV_tens_t2  [data-key=WR]:not(.LS_disabled) [data-key=CN] {
+[data-key=CV].CV_tens_t2  [data-key=WR]:not(.LS_disabled) [data-key=CA] {
 	width: calc(100% - (1.5rem * 2));
 	height: 9em;
 	bottom: 2rem;
@@ -294,15 +294,15 @@
 	height: calc(100% - (1rem + 5rem + 1rem + 50%));
 }
 
-[data-key=CV].CV_tens_t2 [data-key=CN] {
+[data-key=CV].CV_tens_t1 [data-key=CA] {
 	left: 1.5rem;
 	bottom: 2rem;
 	width: calc(100% - (1.5rem * 2));
 	height: 9rem;
 }
 
-[data-key=CV].CV_tens_t1  [data-key=WR]:not(.LS_disabled) [data-key=CN] {
-	width: calc(100% - (3rem + 5rem + 2rem));
+[data-key=CV].CV_tens_t1 [data-key=WR]:not(.LS_disabled) [data-key=CA] {
+	width: calc(100% - (3rem + 5rem + 1rem));
 	height: 9rem;
 }
 
@@ -341,13 +341,13 @@
 	height: 2.5rem;
 }
 
-[data-key=CV].CV_tens_e0 [data-key=CN] {
+[data-key=CV].CV_tens_e0 [data-key=CA] {
 	height: 6rem;
 	bottom: 2rem;
 	left: 2rem;
 }
 
-[data-key=CV].CV_tens_e0  [data-key=WR]:not(.LS_disabled) [data-key=CN] {
+[data-key=CV].CV_tens_e0  [data-key=WR]:not(.LS_disabled) [data-key=CA] {
 	width: calc(100% - (3rem + 5rem + 1rem + 1rem));
 }
 
@@ -386,13 +386,13 @@
 	margin-bottom: 0.5rem;
 }
 
-[data-key=CV].CV_tens_w1 [data-key=CN] {
+[data-key=CV].CV_tens_w1 [data-key=CA] {
 	height: calc(100% - ((100% - (2rem + 42%) + 3.5rem)));
 	bottom: 1.5rem;
 	left: 1.5rem;
 }
 
-[data-key=CV].CV_tens_w1  [data-key=WR]:not(.LS_disabled) [data-key=CN] {
+[data-key=CV].CV_tens_w1  [data-key=WR]:not(.LS_disabled) [data-key=CA] {
 	width: calc(100% - (4rem + 5rem));
 }
 
@@ -438,13 +438,13 @@
 	height: calc(100% - (2rem + 2rem + 1rem));
 }
 
-[data-key=CV].CV_tens_w2 [data-key=CN] {
+[data-key=CV].CV_tens_w2 [data-key=CA] {
 	height: 2rem;
 	bottom: 1.5rem;
 	left: 2rem;
 }
 
-[data-key=CV].CV_tens_w2 [data-key=WR]:not(.LS_disabled) [data-key=CN] {
+[data-key=CV].CV_tens_w2 [data-key=WR]:not(.LS_disabled) [data-key=CA] {
 	width: calc(100% - (5rem + 2rem + 2rem + 1rem + 30%));
 }
 
@@ -457,12 +457,12 @@
 	margin-top: 0.5rem;
 }
 
-[data-key=CV].CV_tens_w2 [data-key=CN_TXT_0] {
+[data-key=CV].CV_tens_w2 [data-key=CA_TXT_0] {
 	margin-left: 0.5em;
 	display: none;
 }
 
-[data-key=CV].CV_tens_w2 [data-key=CN_TXT_1] {
+[data-key=CV].CV_tens_w2 [data-key=CA_TXT_1] {
 	float: left;
 }
 
@@ -470,7 +470,7 @@
 	display: inline;
 } */
 
-[data-key=CV].CV_tens_w2 [data-key=CN]  [data-key=BT] {
+[data-key=CV].CV_tens_w2 [data-key=CA]  [data-key=BT] {
 	display: none;
 }
 
