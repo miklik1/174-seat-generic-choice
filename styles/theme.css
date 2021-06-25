@@ -34,29 +34,33 @@
 
 
 
-[data-key=CV] [data-key*=SQ_].SQ_theme_white [data-key=LG] {
+[data-key=CV].CV_theme_white [data-key*=SQ_] [data-key=LG],
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_white [data-key=LG]  {
 	fill: #000;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_theme_light-blue [data-key=LG] {
+[data-key=CV].CV_theme_light-blue [data-key*=SQ_] [data-key=LG],
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_light-blue [data-key=LG] {
 	fill: #001e50;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_theme_black [data-key=LG],
-[data-key=CV] [data-key*=SQ_].SQ_theme_default [data-key=LG]{
+[data-key=CV].CV_theme_black [data-key*=SQ_] [data-key=LG],
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_black [data-key=LG],
+[data-key=CV].CV_theme_default [data-key*=SQ_] [data-key=LG],
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_default [data-key=LG] {
 	fill: #fff;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_theme_black [data-key*=LG_ST_],
-[data-key=CV] [data-key*=SQ_].SQ_theme_default [data-key*=LG_ST_] {
+[data-key=CV].CV_theme_black [data-key*=SQ_] [data-key*=LG_ST_],
+[data-key=CV].CV_theme_default [data-key*=SQ_] [data-key*=LG_ST_] {
 	background: #fff;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_theme_white [data-key*=LG_ST_] {
+[data-key=CV].CV_theme_white [data-key*=SQ_] [data-key*=LG_ST_] {
 	background: #000;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_theme_light-blue [data-key*=LG_ST_] {
+[data-key=CV].CV_theme_light-blue [data-key*=SQ_] [data-key*=LG_ST_] {
 	background: #001e50;
 }
 
@@ -66,22 +70,26 @@
  */
 
 [data-key=CV].CV_theme_white,
-[data-key=CV] [data-key*=SQ_].active.SQ_theme_white {
+[data-key=CV].CV_theme_white [data-key*=SQ_].active.SQ_layout_logo,
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_theme_white.SQ_layout_logo.active{
 	background: #ffffff;
 }
 
 [data-key=CV].CV_theme_light-blue,
-[data-key=CV] [data-key*=SQ_].active.SQ_theme_light-blue {
+[data-key=CV].CV_theme_light-blue [data-key*=SQ_].active.SQ_layout_logo,
+[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_theme_light-blue.active.SQ_layout_logo {
 	background: #ffffff;
 }
 
 [data-key=CV].CV_theme_black,
-[data-key=CV] [data-key*=SQ_].active.SQ_theme_black {
+[data-key=CV].CV_theme_black [data-key*=SQ_].active.SQ_layout_logo,
+[data-key=CV] [data-key*=SQ_]:not(.CV_theme_inherit).SQ_theme_black.active.SQ_layout_logo {
 	background: #000;
 }
 
-[data-key=CV].CV_theme_blue,
-[data-key=CV] [data-key*=SQ_].active.SQ_theme_default {
+[data-key=CV].CV_theme_default,
+[data-key=CV].CV_theme_default [data-key*=SQ_].active.SQ_layout_logo,
+[data-key=CV] [data-key*=SQ_]:not(.CV_theme_inherit).SQ_theme_default.active.SQ_layout_logo  {
 	background: #001e50;
 }
 
@@ -91,19 +99,15 @@
  */
 
 [data-key=CV].CV_theme_black p,
-[data-key=CV].CV_theme_default p,
-[data-key=CV] [data-key*=SQ_].SQ_theme_black p,
-[data-key=CV] [data-key*=SQ_].SQ_theme_default p {
+[data-key=CV].CV_theme_default p{
 	color: #fff;
 }
 
-[data-key=CV].CV_theme_white p,
-[data-key=CV] [data-key*=SQ_].SQ_theme_white p{
+[data-key=CV].CV_theme_white p {
 	color: #000;
 }
 
-[data-key=CV].CV_theme_light-blue p,
-[data-key=CV] [data-key*=SQ_].SQ_theme_light-blue p{
+[data-key=CV].CV_theme_light-blue p {
 	color: #001e50;
 }
 
