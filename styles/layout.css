@@ -148,15 +148,18 @@
 	overflow: hidden;
 }
 
+
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LD],
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LD].LD_type_custom{
+	top: 0;
 	top: 50%;
 	width: calc(100% - 3rem);
 	left: 50%;
 	transform: translate(-50%, -50%);
-	height: 8rem;
-	max-height: 80%;
-	max-width: 80%;
+	height: 7rem;
+	max-height: 10rem;
+	max-width: 10rem;
+
 }
 
 [data-key=CV] [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LD]{

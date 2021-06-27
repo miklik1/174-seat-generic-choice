@@ -190,14 +190,6 @@
           "name": "debug"
         }
       },
-      "feeds": [
-        {
-          "enabled": true,
-          "type": "json",
-          "source": "//127.0.0.1:8080/feeds/offers.json",
-          "source_test": "//127.0.0.1:8080/feeds/offers.json"
-        }
-      ],
       "layers": {
         "CV": {
           "type": "JointLayer",
@@ -306,7 +298,7 @@
                           "! [data-key=CV].CV_theme_custom [data-key*=SQ_].SQ_theme_default em"
                         ],
                         "css": {
-                          "color": "#f7b141"
+                          "color": "#fff"
                         }
                       },
                       "SQ_style_q": {
@@ -325,6 +317,22 @@
                           "background": "#fff",
                           "border-color": "transparent",
                           "color": "#000"
+                        }
+                      },
+                      "LG_style_text": {
+                        "selector": [
+                          "! [data-key=CV].CV_theme_custom [data-key=LG]"
+                        ],
+                        "css": {
+                          "fill": "#000"
+                        }
+                      },
+                      "LG_style_line": {
+                        "selector": [
+                          "! [data-key=CV].CV_theme_custom [data-key*=LG_ST]"
+                        ],
+                        "css": {
+                          "background": "#000"
                         }
                       }
                     }
