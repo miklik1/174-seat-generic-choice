@@ -82,6 +82,11 @@
 	display: none;
 }
 
+[data-key="CV"] [data-key="WR"] [data-key="BG"]{
+	opacity: 1;
+	overflow: visible;
+}
+
 /*
  * Global logotype layer styles.
  * ------------------------------------------------------------------------------------------------------------------
@@ -216,14 +221,6 @@
 	margin-top: 1rem;
 }
 
-/* [data-key=CV]  [data-key=WR]:not(.LS_disabled) [data-key=CN] {
-	width: calc(100% - (4rem + 5rem + 1rem));
-	height: 5em;
-	bottom: 2rem;
-	left: 2rem;
-} */
-
-
 /*
  * Layer styles for very tall formats (e.g 160x600, e.t.c.).
  * ------------------------------------------------------------------------------------------------------------------
@@ -243,8 +240,8 @@
 	left: 1.5rem;
 	bottom: 6rem;
 	width: calc(100% - (1.5rem * 2));
-	top: calc(2rem + 5rem + 1rem);
-	height: calc(100% - (2rem + 5rem + 1rem + 55%));
+	top: 8rem;
+	height: calc(100% - (8rem + 55%));
 }
 
 [data-key=CV].CV_tens_t2 [data-key=CA] {
@@ -261,17 +258,18 @@
 	left: 1.5rem;
 }
 
-/* [data-key=CV].CV_tens_t2 [data-key*=SQ_] .BT_ARE {
-	bottom: calc(2rem + 5rem + 1rem);
-	left: 1.5rem;
-	width: calc(100% - (1.5 * 2rem));
-	height: 2.5rem;
-} */
-
 [data-key=CV].CV_tens_t2 [data-key=LS] {
 	bottom: calc(2rem + 5rem + 1.5rem + 2.5rem + 0.5rem);
 	height: 3rem;
 	right: 1.5rem;
+}
+
+[data-key=CV].CV_tens_t2 [data-key=BG].BG_place_fit,
+[data-key=CV].CV_tens_t2 [data-key*=SQ_] [data-key=FG].FG_place_fit {
+	top: calc(45% + 1rem);
+	right: 1.5rem;
+	width: calc(100% - 3rem);
+	height: calc(55% - 1rem - (9rem + 2.5rem));
 }
 
 /*
@@ -290,24 +288,33 @@
 }
 
 [data-key=CV].CV_tens_t1 [data-key*=SQ_] .MS_ARE {
-	left: 2rem;
+	left: 1.5rem;
 	bottom: 6rem;
-	width: calc(100% - (2rem * 2));
-	top: calc(2rem + 5rem + 1rem);
-	height: calc(100% - (1rem + 5rem + 1rem + 50%));
+	width: calc(100% - (1.5rem * 2));
+	top: calc(8rem);
+	height: calc(100% - (7rem + 50%));
 }
 
 [data-key=CV].CV_tens_t1 [data-key=CA] {
 	left: 1.5rem;
 	bottom: 2rem;
 	width: calc(100% - (1.5rem * 2));
-	height: 9rem;
+	height: 6rem;
 }
 
 [data-key=CV].CV_tens_t1 [data-key=WR]:not(.LS_disabled) [data-key=CA] {
 	width: calc(100% - (3rem + 5rem + 1rem));
-	height: 9rem;
+	height: 6rem;
 }
+
+[data-key=CV].CV_tens_t1 [data-key=BG].BG_place_fit,
+[data-key=CV].CV_tens_t1 [data-key*=SQ_] [data-key=FG].FG_place_fit {
+	top: calc(50% + 1.5rem);
+	right: 1.5rem;
+	width: calc(100% - 3rem);
+	height: calc(100% - (10rem + 50%));
+}
+
 
 
 /*
@@ -354,6 +361,14 @@
 	width: calc(100% - (3rem + 5rem + 1rem + 1rem));
 }
 
+[data-key=CV].CV_tens_e0 [data-key=BG].BG_place_fit,
+[data-key=CV].CV_tens_e0 [data-key*=SQ_] [data-key=FG].FG_place_fit {
+	bottom: 8.5rem;
+	right: 2rem;
+	width: calc(100% - 4rem);
+	height: calc(100% - (7.5rem + 55%));
+}
+
 /*
  * Layer styles for wide formats (e.g 980x400, e.t.c.).
  * ------------------------------------------------------------------------------------------------------------------
@@ -376,7 +391,7 @@
 [data-key=CV].CV_tens_w1 [data-key*=SQ_] .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
-	width: calc(100% - (5rem + 1.5rem + 1.5rem + 1rem + 35%));
+	width: calc(100% - (45% + 9rem));
 	top: 1.5rem;
 	height: calc(100% - (2rem + 42%));
 }
@@ -406,9 +421,19 @@
 [data-key=CV].CV_tens_w1 [data-key*=SQ_] .BT_ARE {
 	bottom: calc(1.5rem + 2.5rem);
 	left: 1.5rem;
-	width: calc(100% - (5rem + 1.5rem + 1.5rem + 1rem + 35%));
+	width: calc(100% - (9rem + 35%));
 	height: calc(100% - (100% - (2rem + 42%) + (2rem + 4rem)));
 }
+
+[data-key=CV].CV_tens_w1 [data-key=BG].BG_place_fit,
+[data-key=CV].CV_tens_w1 [data-key*=SQ_] [data-key=FG].FG_place_fit {
+	top: 1.5rem;
+	bottom: auto;
+	right: 7.5rem;
+	width: calc(100% - (6rem + 45%));
+	height: calc(100% - (6rem));
+}
+
 
 /*
  * Layer styles for very wide formats (e.g 980x150, e.t.c.).
@@ -436,7 +461,7 @@
 [data-key=CV].CV_tens_w2 [data-key*=SQ_] .MS_ARE {
 	left: 2rem;
 	bottom: 6rem;
-	width: calc(100% - (5rem + 2rem + 2rem + 1rem + 30%));
+	width: calc(100% - (10rem + 30%));
 	top: 1.5rem;
 	height: calc(100% - (2rem + 2rem + 1rem));
 }
@@ -448,7 +473,7 @@
 }
 
 [data-key=CV].CV_tens_w2 [data-key=WR]:not(.LS_disabled) [data-key=CA] {
-	width: calc(100% - (5rem + 2rem + 2rem + 1rem + 30%));
+	width: calc(100% - (10rem + 30%));
 }
 
 [data-key=CV].CV_tens_w2 [data-key=LS] {
@@ -488,6 +513,13 @@
 	height: 2rem;
 }
 
+[data-key=CV].CV_tens_w2 [data-key=BG].BG_place_fit {
+	top: 1.5rem;
+	bottom: auto;
+	right: 8rem;
+	width: calc(40% - 8rem);
+	height: calc(100% - (5rem));
+}
 
 /*
  * Global layer style overrides.

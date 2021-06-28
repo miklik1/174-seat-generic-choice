@@ -567,17 +567,6 @@
                         "overflow": "visible"
                       }
                     },
-                    "BG_position": {
-                      "selector": [
-                        ":not(.BG_place_fill)"
-                      ],
-                      "css": {
-                        "left": "calc((50% - ($[BG_width]% / 2)) + (($[BG_left]% / 2) + ((-$[BG_width]% / 2) * ($[BG_left] / 100))) + $[BG_offset_left]rem)",
-                        "top": "calc((50% - ($[BG_height]% / 2)) + (($[BG_top]% / 2) + ((-$[BG_height]% / 2) * ($[BG_top] / 100))) + $[BG_offset_top]rem)",
-                        "width": "$[BG_width]%",
-                        "height": "$[BG_height]%"
-                      }
-                    },
                     "BG_place_type": {
                       "name": "BG_place_$[BG_place_type]",
                       "global": true
@@ -1294,17 +1283,6 @@
                                   "calc": "$[value]/10"
                                 },
                                 "overflow": "visible"
-                              }
-                            },
-                            "FG_position": {
-                              "selector": [
-                                ":not(.FG_place_fill)"
-                              ],
-                              "css": {
-                                "left": "calc((50% - ($[FG_width]% / 2)) + (($[FG_left]% / 2) + ((-$[FG_width]% / 2) * ($[FG_left] / 100))) + $[FG_offset_left]rem)",
-                                "top": "calc((50% - ($[FG_height]% / 2)) + (($[FG_top]% / 2) + ((-$[FG_height]% / 2) * ($[FG_top] / 100))) + $[FG_offset_top]rem)",
-                                "width": "$[FG_width]%",
-                                "height": "$[FG_height]%"
                               }
                             },
                             "FG_place_type": {
