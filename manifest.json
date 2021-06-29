@@ -865,7 +865,7 @@
                           },
                           "excepts": {
                             "preset": {
-                              "enabled": false,
+                              "enabled": true,
                               "data": {}
                             }
                           }
@@ -878,6 +878,9 @@
                   "type": "JointLayer",
                   "enabled": true,
                   "macros": {
+                    "LS_type": {
+                      "value": "default"
+                    },
                     "LS_place_type": {
                       "value": "fit",
                       "global": true
@@ -915,6 +918,12 @@
                       }
                     }
                   },
+                  "attrs": {
+                    "LS_type": {
+                      "name": "LS_type_$[LS_type]",
+                      "global": true
+                    }
+                  },
                   "layers": {
                     "LS_IMG": {
                       "type": "JointLayer",
@@ -930,6 +939,7 @@
                       },
                       "layers": [
                         {
+                          "type": "ImageLayer",
                           "macros": {
                             "ratio": {
                               "value": "$[LS_ratio]",
@@ -955,10 +965,20 @@
                               "name": "LS_anim"
                             }
                           },
+                          "sources": [
+                            {
+                              "url": "./assets/sponsor_default.svg"
+                            }
+                          ],
                           "excepts": {
-                            "preset": {
-                              "enabled": false,
-                              "data": {}
+                            "LS_type_other": {
+                              "data": {
+                                "sources": [
+                                  {
+                                    "url": "./assets/logo-white.svg"
+                                  }
+                                ]
+                              }
                             }
                           }
                         }
