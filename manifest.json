@@ -200,11 +200,26 @@
             "CV_logo_color": {
               "value": "white",
               "global": true
+            },
+            "shadow_color": {
+              "value": "black"
+            },
+            "shadow_color_from": {
+              "value": "rgba(255, 0, 255, 0.25)",
+              "global": true
+            },
+            "shadow_color_to": {
+              "value": "rgba(255, 0, 255, 0)",
+              "global": true
             }
           },
           "attrs": {
             "CV_theme": {
               "name": "CV_theme_$[CV_theme]",
+              "global": true
+            },
+            "shadow_color": {
+              "name": "shadow_$[shadow_color]",
               "global": true
             }
           },
@@ -341,6 +356,16 @@
                     "data": {
                       "mode_social": {
                         "name": "social"
+                      }
+                    }
+                  },
+                  "shadow_custom": {
+                    "data": {
+                      "style_SDH": {
+                        "selector": "[data-key*=_SHD]",
+                        "css": {
+                          "background": "radial-gradient($[shadow_color_from], $[shadow_color_to] 60%)"
+                        }
                       }
                     }
                   }
@@ -960,6 +985,17 @@
                               "max": "$[LS_limit_max]"
                             }
                           },
+                          "attrs": {
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
+                            }
+                          },
                           "anims": {
                             "LS_anim": {
                               "name": "LS_anim"
@@ -1059,6 +1095,15 @@
                           "attrs": {
                             "LD_type": {
                               "name": "LD_type_$[LD_type]"
+                            },
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
                             }
                           },
                           "layers": {
@@ -1661,6 +1706,15 @@
                                           "calc": "(1 +($[value]*$[value]*0.1)) + 'em'"
                                         }
                                       }
+                                    },
+                                    "style_SHD": {
+                                      "selector": "[data-key*=_SHD]",
+                                      "css": {
+                                        "opacity": {
+                                          "value":  25,
+                                          "calc": "$[value]/100"
+                                        }
+                                      }
                                     }
                                   },
                                   "anims": {
@@ -1735,6 +1789,15 @@
                                           "calc": "(1.2+($[value]*$[value]*0.1)) + 'em'"
                                         }
                                       }
+                                    },
+                                    "style_SHD": {
+                                      "selector": "[data-key*=_SHD]",
+                                      "css": {
+                                        "opacity": {
+                                          "value":  25,
+                                          "calc": "$[value]/100"
+                                        }
+                                      }
                                     }
                                   },
                                   "anims": {
@@ -1798,6 +1861,17 @@
                         {
                           "type": "JointLayer",
                           "enabled": true,
+                          "attrs": {
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
+                            }
+                          },
                           "anims": {
                             "LG_anim": {
                               "name": "LG_anim"
@@ -1814,6 +1888,17 @@
                         {
                           "type": "JointLayer",
                           "enabled": false,
+                          "attrs": {
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
+                            }
+                          },
                           "anims": {
                             "LG_anim": {
                               "name": "LG_anim"
@@ -1910,6 +1995,15 @@
                                 },
                                 "text-align": "left"
                               }
+                            },
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
                             }
                           },
                           "anims": {
@@ -1971,6 +2065,15 @@
                             },
                             "BT_color": {
                               "name": "BT_color_$[BT_color]"
+                            },
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
                             }
                           },
                           "anims": {

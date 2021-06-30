@@ -1,3 +1,14 @@
+.shadow_white [data-key*=_SHD] {
+	background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 60%);
+}
+
+.shadow_black [data-key*=_SHD] {
+	background: radial-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%);
+}
+
+.shadow_blue [data-key*=_SHD] {
+	background: radial-gradient(rgba(0, 30, 80, 1), rgba(0, 30, 80, 0) 60%);
+}
 
 /*
  * Logo colors.

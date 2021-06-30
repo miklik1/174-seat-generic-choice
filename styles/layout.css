@@ -4,28 +4,30 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV] [data-key=BG] {
+[data-key=CV] [data-key=BG],
+[data-key*=_SHD] {
 	z-index: 10;
 }
 
 [data-key=CV] [data-key=FG] {
-	z-index: 40;
+	z-index: 30;
 }
 
 [data-key=CV] [data-key=TL],
-[data-key=CV] [data-key=MS] {
+[data-key=CV] [data-key=DS] {
 	z-index: 50;
 }
-
-[data-key=CV] [data-key=LS],
-[data-key=CV] [data-key=LG],
+[data-key=CV] [data-key=MS],
 [data-key=CV] [data-key=CA],
 [data-key=CV] [data-key=BT] {
 	z-index: 70;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo{
-	z-index: 80;
+[data-key=LG] svg,
+[data-key=LS] img,
+[data-key*=_TXT_] p,
+[data-key=CV] [data-key*=SQ_].SQ_layout_logo {
+	z-index: 40
 }
 
 [data-key=CV] [data-key=CL] {
@@ -87,6 +89,35 @@
 	overflow: visible;
 }
 
+[data-key*=_SHD] {
+	min-height: 2em;
+	width: calc(200% + 2em);
+	height: calc(400% + 2em);
+}
+
+[data-key*=_SHD].top {
+	top: calc(-200% - 0.5em);
+}
+
+[data-key*=_SHD].bottom {
+	bottom: calc(-200% - 0.5em);
+}
+
+[data-key*=_SHD].middle {
+	top: calc(-150% - 1em);
+}
+
+[data-key*=_SHD].left {
+	left: calc(-100% + 1em);
+}
+
+[data-key*=_SHD].right {
+	right: calc(-100% + 1em);
+}
+
+[data-key*=_SHD].center {
+	left: calc(-50% - 1em);
+}
 /*
  * Global logotype layer styles.
  * ------------------------------------------------------------------------------------------------------------------

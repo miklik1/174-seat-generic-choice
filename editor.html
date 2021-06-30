@@ -1368,6 +1368,11 @@
 						</dropdown-select>
 					</block-field>
 
+					<block-field title="Overlay Opacity">
+						<number-slider model="$target.attrs.style_SHD.css.opacity.value"
+										min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
+					</block-field>
+
 					<!-- CLONE PRESET AS NEW EXCEPTION -->
 					<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
 					<!-- / CLONE PRESET AS NEW EXCEPTION -->
@@ -1688,6 +1693,11 @@
 							<option value="default">Default</option>
 							<option value="partner">Partner</option>
 						</dropdown-select>
+					</block-field>
+
+					<block-field title="Overlay Opacity">
+						<number-slider model="$target.attrs.style_SHD.css.opacity.value"
+										min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
 					</block-field>
 
 					<!-- CLONE PRESET AS NEW EXCEPTION -->
@@ -2077,6 +2087,11 @@
 									</block-info>
 								</block-field>
 
+								<block-field title="Overlay Opacity">
+									<number-slider model="$target.attrs.style_SHD.css.opacity.value"
+													min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
+								</block-field>
+
 							</block-group>
 							<!-- / ELEMENT STYLE -->
 
@@ -2463,6 +2478,15 @@
 									<small><q>{{ $dict.hint_text_size }}</q></small>
 								</p>
 							</block-info>
+						</block-field>
+
+					</block-group>
+
+					<block-group>
+
+						<block-field title="Overlay Opacity">
+							<number-slider model="$target.attrs.style_SHD.css.opacity.value"
+										   min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
 						</block-field>
 
 					</block-group>
@@ -4591,6 +4615,11 @@
 									</block-info>
 								</block-field>
 
+								<block-field title="Overlay Opacity">
+									<number-slider model="$target.attrs.style_SHD.css.opacity.value"
+													min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
+								</block-field>
+
 							</block-group>
 							<!-- / ELEMENT STYLE -->
 
@@ -4976,6 +5005,11 @@
 											<small><q>{{ $dict.hint_text_size }}</q></small>
 										</p>
 									</block-info>
+								</block-field>
+
+								<block-field title="Overlay Opacity">
+									<number-slider model="$target.attrs.style_SHD.css.opacity.value"
+													min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
 								</block-field>
 
 							</block-group>
@@ -5485,6 +5519,24 @@
 				<block-field title="Quote Color <q>">
 					<color-field placeholder="HEX / RGB / RGBA" model="$data.banner.layers.CV.layers.WR.attrs.excepts.CV_theme_custom.data.SQ_style_q.css.color"></color-field>
 				</block-field>
+
+				<block-field title="Overlay Color">
+					<dropdown-select model="$data.banner.layers.CV.macros.shadow_color.value">
+						<option value="black">Black</option>
+						<option value="blue">Blue</option>
+						<option value="white">White</option>
+						<option value="custom">Custom</option>
+					</dropdown-select>
+				</block-field>
+
+				<div ng-class="{disabled: ($data.banner.layers.CV.macros.shadow_color.value != 'custom')}">
+
+					<block-field title="Overlay Color">
+						<color-field placeholder="HEX / RGB / RGBA" model="$data.banner.layers.CV.macros.shadow_color_from.value" class="col-1-2"></color-field>
+						<color-field placeholder="HEX / RGB / RGBA" model="$data.banner.layers.CV.macros.shadow_color_to.value" class="col-1-2"></color-field>
+					</block-field>
+
+				</div>
 
 			</block-group>
 			<block-group ng-if="($data.editor.scope[2].indexOf('colors') != -1)" ng-class="{disabled: ($data.banner.layers.CV.macros['CV_theme'].value != 'custom')}">
