@@ -1368,11 +1368,6 @@
 						</dropdown-select>
 					</block-field>
 
-					<block-field title="Overlay Opacity">
-						<number-slider model="$target.attrs.style_SHD.css.opacity.value"
-										min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
-					</block-field>
-
 					<!-- CLONE PRESET AS NEW EXCEPTION -->
 					<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
 					<!-- / CLONE PRESET AS NEW EXCEPTION -->
@@ -1521,6 +1516,11 @@
 
 					</block-group>
 					<!-- / VISIBILITY PICKER -->
+
+					<block-field title="Overlay Opacity">
+						<number-slider model="$wrapper.attrs.style_SHD.css.opacity.value"
+										min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
+					</block-field>
 
 				</div>
 
@@ -1695,11 +1695,6 @@
 						</dropdown-select>
 					</block-field>
 
-					<block-field title="Overlay Opacity">
-						<number-slider model="$target.attrs.style_SHD.css.opacity.value"
-										min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
-					</block-field>
-
 					<!-- CLONE PRESET AS NEW EXCEPTION -->
 					<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
 					<!-- / CLONE PRESET AS NEW EXCEPTION -->
@@ -1848,6 +1843,11 @@
 
 					</block-group>
 					<!-- / VISIBILITY PICKER -->
+
+					<block-field title="Overlay Opacity">
+						<number-slider model="$wrapper.attrs.style_SHD.css.opacity.value"
+										min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
+					</block-field>
 
 				</div>
 
@@ -2087,11 +2087,6 @@
 									</block-info>
 								</block-field>
 
-								<block-field title="Overlay Opacity">
-									<number-slider model="$target.attrs.style_SHD.css.opacity.value"
-													min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
-								</block-field>
-
 							</block-group>
 							<!-- / ELEMENT STYLE -->
 
@@ -2253,6 +2248,11 @@
 
 							</block-group>
 							<!-- / APPEARANCE PICKER -->
+
+							<block-field title="Overlay Opacity">
+								<number-slider model="$wrapper.layers[$wrapper_key + '_' + 'TXT'].layers[0].attrs.style_SHD.css.opacity.value"
+												min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
+							</block-field>
 
 						</div>
 
@@ -2482,14 +2482,6 @@
 
 					</block-group>
 
-					<block-group>
-
-						<block-field title="Overlay Opacity">
-							<number-slider model="$target.attrs.style_SHD.css.opacity.value"
-										   min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
-						</block-field>
-
-					</block-group>
 					<!-- / ELEMENT STYLE -->
 
 				</div>
@@ -2624,6 +2616,15 @@
 
 					</block-group>
 					<!-- / VISIBILITY PICKER -->
+
+					<block-group>
+						
+						<block-field title="Overlay Opacity">
+							<number-slider model="$wrapper.layers[$wrapper_key + '_' + 'TXT'].layers[1].attrs.style_SHD.css.opacity.value"
+										   min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
+						</block-field>
+
+					</block-group>
 
 				</div>
 
@@ -3218,15 +3219,9 @@
 
 							</block-group>
 							<!-- / VARIATION PICKER -->
-							<block-field title="Logo type">
-								<dropdown-select model="$frame.layers[$nav[$data.editor.scope[0]][0]].macros.LD_type.value">
-									<option value="default">Default</option>
-									<option value="custom">Custom</option>
-								</dropdown-select>
-							</block-field>
 
-							<block-field title="Logo source" ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].macros.LD_type.value === 'custom'">
-								<image-picker model="$holder.layers[1]"
+							<block-field title="Image Source" ng-if="$scope[2][$scope[1]][1] == 'default'">
+								<image-picker model="$holder.layers[0]"
 												settings="{defaults: $holder.layers[1], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
 												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
 							</block-field>
@@ -4615,11 +4610,6 @@
 									</block-info>
 								</block-field>
 
-								<block-field title="Overlay Opacity">
-									<number-slider model="$target.attrs.style_SHD.css.opacity.value"
-													min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
-								</block-field>
-
 							</block-group>
 							<!-- / ELEMENT STYLE -->
 
@@ -4764,6 +4754,11 @@
 
 							</block-group>
 							<!-- / VISIBILITY PICKER -->
+							{{ $wrapper.layers }}
+							<block-field title="Overlay Opacity">
+								<number-slider model="$wrapper.layers[$wrapper_key + '_' + 'TXT'].attrs.style_SHD.opacity.value"
+												min="0" max="100" length="3" index="%" left="Transparent" center="|" right="Visible" pattern="^\d+"></number-slider>
+							</block-field>
 
 						</div>
 
