@@ -10,6 +10,26 @@
 	background: radial-gradient(rgba(0, 30, 80, 1), rgba(0, 30, 80, 0) 60%);
 }
 
+
+/*
+ * Overlay colors.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+[data-key=CV] [data-key=OL] [data-key=OL_ELM] {
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+[data-key=CV].CV_tens_e0 [data-key=OL] [data-key=OL_ELM] {
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+[data-key=CV].CV_tens_w1 [data-key=OL] [data-key=OL_ELM],
+[data-key=CV].CV_tens_w2 [data-key=OL] [data-key=OL_ELM] {
+	background: linear-gradient(26deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+
 /*
  * Logo colors.
  * ------------------------------------------------------------------------------------------------------------------

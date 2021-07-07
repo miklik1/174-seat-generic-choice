@@ -102,7 +102,7 @@
     "editor": {
       "scope": [
         0,
-        "CV",
+        "",
         ""
       ],
       "frame": 0,
@@ -200,26 +200,11 @@
             "CV_logo_color": {
               "value": "white",
               "global": true
-            },
-            "shadow_color": {
-              "value": "black"
-            },
-            "shadow_color_from": {
-              "value": "rgba(255, 0, 255, 0.25)",
-              "global": true
-            },
-            "shadow_color_to": {
-              "value": "rgba(255, 0, 255, 0)",
-              "global": true
             }
           },
           "attrs": {
             "CV_theme": {
               "name": "CV_theme_$[CV_theme]",
-              "global": true
-            },
-            "shadow_color": {
-              "name": "shadow_$[shadow_color]",
               "global": true
             }
           },
@@ -284,6 +269,14 @@
             "WR": {
               "type": "JointLayer",
               "enabled": true,
+              "macros": {
+                "OL_color_0": {
+                  "value": "rgba(0, 0, 0, 1)"
+                },
+                "OL_color_1": {
+                  "value": "rgba(0, 0, 0, 0)"
+                }
+              },
               "attrs": {
                 "excepts": {
                   "CV_theme_custom": {
@@ -349,6 +342,30 @@
                         "css": {
                           "background": "#000"
                         }
+                      },
+                      "OL_style": {
+                        "selector": [
+                          "! [data-key=CV].CV_theme_custom [data-key=OL] [data-key=OL_ELM]"
+                        ],
+                        "css": {
+                          "background": "linear-gradient(0deg, $[OL_color_0] 0%, $[OL_color_1] 100%)"
+                        },
+                        "excepts": {
+                          "CV_tens_w1": {
+                            "data": {
+                              "css": {
+                                "background": "linear-gradient(0deg, $[OL_color_0] 0%, $[OL_color_1] 100%)"
+                              }
+                            }
+                          },
+                          "CV_tens_w2": {
+                            "data": {
+                              "css": {
+                                "background": "linear-gradient(26deg, $[OL_color_0] 0%, $[OL_color_1] 100%)"
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   },
@@ -356,16 +373,6 @@
                     "data": {
                       "mode_social": {
                         "name": "social"
-                      }
-                    }
-                  },
-                  "shadow_custom": {
-                    "data": {
-                      "style_SDH": {
-                        "selector": "[data-key*=_SHD]",
-                        "css": {
-                          "background": "radial-gradient($[shadow_color_from], $[shadow_color_to] 60%)"
-                        }
                       }
                     }
                   }
@@ -899,6 +906,33 @@
                     }
                   }
                 },
+                "OL": {
+                  "enabled": false,
+                  "type": "JointLayer",
+                  "layers": {
+                    "OL_ELM": {
+                      "type": "JointLayer",
+                      "macros": {
+                        "OL_opacity": {
+                          "value": 6,
+                          "calc": "$[value]/10"
+                        }
+                      },
+                      "attrs": {
+                        "OL_style": {
+                          "css": {
+                            "opacity": "$[OL_opacity]"
+                          }
+                        }
+                      },
+                      "anims": {
+                        "fade": {
+                          "name": "OL_anim"
+                        }
+                      }
+                    }
+                  }
+                },
                 "LS": {
                   "type": "JointLayer",
                   "enabled": true,
@@ -1024,6 +1058,25 @@
                 },
                 "SQ": {
                   "type": "SequenceLayer",
+                  "props": {
+                    "tension": {
+                      "name": "SQ_orient",
+                      "options": [
+                        [
+                          0,
+                          "p"
+                        ],
+                        [
+                          0.75,
+                          "s"
+                        ],
+                        [
+                          1.5,
+                          "l"
+                        ]
+                      ]
+                    }
+                  },
                   "params": {
                     "stop": {
                       "on": "-"
@@ -1089,7 +1142,7 @@
                           "enabled": true,
                           "macros": {
                             "LD_type": {
-                              "value": "default"
+                              "value": "custom"
                             }
                           },
                           "attrs": {
@@ -1179,7 +1232,7 @@
                               "global": true
                             },
                             "FG_place_type": {
-                              "value": "fill",
+                              "value": "fit",
                               "global": true
                             },
                             "FG_mask_type": {
