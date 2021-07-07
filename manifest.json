@@ -947,15 +947,6 @@
                     "LS_type": {
                       "name": "LS_type_$[LS_type]",
                       "global": true
-                    },
-                    "style_SHD": {
-                      "selector": "[data-key*=_SHD]",
-                      "css": {
-                        "opacity": {
-                          "value":  25,
-                          "calc": "$[value]/100"
-                        }
-                      }
                     }
                   },
                   "layers": {
@@ -992,6 +983,17 @@
                             "limit": {
                               "min": "$[LS_limit_min]",
                               "max": "$[LS_limit_max]"
+                            }
+                          },
+                          "attrs": {
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
                             }
                           },
                           "anims": {
@@ -1085,7 +1087,15 @@
                         "LD": {
                           "type": "JointLayer",
                           "enabled": true,
+                          "macros": {
+                            "LD_type": {
+                              "value": "default"
+                            }
+                          },
                           "attrs": {
+                            "LD_type": {
+                              "name": "LD_type_$[LD_type]"
+                            },
                             "style_SHD": {
                               "selector": "[data-key*=_SHD]",
                               "css": {
@@ -1099,19 +1109,24 @@
                           "layers": {
                             "LD_IMG": {
                               "type": "JointLayer",
-                              "preset": {
-                                "params": {
-                                  "wrapper": "LD",
-                                  "scale": "fit",
-                                  "polite": false,
-                                  "ratio": "$[ratio]"
+                              "layers": [
+                                {
+                                  "type": "JointLayer"
                                 },
-                                "anims": {
-                                  "LD_anim": {
-                                    "name": "LD_anim"
+                                {
+                                  "params": {
+                                    "wrapper": "LD",
+                                    "scale": "fit",
+                                    "polite": false,
+                                    "ratio": "$[ratio]"
                                   }
                                 }
-                              }
+                              ]
+                            }
+                          },
+                          "anims": {
+                            "LD_anim": {
+                              "name": "LD_anim"
                             }
                           }
                         },
@@ -1837,15 +1852,6 @@
                     "LG_type": {
                       "name": "LG_type_$[LG_type]",
                       "global": true
-                    },
-                    "style_SHD": {
-                      "selector": "[data-key*=_SHD]",
-                      "css": {
-                        "opacity": {
-                          "value":  25,
-                          "calc": "$[value]/100"
-                        }
-                      }
                     }
                   },
                   "layers": {
@@ -1855,6 +1861,17 @@
                         {
                           "type": "JointLayer",
                           "enabled": true,
+                          "attrs": {
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
+                            }
+                          },
                           "anims": {
                             "LG_anim": {
                               "name": "LG_anim"
@@ -1871,6 +1888,17 @@
                         {
                           "type": "JointLayer",
                           "enabled": false,
+                          "attrs": {
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
+                            }
+                          },
                           "anims": {
                             "LG_anim": {
                               "name": "LG_anim"

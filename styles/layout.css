@@ -24,7 +24,6 @@
 }
 
 [data-key=LG] svg,
-[data-key=LD] svg,
 [data-key=LS] img,
 [data-key*=_TXT_] p,
 [data-key=CV] [data-key*=SQ_].SQ_layout_logo {
@@ -423,9 +422,9 @@
 [data-key=CV].CV_tens_w1 [data-key*=SQ_] .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
-	width: calc(100% - (40% + 5rem));
+	width: calc(100% - (45% + 9rem));
 	top: 1.5rem;
-	height: calc(100% - (2rem + 36%));
+	height: calc(100% - (2rem + 42%));
 }
 
 [data-key=CV].CV_tens_w1 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]) {
@@ -437,7 +436,7 @@
 }
 
 [data-key=CV].CV_tens_w1 [data-key=CA] {
-	height: calc(100% - ((100% - (2rem + 36%) + 3.5rem)));
+	height: calc(100% - ((100% - (2rem + 42%) + 3.5rem)));
 	bottom: 1.5rem;
 	left: 1.5rem;
 }
@@ -519,10 +518,6 @@
 
 [data-key=CV].CV_tens_w2 [data-key=CA_TXT_0] {
 	margin-left: 0.5em;
-	display: none;
-}
-
-[data-key=CV].CV_tens_w2 [data-key=MS_TXT_2] {
 	display: none;
 }
 
