@@ -9,13 +9,12 @@
 	z-index: 10;
 }
 
-[data-key=CV] [data-key=OL] {
-	z-index: 11;
-}
-
-
 [data-key=CV] [data-key=FG] {
 	z-index: 30;
+}
+
+[data-key=CV] [data-key=OL] {
+	z-index: 35;
 }
 
 [data-key=CV] [data-key=TL],
@@ -125,6 +124,11 @@
 [data-key*=_SHD].center {
 	left: calc(-50% - 1em);
 }
+
+[data-key=CV] [data-key=CA_TXT_2]{
+	display: none;
+}
+
 /*
  * Global logotype layer styles.
  * ------------------------------------------------------------------------------------------------------------------
@@ -506,15 +510,17 @@
 	height: 2rem;
 	bottom: 1.5rem;
 	left: 2rem;
+	/* width: calc(100% - (2rem + 2rem + 5rem)); */
 }
 
 [data-key=CV].CV_tens_w2 [data-key=WR]:not(.LS_disabled) [data-key=CA] {
-	width: calc(100% - (10rem + 30%));
+	width: calc(100% - (4rem + 6rem));
 }
 
 [data-key=CV].CV_tens_w2 [data-key=LS] {
 	bottom: 1.5rem;
 	height: calc( 100% - ((1.5rem * 2) + 4rem + 1.5rem));
+	max-height: 2.5rem;
 }
 
 [data-key=CV].CV_tens_w2 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]) {
@@ -522,12 +528,17 @@
 }
 
 [data-key=CV].CV_tens_w2 [data-key=CA_TXT_0] {
-	margin-left: 0.5em;
 	display: none;
 }
 
 [data-key=CV].CV_tens_w2 [data-key=CA_TXT_1] {
-	float: left;
+	display: inline-block;
+}
+
+[data-key=CV].CV_tens_w2 [data-key=CA_TXT_2] {
+	margin: 0;
+	margin-left: 1em;
+	display: inline-block;
 }
 
 /* [data-key=CV].CV_tens_w2 [data-key*=CN_TXT_] {
@@ -553,9 +564,9 @@
 [data-key=CV].CV_tens_w2 [data-key*=SQ_] [data-key=FG].FG_place_fit  {
 	top: 1.5rem;
 	bottom: auto;
-	right: 8rem;
-	width: calc(40% - 8rem);
-	height: calc(100% - (5rem));
+	right: 12rem;
+	width: calc(50% - 8rem);
+	height: calc(100% - (3rem));
 }
 
 /*

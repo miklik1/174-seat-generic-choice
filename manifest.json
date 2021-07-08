@@ -102,7 +102,7 @@
     "editor": {
       "scope": [
         0,
-        "",
+        "CV",
         ""
       ],
       "frame": 0,
@@ -2086,6 +2086,11 @@
                           "clone": [
                             {
                               "key": "CA_TXT_0",
+                              "wrapper": "CA",
+                              "holder": "CA_TXT"
+                            },
+                            {
+                              "key": "CA_TXT_2",
                               "wrapper": "CA",
                               "holder": "CA_TXT"
                             }
