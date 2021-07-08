@@ -13,8 +13,8 @@
     "validate-formats": "./node_modules/creative-validator/bin/formats-validator.js",
     "validate-security": "./node_modules/creative-validator/bin/security-validator.js",
     "validate-preview": "./node_modules/creative-validator/bin/preview-validator.js",
-    "fallback": "./node_modules/fallback-generator/generator.js",
-    "min": "./node_modules/creative-minifier/index.js --replace-links --globs !node_modules/* --globs !sources/* --globs !editor.html --globs !./index.html --globs !./preview.html",
+    "fallback": "node ./node_modules/fallback-generator/generator.js",
+    "min": "node ./node_modules/creative-minifier/index.js --replace-links --globs !node_modules/* --globs !sources/* --globs !editor.html --globs !./index.html --globs !./preview.html",
     "zip": "./node_modules/creative-packager/index.js -n $npm_package_name -d",
     "minzip": "npm run min && npm run zip",
     "serve": "node ./node_modules/http-server/bin/http-server ./ -a 127.0.0.1 --cors -o -c-1"

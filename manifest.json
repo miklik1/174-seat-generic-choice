@@ -42,7 +42,7 @@
       "name": "250x360",
       "width": 250,
       "height": 360,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "250x360.png"
       }
@@ -52,7 +52,7 @@
       "name": "300x250",
       "width": 300,
       "height": 250,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "300x250.png"
       }
@@ -62,7 +62,7 @@
       "name": "300x600",
       "width": 300,
       "height": 600,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "300x600.png"
       }
@@ -72,7 +72,7 @@
       "name": "320x320",
       "width": 320,
       "height": 320,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "320x320.png"
       }
@@ -82,7 +82,7 @@
       "name": "980x240",
       "width": 980,
       "height": 240,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "980x240.png"
       }
@@ -92,7 +92,7 @@
       "name": "RxR",
       "width": "100%",
       "height": "100%",
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "0x0.png"
       }
@@ -102,7 +102,7 @@
     "editor": {
       "scope": [
         0,
-        "CV",
+        "",
         ""
       ],
       "frame": 0,
@@ -907,14 +907,14 @@
                   }
                 },
                 "OL": {
-                  "enabled": false,
+                  "enabled": true,
                   "type": "JointLayer",
                   "layers": {
                     "OL_ELM": {
                       "type": "JointLayer",
                       "macros": {
                         "OL_opacity": {
-                          "value": 6,
+                          "value": 3,
                           "calc": "$[value]/10"
                         }
                       },
