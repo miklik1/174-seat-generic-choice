@@ -348,20 +348,20 @@
                           "! [data-key=CV].CV_theme_custom [data-key=OL] [data-key=OL_ELM]"
                         ],
                         "css": {
-                          "background": "linear-gradient(0deg, $[OL_color_0] 0%, $[OL_color_1] 100%)"
+                          "background": "linear-gradient(0deg, $[OL_color_0] 0%, $[OL_color_1] 45%)"
                         },
                         "excepts": {
                           "CV_tens_w1": {
                             "data": {
                               "css": {
-                                "background": "linear-gradient(0deg, $[OL_color_0] 0%, $[OL_color_1] 100%)"
+                                "background": "linear-gradient(44deg, $[OL_color_0] 15%, $[OL_color_1] 45%)"
                               }
                             }
                           },
                           "CV_tens_w2": {
                             "data": {
                               "css": {
-                                "background": "linear-gradient(26deg, $[OL_color_0] 0%, $[OL_color_1] 100%)"
+                                "background": "linear-gradient(44deg, $[OL_color_0] 15%, $[OL_color_1] 50%)"
                               }
                             }
                           }
