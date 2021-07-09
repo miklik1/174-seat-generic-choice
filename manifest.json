@@ -372,7 +372,7 @@
                           "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_circle [data-key=OL_ELM]"
                         ],
                         "css": {
-                          "background": "radial-gradient(circle, $[OL_color_0] 20%, $[OL_color_1] 100%);"
+                          "background": "radial-gradient(circle, $[OL_color_1] 20%, $[OL_color_0] 100%);"
                         }
                       }
                     }
@@ -919,7 +919,7 @@
                   "type": "JointLayer",
                   "macros": {
                     "OL_type": {
-                      "value": "circle"
+                      "value": "default"
                     }
                   },
                   "layers": {
@@ -927,7 +927,7 @@
                       "type": "JointLayer",
                       "macros": {
                         "OL_opacity": {
-                          "value": 10,
+                          "value": 5,
                           "calc": "$[value]/10"
                         },
                         "OL_type": {
