@@ -1370,6 +1370,13 @@
 										   pattern="^\d+"></number-slider>
 						</block-field>-->
 
+						<block-field title="Element Type">
+							<dropdown-select model="$wrapper.macros[$wrapper_key + '_type'].value">
+								<option value="default">Default</option>
+								<option value="circle">Circle</option>
+							</dropdown-select>
+						</block-field>
+
 						<block-field title="Element Opacity">
 							<number-slider model="$target.macros[$wrapper_key + '_opacity'].value"
 										   min="0" max="10" length="2" index="x" left="Transparent" center="|" right="Visible"
@@ -5669,7 +5676,6 @@
 					<color-field placeholder="HEX / RGB / RGBA" model="$data.banner.layers.CV.layers.WR.macros.OL_color_0.value" class="col-1-2"></color-field>
 					<color-field placeholder="HEX / RGB / RGBA" model="$data.banner.layers.CV.layers.WR.macros.OL_color_1.value" class="col-1-2"></color-field>
 				</block-field>
-
 
 			</block-group>
 			<block-group ng-if="($data.editor.scope[2].indexOf('colors') != -1)" ng-class="{disabled: ($data.banner.layers.CV.macros['CV_theme'].value != 'custom')}">

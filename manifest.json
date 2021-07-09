@@ -343,9 +343,9 @@
                           "background": "#000"
                         }
                       },
-                      "OL_style": {
+                      "OL_style_default": {
                         "selector": [
-                          "! [data-key=CV].CV_theme_custom [data-key=OL] [data-key=OL_ELM]"
+                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_default [data-key=OL_ELM]"
                         ],
                         "css": {
                           "background": "linear-gradient(0deg, $[OL_color_0] 0%, $[OL_color_1] 45%)"
@@ -365,6 +365,14 @@
                               }
                             }
                           }
+                        }
+                      },
+                      "OL_style_circle": {
+                        "selector": [
+                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_circle [data-key=OL_ELM]"
+                        ],
+                        "css": {
+                          "background": "radial-gradient(circle, $[OL_color_0] 20%, $[OL_color_1] 100%);"
                         }
                       }
                     }
@@ -909,13 +917,21 @@
                 "OL": {
                   "enabled": true,
                   "type": "JointLayer",
+                  "macros": {
+                    "OL_type": {
+                      "value": "circle"
+                    }
+                  },
                   "layers": {
                     "OL_ELM": {
                       "type": "JointLayer",
                       "macros": {
                         "OL_opacity": {
-                          "value": 3,
+                          "value": 10,
                           "calc": "$[value]/10"
+                        },
+                        "OL_type": {
+                          "value": "default"
                         }
                       },
                       "attrs": {
@@ -924,12 +940,13 @@
                             "opacity": "$[OL_opacity]"
                           }
                         }
-                      },
-                      "anims": {
-                        "fade": {
-                          "name": "OL_anim"
-                        }
                       }
+                    }
+                  },
+                  "attrs": {
+                    "OL_type": {
+                      "name": "OL_type_$[OL_type]",
+                      "global": true
                     }
                   }
                 },

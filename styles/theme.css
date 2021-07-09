@@ -16,19 +16,41 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV] [data-key=OL] [data-key=OL_ELM] {
+[data-key=CV] [data-key=OL].OL_type_default [data-key=OL_ELM] {
 	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
 }
 
-[data-key=CV].CV_tens_e0 [data-key=OL] [data-key=OL_ELM] {
+[data-key=CV].CV_tens_e0 [data-key=OL].OL_type_default [data-key=OL_ELM] {
 	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
 }
 
-[data-key=CV].CV_tens_w1 [data-key=OL] [data-key=OL_ELM],
-[data-key=CV].CV_tens_w2 [data-key=OL] [data-key=OL_ELM] {
+[data-key=CV].CV_tens_w1 [data-key=OL].OL_type_default [data-key=OL_ELM],
+[data-key=CV].CV_tens_w2 [data-key=OL].OL_type_default [data-key=OL_ELM] {
 	background: linear-gradient(44deg, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 50%);
 }
 
+
+[data-key=CV] [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+	background: radial-gradient(circle, rgba(0,0,0,0) 20%, rgba(0,0,0,1) 100%);
+}
+
+[data-key=CV].CV_tens_t2 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+	padding-top: 10rem;
+}
+
+[data-key=CV].CV_tens_t1 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+	padding-top: 5rem;
+}
+
+[data-key=CV].CV_tens_e0 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+	padding-top: 5rem;
+	background: radial-gradient(circle, rgba(0,0,0,0) 30%, rgba(0,0,0,1) 100%);
+}
+
+[data-key=CV].CV_tens_w1 [data-key=OL].OL_type_circle [data-key=OL_ELM],
+[data-key=CV].CV_tens_w2 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+	padding-left: 15rem
+}
 
 /*
  * Logo colors.
