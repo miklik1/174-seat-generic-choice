@@ -374,6 +374,14 @@
                         "css": {
                           "background": "radial-gradient(circle, $[OL_color_1] 20%, $[OL_color_0] 100%);"
                         }
+                      },
+                      "OL_MS_style": {
+                        "selectro": [
+                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_default .MS_ARE .overlay"
+                        ],
+                        "css": {
+                          "background":"radial-gradient($[OL_color_0] 0%, $[OL_color_1] 60%)"
+                        }
                       }
                     }
                   },
@@ -920,16 +928,16 @@
                   "macros": {
                     "OL_type": {
                       "value": "default"
+                    },
+                    "OL_opacity": {
+                      "value": 4,
+                      "global": true
                     }
                   },
                   "layers": {
                     "OL_ELM": {
                       "type": "JointLayer",
                       "macros": {
-                        "OL_opacity": {
-                          "value": 5,
-                          "calc": "$[value]/10"
-                        },
                         "OL_type": {
                           "value": "default"
                         }
@@ -944,6 +952,16 @@
                     }
                   },
                   "attrs": {
+                    "OL_MS_overlay": {
+                      "selector": ".MS_ARE .overlay",
+                      "css": {
+                        "background-image": "radial-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%)",
+                        "opacity": {
+                          "value": "$[OL_opacity]",
+                          "calc": "$[value]/10"
+                        }
+                      }
+                    },
                     "OL_type": {
                       "name": "OL_type_$[OL_type]",
                       "global": true

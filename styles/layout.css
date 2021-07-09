@@ -278,7 +278,7 @@
 	left: calc(50% - 3.5em);
 }
 
-[data-key=CV].CV_tens_t2 [data-key*=SQ_] .MS_ARE {
+[data-key=CV].CV_tens_t2 .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
 	width: calc(100% - (1.5rem * 2));
@@ -329,7 +329,7 @@
 	left: calc(50% - 3.5em);
 }
 
-[data-key=CV].CV_tens_t1 [data-key*=SQ_] .MS_ARE {
+[data-key=CV].CV_tens_t1 .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
 	width: calc(100% - (1.5rem * 2));
@@ -349,11 +349,15 @@
 	height: 6rem;
 }
 
+[data-key=CV].CV_tens_t1 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]){
+	margin-top: 0.5em;
+}
+
 [data-key=CV].CV_tens_t1 [data-key=BG].BG_place_fit,
 [data-key=CV].CV_tens_t1 [data-key*=SQ_] [data-key=FG].FG_place_fit {
-	bottom: 5.5rem;
-	right: 1.5rem;
-	width: calc(100% - 3rem);
+	bottom: 4rem;
+	right: .5rem;
+	width: calc(100% - 1rem);
 	height: calc(100% - (10rem + 35%));
 }
 
@@ -376,7 +380,7 @@
 	display: none;
 }
 
-[data-key=CV].CV_tens_e0 [data-key*=SQ_] .MS_ARE {
+[data-key=CV].CV_tens_e0 .MS_ARE {
 	left: 2rem;
 	bottom: 6rem;
 	width: calc(100% - (5rem + 2rem + 2rem + 2rem));
@@ -401,11 +405,15 @@
 	width: calc(100% - (3rem + 5rem + 1rem + 1rem));
 }
 
+[data-key=CV].CV_tens_e0 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]){
+	margin-top: 0.5em;
+}
+
 [data-key=CV].CV_tens_e0 [data-key=BG].BG_place_fit,
 [data-key=CV].CV_tens_e0 [data-key*=SQ_] [data-key=FG].FG_place_fit {
-	bottom: 5.5rem;
-	right: 2rem;
-	width: calc(100% - 4rem);
+	bottom: 4rem;
+	right: 0.5rem;
+	width: calc(100% - 1rem);
 	height: calc(100% - (7.5rem + 30%));
 }
 
@@ -428,7 +436,7 @@
 	display: none;
 }
 
-[data-key=CV].CV_tens_w1 [data-key*=SQ_] .MS_ARE {
+[data-key=CV].CV_tens_w1 .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
 	width: calc(100% - (43% + 9rem));
@@ -498,7 +506,7 @@
 	display: none;
 }
 
-[data-key=CV].CV_tens_w2 [data-key*=SQ_] .MS_ARE {
+[data-key=CV].CV_tens_w2 .MS_ARE {
 	left: 2rem;
 	bottom: 6rem;
 	width: calc(100% - (10rem + 30%));

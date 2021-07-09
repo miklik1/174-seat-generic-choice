@@ -29,9 +29,11 @@
 	background: linear-gradient(44deg, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 50%);
 }
 
-
 [data-key=CV] [data-key=OL].OL_type_circle [data-key=OL_ELM] {
 	background: radial-gradient(circle, rgba(0,0,0,0) 20%, rgba(0,0,0,1) 100%);
+	left: -20%;
+	right: -20%;
+	width: auto;
 }
 
 [data-key=CV].CV_tens_t2 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
@@ -49,8 +51,82 @@
 
 [data-key=CV].CV_tens_w1 [data-key=OL].OL_type_circle [data-key=OL_ELM],
 [data-key=CV].CV_tens_w2 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
-	padding-left: 15rem
+	padding-left: 30rem;
+	right: -30rem;
 }
+
+/*
+ * Shadow styles.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+
+[data-key=CV] .overlay {
+	/*background: radial-gradient(rgba(0, 255, 0, 1), rgba(0, 255, 0, 0) 60%);*/
+}
+
+[data-key=CV] .overlay {
+	width: 300%;
+	height: 300%;
+}
+
+[data-key=CV] .overlay.top {
+	top: -150%;
+}
+
+[data-key=CV] .overlay.bottom {
+	bottom: -150%;
+}
+
+[data-key=CV] .overlay.middle {
+	top: -100%;
+}
+
+[data-key=CV] .overlay.left {
+	left: -150%;
+}
+
+[data-key=CV] .overlay.right {
+	right: -150%;
+}
+
+[data-key=CV] .overlay.center {
+	left: -100%;
+}
+
+[data-key=CV] .overlay.wide {
+	width: 400%;
+	height: 200%;
+}
+
+[data-key=CV] .overlay.wide.top {
+	top: calc(-100%);
+}
+
+[data-key=CV] .overlay.wide.bottom {
+	bottom: calc(-100%);
+}
+
+[data-key=CV] .overlay.wide.middle {
+	top: -50%;
+}
+
+[data-key=CV] .overlay.wide.left {
+	left: calc(-200%);
+}
+
+[data-key=CV] .overlay.wide.right {
+	right: -200%;
+}
+
+[data-key=CV] .overlay.wide.center {
+	left: -150%;
+}
+
+[data-key=CV] [data-key=WR].SQ_layout_partner .overlay{
+	display: none;
+}
+
 
 /*
  * Logo colors.
