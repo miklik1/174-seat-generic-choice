@@ -42,7 +42,7 @@
       "name": "250x360",
       "width": 250,
       "height": 360,
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "250x360.png"
       }
@@ -52,7 +52,7 @@
       "name": "300x250",
       "width": 300,
       "height": 250,
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "300x250.png"
       }
@@ -62,7 +62,7 @@
       "name": "300x600",
       "width": 300,
       "height": 600,
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "300x600.png"
       }
@@ -72,7 +72,7 @@
       "name": "320x320",
       "width": 320,
       "height": 320,
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "320x320.png"
       }
@@ -82,7 +82,7 @@
       "name": "980x240",
       "width": 980,
       "height": 240,
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "980x240.png"
       }
@@ -92,7 +92,7 @@
       "name": "RxR",
       "width": "100%",
       "height": "100%",
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "0x0.png"
       }
@@ -100,11 +100,7 @@
   ],
   "data": {
     "editor": {
-      "scope": [
-        0,
-        "",
-        ""
-      ],
+      "scope": [0, "", ""],
       "frame": 0,
       "jump": true
     },
@@ -150,35 +146,20 @@
           "name": "font_A_400",
           "url": "./assets/fonts/vwtext_regular",
           "alt": "Arial",
-          "selector": [
-            ".font_A_400 s"
-          ],
-          "types": [
-            "woff",
-            "woff2"
-          ]
+          "selector": [".font_A_400 s"],
+          "types": ["woff", "woff2"]
         },
         "font_A_600": {
           "name": "font_A_600",
           "url": "./assets/fonts/vwtext_bold",
           "alt": "Arial",
-          "selector": [
-            ".font_A_600 s",
-            ".font_A_400 b"
-          ],
-          "types": [
-            "woff",
-            "woff2"
-          ]
+          "selector": [".font_A_600 s", ".font_A_400 b"],
+          "types": ["woff", "woff2"]
         }
       },
       "params": {
         "wait": {
-          "fonts": [
-            "font_A_400",
-            "font_A_600",
-            ""
-          ],
+          "fonts": ["font_A_400", "font_A_600", ""],
           "assets": []
         },
         "stop": {
@@ -212,26 +193,11 @@
             "tension": {
               "name": "CV_tens",
               "options": [
-                [
-                  0,
-                  "t2"
-                ],
-                [
-                  0.6,
-                  "t1"
-                ],
-                [
-                  0.9,
-                  "e0"
-                ],
-                [
-                  2,
-                  "w1"
-                ],
-                [
-                  5,
-                  "w2"
-                ]
+                [0, "t2"],
+                [0.6, "t1"],
+                [0.9, "e0"],
+                [2, "w1"],
+                [5, "w2"]
               ]
             },
             "scale": {
@@ -239,26 +205,10 @@
               "font": 5,
               "area": 20000,
               "options": [
-                [
-                  0,
-                  "xs",
-                  2
-                ],
-                [
-                  32001,
-                  "s",
-                  1
-                ],
-                [
-                  80001,
-                  "m",
-                  0
-                ],
-                [
-                  320001,
-                  "l",
-                  0
-                ]
+                [0, "xs", 2],
+                [32001, "s", 1],
+                [80001, "m", 0],
+                [320001, "l", 0]
               ]
             },
             "size": {
@@ -282,17 +232,13 @@
                   "CV_theme_custom": {
                     "data": {
                       "CV_style": {
-                        "selector": [
-                          "! [data-key=CV].CV_theme_custom"
-                        ],
+                        "selector": ["! [data-key=CV].CV_theme_custom"],
                         "css": {
                           "background": "#1b1464"
                         }
                       },
                       "SQ_style_p": {
-                        "selector": [
-                          "! [data-key=CV].CV_theme_custom  p"
-                        ],
+                        "selector": ["! [data-key=CV].CV_theme_custom  p"],
                         "css": {
                           "color": "#fff",
                           "text-shadow": {
@@ -318,9 +264,7 @@
                         }
                       },
                       "SQ_style_button": {
-                        "selector": [
-                          "! [data-key=CV].CV_theme_custom button"
-                        ],
+                        "selector": ["! [data-key=CV].CV_theme_custom button"],
                         "css": {
                           "background": "#fff",
                           "border-color": "transparent",
@@ -380,7 +324,7 @@
                           "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_default .MS_ARE .overlay"
                         ],
                         "css": {
-                          "background":"radial-gradient($[OL_color_0] 0%, $[OL_color_1] 60%)"
+                          "background": "radial-gradient($[OL_color_0] 0%, $[OL_color_1] 60%)"
                         }
                       }
                     }
@@ -402,18 +346,9 @@
                     "tension": {
                       "name": "BG_orient",
                       "options": [
-                        [
-                          0,
-                          "p"
-                        ],
-                        [
-                          0.75,
-                          "s"
-                        ],
-                        [
-                          1.5,
-                          "l"
-                        ]
+                        [0, "p"],
+                        [0.75, "s"],
+                        [1.5, "l"]
                       ]
                     }
                   },
@@ -627,18 +562,14 @@
                       "global": true
                     },
                     "BG_anim_init": {
-                      "selector": [
-                        ".BG_anim"
-                      ],
+                      "selector": [".BG_anim"],
                       "css": {
                         "transform": "scale($[BG_anim_in_z]) translateX($[BG_anim_in_x]em) translateY($[BG_anim_in_y]em)",
                         "opacity": 0
                       }
                     },
                     "BG_anim_in": {
-                      "selector": [
-                        ".BG_anim.BG_anim_in"
-                      ],
+                      "selector": [".BG_anim.BG_anim_in"],
                       "css": {
                         "transition": "opacity $[BG_anim_in_speed_opacity]s $[BG_anim_in_ease] $[BG_anim_delay]s, transform $[BG_anim_in_speed_transform]s $[BG_anim_in_ease] $[BG_anim_delay]s",
                         "transform": "scale(1) translateX(0) translateY(0)",
@@ -647,9 +578,7 @@
                       }
                     },
                     "BG_anim_out": {
-                      "selector": [
-                        ".BG_anim.BG_anim_out"
-                      ],
+                      "selector": [".BG_anim.BG_anim_out"],
                       "css": {
                         "transition": "opacity $[BG_anim_out_speed_opacity]s $[BG_anim_out_ease], transform $[BG_anim_out_speed_transform]s $[BG_anim_out_ease]",
                         "transform": "scale($[BG_anim_out_z]) translateX(0) translateY(0)",
@@ -658,17 +587,13 @@
                       }
                     },
                     "BG_anim_fade_init": {
-                      "selector": [
-                        ".BG_anim_fade"
-                      ],
+                      "selector": [".BG_anim_fade"],
                       "css": {
                         "opacity": 0
                       }
                     },
                     "BG_anim_fade_in": {
-                      "selector": [
-                        ".BG_anim_fade.BG_anim_fade_in"
-                      ],
+                      "selector": [".BG_anim_fade.BG_anim_fade_in"],
                       "css": {
                         "transition": "opacity $[BG_anim_in_speed_opacity]s $[BG_anim_in_ease] $[BG_anim_delay]s)",
                         "transform-origin": "$[BG_anim_in_origin]",
@@ -676,9 +601,7 @@
                       }
                     },
                     "BG_anim_fade_out": {
-                      "selector": [
-                        ".BG_anim_fade.BG_anim_fade_out"
-                      ],
+                      "selector": [".BG_anim_fade.BG_anim_fade_out"],
                       "css": {
                         "transition": "opacity $[BG_anim_out_speed_opacity]s $[BG_anim_out_ease]",
                         "transform-origin": "$[BG_anim_out_origin]",
@@ -751,9 +674,7 @@
                           "enabled": false,
                           "excepts": {
                             "BG_anim_pan": {
-                              "includes": [
-                                "BG_place_fill"
-                              ],
+                              "includes": ["BG_place_fill"],
                               "data": {
                                 "enabled": true
                               }
@@ -781,10 +702,7 @@
                             "scale": "$[BG_place_type]",
                             "polite": false,
                             "ratio": "$[ratio]",
-                            "align": [
-                              "center",
-                              "middle"
-                            ],
+                            "align": ["center", "middle"],
                             "limit": {
                               "min": "$[BG_limit_min]",
                               "max": "$[BG_limit_max]"
@@ -861,9 +779,7 @@
                           "enabled": false,
                           "excepts": {
                             "BG_anim_pan": {
-                              "includes": [
-                                "BG_place_fill"
-                              ],
+                              "includes": ["BG_place_fill"],
                               "data": {
                                 "enabled": true
                               }
@@ -895,10 +811,7 @@
                             "controls": false,
                             "autoplay": true,
                             "volume": 0.8,
-                            "align": [
-                              "center",
-                              "middle"
-                            ],
+                            "align": ["center", "middle"],
                             "limit": {
                               "min": "$[BG_limit_min]",
                               "max": "$[BG_limit_max]"
@@ -945,7 +858,10 @@
                       "attrs": {
                         "OL_style": {
                           "css": {
-                            "opacity": "$[OL_opacity]"
+                            "opacity": {
+                              "value": "$[OL_opacity]",
+                              "calc": "$[value]/10"
+                            }
                           }
                         }
                       }
@@ -1045,10 +961,7 @@
                             "scale": "$[LS_place_type]",
                             "polite": false,
                             "ratio": "$[ratio]",
-                            "align": [
-                              "right",
-                              "bottom"
-                            ],
+                            "align": ["right", "bottom"],
                             "limit": {
                               "min": "$[LS_limit_min]",
                               "max": "$[LS_limit_max]"
@@ -1059,7 +972,7 @@
                               "selector": "[data-key*=_SHD]",
                               "css": {
                                 "opacity": {
-                                  "value":  25,
+                                  "value": 25,
                                   "calc": "$[value]/100"
                                 }
                               }
@@ -1097,18 +1010,9 @@
                     "tension": {
                       "name": "SQ_orient",
                       "options": [
-                        [
-                          0,
-                          "p"
-                        ],
-                        [
-                          0.75,
-                          "s"
-                        ],
-                        [
-                          1.5,
-                          "l"
-                        ]
+                        [0, "p"],
+                        [0.75, "s"],
+                        [1.5, "l"]
                       ]
                     }
                   },
@@ -1188,7 +1092,7 @@
                               "selector": "[data-key*=_SHD]",
                               "css": {
                                 "opacity": {
-                                  "value":  25,
+                                  "value": 25,
                                   "calc": "$[value]/100"
                                 }
                               }
@@ -1225,18 +1129,9 @@
                             "tension": {
                               "name": "FG_orient",
                               "options": [
-                                [
-                                  0,
-                                  "p"
-                                ],
-                                [
-                                  0.75,
-                                  "s"
-                                ],
-                                [
-                                  1.5,
-                                  "l"
-                                ]
+                                [0, "p"],
+                                [0.75, "s"],
+                                [1.5, "l"]
                               ]
                             }
                           },
@@ -1450,18 +1345,14 @@
                               "global": true
                             },
                             "FG_anim_init": {
-                              "selector": [
-                                ".FG_anim"
-                              ],
+                              "selector": [".FG_anim"],
                               "css": {
                                 "transform": "scale($[FG_anim_in_z]) translateX($[FG_anim_in_x]em) translateY($[FG_anim_in_y]em)",
                                 "opacity": 0
                               }
                             },
                             "FG_anim_in": {
-                              "selector": [
-                                ".FG_anim.FG_anim_in"
-                              ],
+                              "selector": [".FG_anim.FG_anim_in"],
                               "css": {
                                 "transition": "opacity $[FG_anim_in_speed_opacity]s $[FG_anim_in_ease] calc($[SQ_anim_delay]s + $[FG_anim_delay]s), transform $[FG_anim_in_speed_transform]s $[FG_anim_in_ease] calc($[SQ_anim_delay]s + $[FG_anim_delay]s)",
                                 "transform": "scale(1) translateX(0) translateY(0)",
@@ -1471,9 +1362,7 @@
                             },
                             "FG_anim_out": {
                               "enabled": false,
-                              "selector": [
-                                ".FG_anim.FG_anim_out"
-                              ],
+                              "selector": [".FG_anim.FG_anim_out"],
                               "css": {
                                 "transition": "opacity $[FG_anim_out_speed_opacity]s $[FG_anim_out_ease], transform $[FG_anim_out_speed_transform]s $[FG_anim_out_ease]",
                                 "transform": "scale($[FG_anim_out_z]) translateX(0) translateY(0)",
@@ -1482,17 +1371,13 @@
                               }
                             },
                             "FG_anim_fade_init": {
-                              "selector": [
-                                ".FG_anim_fade"
-                              ],
+                              "selector": [".FG_anim_fade"],
                               "css": {
                                 "opacity": 0
                               }
                             },
                             "FG_anim_fade_in": {
-                              "selector": [
-                                ".FG_anim_fade.FG_anim_fade_in"
-                              ],
+                              "selector": [".FG_anim_fade.FG_anim_fade_in"],
                               "css": {
                                 "transition": "opacity $[FG_anim_in_speed_opacity]s $[FG_anim_in_ease] calc($[SQ_anim_delay]s + $[FG_anim_delay]s)",
                                 "transform-origin": "$[FG_anim_in_origin]",
@@ -1501,9 +1386,7 @@
                             },
                             "FG_anim_fade_out": {
                               "enabled": false,
-                              "selector": [
-                                ".FG_anim_fade.FG_anim_fade_out"
-                              ],
+                              "selector": [".FG_anim_fade.FG_anim_fade_out"],
                               "css": {
                                 "transition": "opacity $[FG_anim_out_speed_opacity]s $[FG_anim_out_ease]",
                                 "transform-origin": "$[FG_anim_out_origin]",
@@ -1576,9 +1459,7 @@
                                   "enabled": false,
                                   "excepts": {
                                     "FG_anim_pan": {
-                                      "includes": [
-                                        "FG_place_fill"
-                                      ],
+                                      "includes": ["FG_place_fill"],
                                       "data": {
                                         "enabled": true
                                       }
@@ -1606,10 +1487,7 @@
                                     "scale": "$[FG_place_type]",
                                     "polite": false,
                                     "ratio": "$[ratio]",
-                                    "align": [
-                                      "center",
-                                      "middle"
-                                    ],
+                                    "align": ["center", "middle"],
                                     "limit": {
                                       "min": "$[FG_limit_min]",
                                       "max": "$[FG_limit_max]"
@@ -1717,9 +1595,7 @@
                               }
                             },
                             "MS_align": {
-                              "selector": [
-                                "[data-key=MS_TXT]"
-                              ],
+                              "selector": ["[data-key=MS_TXT]"],
                               "css": {
                                 "text-align": "$[MS_align_h] !important",
                                 "vertical-align": "$[MS_align_v]"
@@ -1733,28 +1609,33 @@
                                 "tension": {
                                   "name": "MS_TXT_orient",
                                   "options": [
-                                    [
-                                      0,
-                                      "p"
-                                    ],
-                                    [
-                                      0.75,
-                                      "s"
-                                    ],
-                                    [
-                                      1.5,
-                                      "l"
-                                    ]
+                                    [0, "p"],
+                                    [0.75, "s"],
+                                    [1.5, "l"]
                                   ]
                                 }
                               },
-                              "layers": [
-                                null,
-                                null,
-                                null,
-                                null,
-                                null
-                              ]
+                              "layers": [null, null, null, null, null]
+                            },
+                            "MS_SHD": {
+                              "type": "JointLayer",
+                              "attrs": {
+                                "MS_SHD_style": {
+                                  "selector": ["[data-key*=MS_SHD_]"],
+                                  "css": {
+                                    "opacity": {
+                                      "value": 5,
+                                      "calc": "$[value]/10"
+                                    }
+                                  }
+                                }
+                              },
+                              "anims": {
+                                "MS_SHD_anim": {
+                                  "name": "MS_SHD_anim",
+                                  "skip": false
+                                }
+                              }
                             }
                           }
                         },
@@ -1777,9 +1658,7 @@
                                   "params": {
                                     "holder": "TL_TXT",
                                     "wrapper": "TL",
-                                    "tags": [
-                                      "p"
-                                    ]
+                                    "tags": ["p"]
                                   },
                                   "attrs": {
                                     "TL_font": {
@@ -1799,7 +1678,7 @@
                                       "selector": "[data-key*=_SHD]",
                                       "css": {
                                         "opacity": {
-                                          "value":  25,
+                                          "value": 25,
                                           "calc": "$[value]/100"
                                         }
                                       }
@@ -1860,9 +1739,7 @@
                                   "params": {
                                     "holder": "DS_TXT",
                                     "wrapper": "DS",
-                                    "tags": [
-                                      "p"
-                                    ]
+                                    "tags": ["p"]
                                   },
                                   "attrs": {
                                     "DS_font": {
@@ -1882,7 +1759,7 @@
                                       "selector": "[data-key*=_SHD]",
                                       "css": {
                                         "opacity": {
-                                          "value":  25,
+                                          "value": 25,
                                           "calc": "$[value]/100"
                                         }
                                       }
@@ -1954,7 +1831,7 @@
                               "selector": "[data-key*=_SHD]",
                               "css": {
                                 "opacity": {
-                                  "value":  25,
+                                  "value": 25,
                                   "calc": "$[value]/100"
                                 }
                               }
@@ -1981,7 +1858,7 @@
                               "selector": "[data-key*=_SHD]",
                               "css": {
                                 "opacity": {
-                                  "value":  25,
+                                  "value": 25,
                                   "calc": "$[value]/100"
                                 }
                               }
@@ -2018,10 +1895,7 @@
                   "layers": {
                     "CA_TXT": {
                       "type": "JointLayer",
-                      "layers": [
-                        null,
-                        null
-                      ]
+                      "layers": [null, null]
                     }
                   },
                   "excepts": {
@@ -2065,9 +1939,7 @@
                           "params": {
                             "holder": "CN_TXT",
                             "wrapper": "CN",
-                            "tags": [
-                              "p"
-                            ]
+                            "tags": ["p"]
                           },
                           "attrs": {
                             "CN_TXT_font": {
@@ -2088,7 +1960,7 @@
                               "selector": "[data-key*=_SHD]",
                               "css": {
                                 "opacity": {
-                                  "value":  25,
+                                  "value": 25,
                                   "calc": "$[value]/100"
                                 }
                               }
@@ -2138,10 +2010,7 @@
                           "params": {
                             "holder": "BT_TXT",
                             "wrapper": "BT",
-                            "tags": [
-                              "p",
-                              "button"
-                            ]
+                            "tags": ["p", "button"]
                           },
                           "attrs": {
                             "BT_font": {
@@ -2163,7 +2032,7 @@
                               "selector": "[data-key*=_SHD]",
                               "css": {
                                 "opacity": {
-                                  "value":  25,
+                                  "value": 25,
                                   "calc": "$[value]/100"
                                 }
                               }
