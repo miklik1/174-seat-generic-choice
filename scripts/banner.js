@@ -1355,16 +1355,13 @@
 										switch (layer.key) {
 
 											case 'LS':
-
-												disabled_holder_layer = layer;
-												disabled_key = disabled_holder_key = layer.key;
-
 											case 'FG':
 											case 'BG':
 											case 'MS':
 											case 'TL':
 											case 'DS':
 											case 'PR':
+											case 'OL':
 											case 'BT':
 
 												// Define disabled holder layer.

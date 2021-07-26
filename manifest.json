@@ -142,24 +142,55 @@
         }
       },
       "fonts": {
+        "font_A_200": {
+          "name": "font_A_200",
+          "url": "./assets/fonts/vwhead_light",
+          "alt": "Arial",
+          "selector": [
+            ".font_A_200",
+            ".font_A_400 l"
+          ],
+          "types": [
+            "woff",
+            "woff2"
+          ]
+        },
         "font_A_400": {
           "name": "font_A_400",
-          "url": "./assets/fonts/vwtext_regular",
+          "url": "./assets/fonts/vwhead_regular",
           "alt": "Arial",
           "selector": [".font_A_400 s"],
           "types": ["woff", "woff2"]
         },
         "font_A_600": {
           "name": "font_A_600",
-          "url": "./assets/fonts/vwtext_bold",
+          "url": "./assets/fonts/vwhead_bold",
           "alt": "Arial",
           "selector": [".font_A_600 s", ".font_A_400 b"],
           "types": ["woff", "woff2"]
+        },
+        "font_B_400": {
+          "name": "font_B_400",
+          "url": "./assets/fonts/vwtext_regular",
+          "alt": "Arial",
+          "selector": [
+            ".font_B_400 p"
+          ],
+          "types": [
+            "woff",
+            "woff2"
+          ]
         }
       },
       "params": {
         "wait": {
-          "fonts": ["font_A_400", "font_A_600", ""],
+          "fonts": [
+            "font_A_200",
+            "font_A_400",
+            "font_A_600",
+            "font_B_400",
+            ""
+          ],
           "assets": []
         },
         "stop": {
@@ -985,7 +1016,7 @@
                           },
                           "sources": [
                             {
-                              "url": "./assets/sponsor_default.svg"
+                              "url": "./assets/logo-white.svg"
                             }
                           ],
                           "excepts": {
@@ -1743,7 +1774,7 @@
                                   },
                                   "attrs": {
                                     "DS_font": {
-                                      "name": "font_A_400"
+                                      "name": "font_B_400"
                                     },
                                     "DS_style": {
                                       "selector": "p",
@@ -1943,7 +1974,7 @@
                           },
                           "attrs": {
                             "CN_TXT_font": {
-                              "name": "font_A_400"
+                              "name": "font_B_400"
                             },
                             "CN_TXT_style": {
                               "selector": "p",
@@ -2045,7 +2076,7 @@
                           },
                           "sources": [
                             {
-                              "text": "Boka en laddbar provkörning"
+                              "text": "Boka provkörning"
                             }
                           ]
                         }

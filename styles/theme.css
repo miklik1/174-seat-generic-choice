@@ -9,7 +9,7 @@
 }
 
 [data-key="CV"] [data-key="OL"].OL_type_default [data-key="OL_ELM"] {
-	background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 45%);
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 28%);
 }
 
 [data-key="CV"].CV_tens_e0 [data-key="OL"].OL_type_default [data-key="OL_ELM"] {
@@ -51,10 +51,6 @@
  * Shadow styles.
  * ------------------------------------------------------------------------------------------------------------------
  */
-
-[data-key="CV"] .overlay {
-	/*background: radial-gradient(rgba(0, 255, 0, 1), rgba(0, 255, 0, 0) 60%);*/
-}
 
 [data-key="CV"] .overlay {
 	width: 300%;
