@@ -102,71 +102,11 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key="CV"] [data-key="MS"] [data-key="MS_SHD"] {
+[data-key="CV"] [data-key="OL"] [data-key="OL_ELM_1"] {
 	left: calc(-150% + 2rem);
 	top: -100%;
 	width: 300%;
 	height: 300%;
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_y_top [data-key="MS_SHD"] {
-	top: calc(-150% + 2rem);
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_y_bottom [data-key="MS_SHD"] {
-	top: calc(-50% - 2rem);
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_x_left [data-key="MS_SHD"] {
-	left: calc(-150% + 2rem);
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_x_right [data-key="MS_SHD"] {
-	left: calc(-50% - 2rem);
-}
-
-[data-key="CV"] [data-key="MS"] [data-key="MS_TXT"].MS_TXT_orient_p [data-key="MS_SHD"] {
-	left: -250%;
-	width: 600%;
-	top: -50%;
-	height: 200%;
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_x_left [data-key="MS_TXT"].MS_TXT_orient_p [data-key="MS_SHD"] {
-	left: calc(-300% + 2rem);
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_x_right [data-key="MS_TXT"].MS_TXT_orient_p [data-key="MS_SHD"] {
-	left: calc(-200% - 2rem);
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_y_top [data-key="MS_TXT"].MS_TXT_orient_p [data-key="MS_SHD"] {
-	top: calc(-100% + 2rem);
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_y_bottom [data-key="MS_TXT"].MS_TXT_orient_p [data-key="MS_SHD"] {
-	top: calc(0% - 2rem);
-}
-
-[data-key="CV"] [data-key="MS"] [data-key="MS_TXT"].MS_TXT_orient_l [data-key="MS_SHD"] {
-	height: 400%;
-	top: -150%;
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_y_top [data-key="MS_TXT"].MS_TXT_orient_l [data-key="MS_SHD"] {
-	top: calc(-200% + 2rem);
-}
-
-[data-key="CV"] [data-key="MS"].MS_align_y_bottom [data-key="MS_TXT"].MS_TXT_orient_l [data-key="MS_SHD"] {
-	top: calc(-100% - 2rem);
-}
-
-[data-key="CV"] [data-key="LG"] [data-key="LG_SHD"],
-[data-key="CV"] [data-key="LS"] [data-key="LS_SHD"] {
-	top: -150%;
-	left: calc(50% - (10rem * 1));
-	width: calc(10rem * 2);
-	height: 400%;
 }
 
 /*
@@ -259,6 +199,10 @@
 }
 
 [data-key="CV"] [data-key*="SQ_"].SQ_layout_logo .BT_ARE {
+	display: none !important;
+}
+
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo .FG_ARE {
 	display: none !important;
 }
 

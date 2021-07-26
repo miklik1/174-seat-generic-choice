@@ -1232,26 +1232,28 @@
 
 				<div ng-if="($scope[1] == 'appear')">
 
+
 					<!-- STATE VALIDATION -->
-					<data ng-if="$nav[$data.editor.scope[0]][2] = null"></data>
-					<data ng-if="$nav[$data.editor.scope[0]][3] = null"></data>
+					<data ng-if="$nav[$data.editor.scope[0]][2] = 'ELM'"></data>
+					<data ng-if="$nav[$data.editor.scope[0]][3] = 1"></data>
 					<!-- / STATE VALIDATION -->
 
 					<!-- SHORTCUTS -->
-					<data ng-if="$holder_key = 'ELM'"></data>
+					<data ng-if="$holder_key = $nav[$data.editor.scope[0]][2]"></data>
 					<data ng-if="$holder = $wrapper.layers[$wrapper_key + '_' + $holder_key]"></data>
-					<data ng-if="$target_key = $holder_key"></data>
-					<data ng-if="$target = $holder"></data>
+					<data ng-if="$target_key = 1"></data>
+					<data ng-if="$target = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key]"></data>
 					<!-- / SHORTCUTS -->
 
 					<!-- SHORTCUTS -->
-					<data ng-if="$exceptions = null"></data>
-					<data ng-if="$exception_preset = null"></data>
+					<data ng-if="$exceptions = $wrapper.macros.excepts"></data>
+					<data ng-if="$exception_preset = $wrapper.macros.excepts.preset"></data>
 					<!-- / SHORTCUTS -->
 
 					<!-- VARIATIONS -->
-					<data ng-init="$variation_setup = [_.concat(['default']), 'default', _.concat(['default'])]"></data>
+					<data ng-init="$variation_setup = [_.concat(['default'], $variations[$wrapper_key + '_orient'], $variations['CV_tens'], $variations['CV_scale'], $variations['CV_size']), 'default', _.concat(['default'])]"></data>
 					<!-- VARIATIONS -->
+
 
 					<!-- VARIATION PICKER -->
 					<block-group ng-class="{disabled: (_.size($scope[2][$scope[1]][0]) <= 1)}">
@@ -1370,18 +1372,39 @@
 										   pattern="^\d+"></number-slider>
 						</block-field>-->
 
-						<block-field title="Element Type">
+						<block-field title="Element Type" ng-if="($scope[2][$scope[1]][1] == 'default')">
 							<dropdown-select model="$wrapper.macros[$wrapper_key + '_type'].value">
 								<option value="default">Default</option>
+								<option value="top-bot">Top and Bottom</option>
 								<option value="circle">Circle</option>
 							</dropdown-select>
 						</block-field>
 
-						<block-field title="Element Opacity">
+						<block-field title="Element Opacity" ng-if="($scope[2][$scope[1]][1] == 'default')">
 							<number-slider model="$wrapper.macros[$wrapper_key + '_opacity'].value"
 										   min="0" max="10" length="2" index="x" left="Transparent" center="|" right="Visible"
 										   pattern="^([0-9]|10)$"></number-slider>
 						</block-field>
+
+						<block-field title="Element Type *" ng-if="($scope[2][$scope[1]][1] != 'default')">
+							<dropdown-select model="$exceptions[$scope[2][$scope[1]][1]].data.OL_type.value">
+								<option value="default">Default</option>
+								<option value="top-bot">Top and Bottom</option>
+								<option value="circle">Circle</option>
+							</dropdown-select>
+						</block-field>
+
+						<block-field title="Element Opacity *" ng-if="($scope[2][$scope[1]][1] != 'default')">
+							<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data.OL_opacity.value"
+										   min="0" max="10" length="2" index="x" left="Transparent" center="|" right="Visible"
+										   pattern="^([0-9]|10)$"></number-slider>
+						</block-field>
+
+						<!-- <block-field title="Message Opacity">
+							<number-slider model="$wrapper.macros[$wrapper_key + '_opacity'].value"
+										   min="0" max="10" length="2" index="x" left="Transparent" center="|" right="Visible"
+										   pattern="^([0-9]|10)$"></number-slider>
+						</block-field> -->
 
 					</block-group>
 					<!-- / APPEARANCE SETTINGS -->
@@ -2060,7 +2083,7 @@
 						<data ng-if="$wrapper_key = $nav[$data.editor.scope[0]][0]"></data>
 						<data ng-if="$wrapper = $frame.layers[$nav[$data.editor.scope[0]][0]]"></data>
 						<!-- / SHORTCUTS -->
-
+						{{$scope}}
 						<block-menu class="tabs">
 							<a ng-repeat="$tab in $tab_setup[0]" ng-click="$scope[1] = $tab" ng-class="{selected: ($scope[1] == $tab), disabled: (_.indexOf($scope[0], $tab) == -1)}">{{ ::  $dict['label_' + $tab] }}</a>
 						</block-menu>
@@ -3178,7 +3201,7 @@
 					<block-field title="Frame Theme" ng-if="($data.editor.scope[1].indexOf('SQ') != -1)" ng-class="{disabled: ($frame.macros.SQ_layout.value === 'default')}">
 						<dropdown-select model="$frame.macros['SQ' + '_theme'].value">
 							<option value="inherit">Inherit</option>
-							<option value="default">Default Blue</option>
+							<option value="default">Default</option>
 							<option value="light-blue">Light Blue</option>
 							<option value="black">Black</option>
 							<option value="white">White</option>
@@ -5620,7 +5643,7 @@
 				<block-field title="Default Theme">
 					<dropdown-select model="$data.banner.layers.CV.macros['CV_theme'].value">
 						<!--<option value="default">Default</option>-->
-						<option value="default">Default Blue</option>
+						<option value="default">Default</option>
 						<option value="white">White</option>
 						<option value="custom">Custom</option>
 					</dropdown-select>

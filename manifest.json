@@ -42,7 +42,7 @@
       "name": "250x360",
       "width": 250,
       "height": 360,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "250x360.png"
       }
@@ -52,7 +52,7 @@
       "name": "300x250",
       "width": 300,
       "height": 250,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "300x250.png"
       }
@@ -62,7 +62,7 @@
       "name": "300x600",
       "width": 300,
       "height": 600,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "300x600.png"
       }
@@ -72,7 +72,7 @@
       "name": "320x320",
       "width": 320,
       "height": 320,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "320x320.png"
       }
@@ -82,7 +82,7 @@
       "name": "980x240",
       "width": 980,
       "height": 240,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "980x240.png"
       }
@@ -92,7 +92,7 @@
       "name": "RxR",
       "width": "100%",
       "height": "100%",
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "0x0.png"
       }
@@ -146,14 +146,8 @@
           "name": "font_A_200",
           "url": "./assets/fonts/vwhead_light",
           "alt": "Arial",
-          "selector": [
-            ".font_A_200",
-            ".font_A_400 l"
-          ],
-          "types": [
-            "woff",
-            "woff2"
-          ]
+          "selector": [".font_A_200", ".font_A_400 l"],
+          "types": ["woff", "woff2"]
         },
         "font_A_400": {
           "name": "font_A_400",
@@ -173,24 +167,13 @@
           "name": "font_B_400",
           "url": "./assets/fonts/vwtext_regular",
           "alt": "Arial",
-          "selector": [
-            ".font_B_400 p"
-          ],
-          "types": [
-            "woff",
-            "woff2"
-          ]
+          "selector": [".font_B_400 p"],
+          "types": ["woff", "woff2"]
         }
       },
       "params": {
         "wait": {
-          "fonts": [
-            "font_A_200",
-            "font_A_400",
-            "font_A_600",
-            "font_B_400",
-            ""
-          ],
+          "fonts": ["font_A_200", "font_A_400", "font_A_600", "font_B_400", ""],
           "assets": []
         },
         "stop": {
@@ -318,44 +301,60 @@
                           "background": "#000"
                         }
                       },
-                      "OL_style_default": {
+                      "OL_style_default_0": {
                         "selector": [
-                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_default [data-key=OL_ELM]"
+                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_default [data-key=OL_ELM_0]"
                         ],
                         "css": {
-                          "background": "linear-gradient(0deg, $[OL_color_0] 0%, $[OL_color_1] 45%)"
+                          "background": "linear-gradient(0deg, $[OL_color_0] 0%, rgba(0, 0, 0, 0) 28%)"
                         },
                         "excepts": {
                           "CV_tens_w1": {
                             "data": {
                               "css": {
-                                "background": "linear-gradient(44deg, $[OL_color_0] 15%, $[OL_color_1] 45%)"
+                                "background": "linear-gradient(44deg, $[OL_color_0] 15%, rgba(0, 0, 0, 0) 50%)"
                               }
                             }
                           },
                           "CV_tens_w2": {
                             "data": {
                               "css": {
-                                "background": "linear-gradient(44deg, $[OL_color_0] 15%, $[OL_color_1] 50%)"
+                                "background": "linear-gradient(44deg, $[OL_color_0] 15%, rgba(0, 0, 0, 0) 50%)"
                               }
                             }
                           }
                         }
                       },
-                      "OL_style_circle": {
+                      "OL_style_default_1": {
                         "selector": [
-                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_circle [data-key=OL_ELM]"
+                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_default [data-key=OL_ELM_1]"
                         ],
                         "css": {
-                          "background": "radial-gradient(circle, $[OL_color_1] 20%, $[OL_color_0] 100%);"
+                          "background": "radial-gradient($[OL_color_0] 10%, rgba(0, 0, 0, 0) 60%)"
                         }
                       },
-                      "OL_MS_style": {
-                        "selectro": [
-                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_default .MS_ARE .overlay"
+                      "OL_style_circle": {
+                        "selector": [
+                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_circle [data-key=OL_ELM_0]"
                         ],
                         "css": {
-                          "background": "radial-gradient($[OL_color_0] 0%, $[OL_color_1] 60%)"
+                          "background": "radial-gradient(circle, rgba(0, 0, 0, 0) 20%, $[OL_color_0] 100%)"
+                        }
+                      },
+                      "OL_style_top": {
+                        "selector": [
+                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_top-bot [data-key=OL_ELM_0]"
+                        ],
+                        "css": {
+                          "background": "linear-gradient(0deg, $[OL_color_0] 0%, rgba(0, 0, 0, 0) 28%)"
+                        }
+                      },
+                      "OL_style_bot": {
+                        "selector": [
+                          "! [data-key=CV].CV_theme_custom [data-key=OL].OL_type_top-bot [data-key=OL_ELM_1]"
+                        ],
+                        "css": {
+                          "background": "linear-gradient(180deg, $[OL_color_0] 0%, rgba(0, 0, 0, 0) 40%)"
                         }
                       }
                     }
@@ -874,44 +873,48 @@
                       "value": "default"
                     },
                     "OL_opacity": {
-                      "value": 4,
-                      "global": true
-                    }
-                  },
-                  "layers": {
-                    "OL_ELM": {
-                      "type": "JointLayer",
-                      "macros": {
-                        "OL_type": {
-                          "value": "default"
-                        }
-                      },
-                      "attrs": {
-                        "OL_style": {
-                          "css": {
-                            "opacity": {
-                              "value": "$[OL_opacity]",
-                              "calc": "$[value]/10"
-                            }
+                      "value": 5
+                    },
+                    "excepts": {
+                      "preset": {
+                        "enabled": false,
+                        "data": {
+                          "OL_type": {
+                            "value": "circle"
+                          },
+                          "OL_opacity": {
+                            "value": 10
                           }
                         }
                       }
                     }
                   },
+                  "layers": {
+                    "OL_ELM": {
+                      "enabled": true,
+                      "type": "JointLayer",
+                      "layers": [
+                        {
+                          "type": "JointLayer"
+                        },
+                        {
+                          "type": "JointLayer"
+                        }
+                      ]
+                    }
+                  },
                   "attrs": {
-                    "OL_MS_overlay": {
-                      "selector": ".MS_ARE .overlay",
+                    "OL_type": {
+                      "name": "OL_type_$[OL_type]",
+                      "global": true
+                    },
+                    "OL_style": {
                       "css": {
-                        "background-image": "radial-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%)",
                         "opacity": {
                           "value": "$[OL_opacity]",
                           "calc": "$[value]/10"
                         }
                       }
-                    },
-                    "OL_type": {
-                      "name": "OL_type_$[OL_type]",
-                      "global": true
                     }
                   }
                 },
@@ -996,17 +999,6 @@
                             "limit": {
                               "min": "$[LS_limit_min]",
                               "max": "$[LS_limit_max]"
-                            }
-                          },
-                          "attrs": {
-                            "style_SHD": {
-                              "selector": "[data-key*=_SHD]",
-                              "css": {
-                                "opacity": {
-                                  "value": 25,
-                                  "calc": "$[value]/100"
-                                }
-                              }
                             }
                           },
                           "anims": {
@@ -1118,15 +1110,6 @@
                           "attrs": {
                             "LD_type": {
                               "name": "LD_type_$[LD_type]"
-                            },
-                            "style_SHD": {
-                              "selector": "[data-key*=_SHD]",
-                              "css": {
-                                "opacity": {
-                                  "value": 25,
-                                  "calc": "$[value]/100"
-                                }
-                              }
                             }
                           },
                           "layers": {
@@ -1660,12 +1643,6 @@
                                     }
                                   }
                                 }
-                              },
-                              "anims": {
-                                "MS_SHD_anim": {
-                                  "name": "MS_SHD_anim",
-                                  "skip": false
-                                }
                               }
                             }
                           }
@@ -1702,15 +1679,6 @@
                                         "font-size": {
                                           "value": 3,
                                           "calc": "(1 +($[value]*$[value]*0.1)) + 'em'"
-                                        }
-                                      }
-                                    },
-                                    "style_SHD": {
-                                      "selector": "[data-key*=_SHD]",
-                                      "css": {
-                                        "opacity": {
-                                          "value": 25,
-                                          "calc": "$[value]/100"
                                         }
                                       }
                                     }
@@ -1783,15 +1751,6 @@
                                         "font-size": {
                                           "value": 0,
                                           "calc": "(1.2+($[value]*$[value]*0.1)) + 'em'"
-                                        }
-                                      }
-                                    },
-                                    "style_SHD": {
-                                      "selector": "[data-key*=_SHD]",
-                                      "css": {
-                                        "opacity": {
-                                          "value": 25,
-                                          "calc": "$[value]/100"
                                         }
                                       }
                                     }
