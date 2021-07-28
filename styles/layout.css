@@ -1,42 +1,41 @@
-
 /*
  * Layer visibility settings.
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV] [data-key=BG],
-[data-key*=_SHD] {
+[data-key="CV"] [data-key="BG"] {
 	z-index: 10;
 }
 
-[data-key=CV] [data-key=FG] {
+[data-key="CV"] [data-key="FG"] {
 	z-index: 30;
 }
 
-[data-key=CV] [data-key=OL] {
+[data-key="CV"] [data-key="OL"] {
 	z-index: 35;
 }
 
-[data-key=CV] [data-key=TL],
-[data-key=CV] [data-key=DS],
-[data-key=CV] [data-key=LS],
-[data-key=CV] [data-key=LG] {
+[data-key="CV"] [data-key="MS"] {
 	z-index: 50;
 }
-[data-key=CV] [data-key=MS],
-[data-key=CV] [data-key=CA],
-[data-key=CV] [data-key=BT] {
+
+[data-key="CV"] [data-key="CA"],
+[data-key="CV"] [data-key="BT"],
+[data-key="CV"] [data-key="TL"],
+[data-key="CV"] [data-key="DS"],
+[data-key="CV"] [data-key="LS"],
+[data-key="CV"] [data-key="LG"] {
 	z-index: 70;
 }
 
-[data-key=LG] svg,
-[data-key=LS] img,
-[data-key*=_TXT_] p,
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo {
-	z-index: 40
+[data-key="LG"] svg,
+[data-key="LS"] img,
+[data-key*="_TXT_"] p,
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo {
+	z-index: 40;
 }
 
-[data-key=CV] [data-key=CL] {
+[data-key="CV"] [data-key="CL"] {
 	z-index: 100 !important;
 }
 
@@ -45,14 +44,14 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV] hr {
+[data-key="CV"] hr {
 	display: block;
 	width: 100%;
 	height: 0.1rem;
 	margin: 0.5rem 0 0.5rem 0;
 }
 
-[data-key=CV] button {
+[data-key="CV"] button {
 	display: inline-block;
 	padding: 0.4rem 1.2rem 0.45rem 1.2rem;
 	line-height: 1 !important;
@@ -65,68 +64,49 @@
 	overflow: hidden;
 }
 
-[data-key=CV] .BT_ARE{
+[data-key="CV"] .BT_ARE {
 	text-align: left;
 }
 
-[data-key=CV] [data-key=CA_TXT_0] {
+[data-key="CV"] [data-key="CA_TXT_0"] {
 	margin-bottom: 1em;
 }
 
-[data-key=CV] [data-key=CA_TXT_1] {
+[data-key="CV"] [data-key="CA_TXT_1"] {
 	text-align: left;
 }
 
-[data-key=CV]:not(.CV_tens_w2) [data-key=MS_TXT_2] {
+[data-key="CV"]:not(.CV_tens_w2) [data-key="MS_TXT_2"] {
 	display: none;
 }
 
-
-[data-key=CV]:not(.CV_tens_w2) [data-key=MS_TXT_2] {
+[data-key="CV"]:not(.CV_tens_w2) [data-key="MS_TXT_2"] {
 	display: none;
 }
 
-[data-key=CV] .BT_WIDE{
+[data-key="CV"] .BT_WIDE {
 	display: none;
 }
 
-[data-key="CV"] [data-key="WR"] [data-key="BG"]{
+[data-key="CV"] [data-key="WR"] [data-key="BG"] {
 	opacity: 1;
 	overflow: visible;
 }
 
-[data-key*=_SHD] {
-	min-height: 2em;
-	width: calc(200% + 2em);
-	height: calc(400% + 2em);
-}
-
-[data-key*=_SHD].top {
-	top: calc(-200% - 0.5em);
-}
-
-[data-key*=_SHD].bottom {
-	bottom: calc(-200% - 0.5em);
-}
-
-[data-key*=_SHD].middle {
-	top: calc(-150% - 1em);
-}
-
-[data-key*=_SHD].left {
-	left: calc(-100% + 1em);
-}
-
-[data-key*=_SHD].right {
-	right: calc(-100% + 1em);
-}
-
-[data-key*=_SHD].center {
-	left: calc(-50% - 1em);
-}
-
-[data-key=CV] [data-key=CA_TXT_2]{
+[data-key="CV"] [data-key="CA_TXT_2"] {
 	display: none;
+}
+
+/*
+ * Global shadow layer styles.
+ * ------------------------------------------------------------------------------------------------------------------
+ */
+
+[data-key="CV"] [data-key="OL"] [data-key="OL_ELM_1"] {
+	left: calc(-150% + 2rem);
+	top: -100%;
+	width: 300%;
+	height: 300%;
 }
 
 /*
@@ -134,8 +114,7 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-
-[data-key=CV] [data-key=LG] {
+[data-key="CV"] [data-key="LG"] {
 	width: 4em;
 	height: 4em;
 	top: 1rem;
@@ -157,41 +136,40 @@
 	opacity: 0;
 }
 
-[data-key=CV] [data-key=LD].LD_anim_in {
+[data-key="CV"] [data-key="LD"].LD_anim_in {
 	opacity: 1;
 }
 
-[data-key=CV] [data-key=LG_ST_R],
-[data-key=CV] [data-key=LG_ST_L] {
-	width: 200%;
+[data-key="CV"] [data-key="LG_ST_R"],
+[data-key="CV"] [data-key="LG_ST_L"] {
+	width: 300%;
 	height: 0.2em;
 	top: calc(50% - 0.1em);
 	display: block;
 }
 
-[data-key=CV] [data-key=LG_ST_R] {
+[data-key="CV"] [data-key="LG_ST_R"] {
 	left: calc(100% + 1em);
 }
 
-[data-key=CV] [data-key=LG_ST_L] {
+[data-key="CV"] [data-key="LG_ST_L"] {
 	right: calc(100% + 1em);
 }
 
-[data-key=CV] [data-key=LG] [data-key*=LG_IMG_] svg,
-[data-key=CV] [data-key=LD] svg  {
+[data-key="CV"] [data-key="LG"] [data-key*="LG_IMG_"] svg,
+[data-key="CV"] [data-key="LD"] svg {
 	right: 0;
 	bottom: 0;
 	width: 100%;
 	height: 100%;
 }
 
-
 /*
  * Global sponsorship logo layer styles.
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV] [data-key=LS] {
+[data-key="CV"] [data-key="LS"] {
 	right: 2rem;
 	bottom: 2rem;
 	width: 5rem;
@@ -203,13 +181,12 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV] [data-key*=SQ_] {
+[data-key="CV"] [data-key*="SQ_"] {
 	overflow: hidden;
 }
 
-
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LD],
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LD].LD_type_custom{
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo [data-key="LD"],
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo [data-key="LD"].LD_type_custom {
 	top: 0;
 	top: 50%;
 	width: calc(100% - 3rem);
@@ -218,46 +195,47 @@
 	height: 7rem;
 	max-height: 10rem;
 	max-width: 10rem;
-
 }
 
-[data-key=CV] [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LD]{
+[data-key="CV"] [data-key*="SQ_"]:not(.SQ_layout_logo) [data-key="LD"] {
 	display: none;
 }
 
-
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LG_ST_R],
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo [data-key=LG_ST_L]{
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo [data-key="LG_ST_R"],
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo [data-key="LG_ST_L"] {
 	display: none;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo .MS_ARE {
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo .MS_ARE {
 	display: none !important;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo .BT_ARE {
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo .BT_ARE {
 	display: none !important;
 }
 
-[data-key=CV] [data-key*=SQ_].SQ_layout_logo .FG_ARE {
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo .FG_ARE {
 	display: none !important;
 }
 
-[data-key=CV] [data-key=LD].LD_type_custom [data-key=LD_IMG_0]{
+[data-key="CV"] [data-key*="SQ_"].SQ_layout_logo .FG_ARE {
+	display: none !important;
+}
+
+[data-key="CV"] [data-key="LD"].LD_type_custom [data-key="LD_IMG_0"] {
 	display: none;
 }
 
-[data-key=CV] [data-key=LD].LD_type_default [data-key=LD_IMG_1]{
+[data-key="CV"] [data-key="LD"].LD_type_default [data-key="LD_IMG_1"] {
 	display: none;
 }
-
 
 /*
  * Global message and other text layer styles.
  * ------------------------------------------------------------------------------------------------------------------
  */
 
- [data-key=CV] [data-key=CA] {
+[data-key="CV"] [data-key="CA"] {
 	vertical-align: bottom;
 	width: calc(100% - 4rem);
 	height: 4rem;
@@ -265,14 +243,14 @@
 	left: 2rem;
 }
 
- [data-key=CV] [data-key=MS] {
+[data-key="CV"] [data-key="MS"] {
 	text-align: center;
 	vertical-align: middle;
 	max-width: 100%;
 	max-height: 100%;
 }
 
-[data-key=CV] [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]) {
+[data-key="CV"] [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
 	margin-top: 1rem;
 }
 
@@ -281,12 +259,12 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV].CV_tens_t2 [data-key=LG] {
+[data-key="CV"].CV_tens_t2 [data-key="LG"] {
 	left: calc(50% - 2em);
 	top: 2rem;
 }
 
-[data-key=CV].CV_tens_t2 [data-key=LG].LG_type_partner {
+[data-key="CV"].CV_tens_t2 [data-key="LG"].LG_type_partner {
 	width: 7rem;
 	left: calc(50% - 3.5em);
 }
@@ -305,32 +283,32 @@
 	height: calc(100% - (8rem + 55%));
 }
 
-[data-key=CV].CV_tens_t2 [data-key=WR].LG_disabled .MS_ARE {
+[data-key="CV"].CV_tens_t2 [data-key="WR"].LG_disabled .MS_ARE {
 	top: 2rem;
 }
 
-[data-key=CV].CV_tens_t2 [data-key=CA] {
+[data-key="CV"].CV_tens_t2 [data-key="CA"] {
 	left: 1.5rem;
 	bottom: 1rem;
 	width: calc(100% - (1.5rem * 2));
 	height: 9rem;
 }
 
-[data-key=CV].CV_tens_t2  [data-key=WR]:not(.LS_disabled) [data-key=CA] {
+[data-key="CV"].CV_tens_t2 [data-key="WR"]:not(.LS_disabled) [data-key="CA"] {
 	width: calc(100% - (1.5rem * 2));
 	height: 9em;
 	bottom: 1rem;
 	left: 1.5rem;
 }
 
-[data-key=CV].CV_tens_t2 [data-key=LS] {
+[data-key="CV"].CV_tens_t2 [data-key="LS"] {
 	bottom: calc(2rem + 5rem + 1.5rem + 2.5rem + 0.5rem);
 	height: 3rem;
 	right: 1.5rem;
 }
 
-[data-key=CV].CV_tens_t2 [data-key=BG].BG_place_fit,
-[data-key=CV].CV_tens_t2 [data-key*=SQ_] [data-key=FG].FG_place_fit {
+[data-key="CV"].CV_tens_t2 [data-key="BG"].BG_place_fit,
+[data-key="CV"].CV_tens_t2 [data-key*="SQ_"] [data-key="FG"].FG_place_fit {
 	top: calc(45% + 1rem);
 	right: 1.5rem;
 	width: calc(100% - 3rem);
@@ -342,7 +320,7 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV].CV_tens_t1 [data-key=LG] {
+[data-key="CV"].CV_tens_t1 [data-key="LG"] {
 	left: calc(50% - 2em);
 	top: 2rem;
 }
@@ -358,7 +336,7 @@
 	left: calc(50% - 3.5em);
 }
 
-[data-key=CV].CV_tens_t1 .MS_ARE {
+[data-key="CV"].CV_tens_t1 .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
 	width: calc(100% - (1.5rem * 2));
@@ -366,30 +344,30 @@
 	height: calc(100% - (6rem + 50%));
 }
 
-[data-key=CV].CV_tens_t1 [data-key=WR].LG_disabled .MS_ARE {
+[data-key="CV"].CV_tens_t1 [data-key="WR"].LG_disabled .MS_ARE {
 	top: 2rem;
 }
 
-[data-key=CV].CV_tens_t1 [data-key=CA] {
+[data-key="CV"].CV_tens_t1 [data-key="CA"] {
 	left: 1.5rem;
 	bottom: 1rem;
 	width: calc(100% - (1.5rem * 2));
 	height: 6rem;
 }
 
-[data-key=CV].CV_tens_t1 [data-key=WR]:not(.LS_disabled) [data-key=CA] {
+[data-key="CV"].CV_tens_t1 [data-key="WR"]:not(.LS_disabled) [data-key="CA"] {
 	width: calc(100% - (3rem + 5rem + 1rem));
 	height: 6rem;
 }
 
-[data-key=CV].CV_tens_t1 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]){
+[data-key="CV"].CV_tens_t1 [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
 	margin-top: 0.5em;
 }
 
-[data-key=CV].CV_tens_t1 [data-key=BG].BG_place_fit,
-[data-key=CV].CV_tens_t1 [data-key*=SQ_] [data-key=FG].FG_place_fit {
+[data-key="CV"].CV_tens_t1 [data-key="BG"].BG_place_fit,
+[data-key="CV"].CV_tens_t1 [data-key*="SQ_"] [data-key="FG"].FG_place_fit {
 	bottom: 7rem;
-	right: .5rem;
+	right: 0.5rem;
 	width: calc(100% - 1rem);
 	height: calc(100% - (13rem + 35%));
 }
@@ -399,7 +377,7 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV].CV_tens_e0 [data-key=LG] {
+[data-key="CV"].CV_tens_e0 [data-key="LG"] {
 	width: 4em;
 	height: 4em;
 	right: 2rem;
@@ -416,12 +394,12 @@
 	width: 6.5rem;
 }
 
-[data-key=CV].CV_tens_e0 [data-key=LG_ST_R],
-[data-key=CV].CV_tens_e0 [data-key=LG_ST_L]{
+[data-key="CV"].CV_tens_e0 [data-key="LG_ST_R"],
+[data-key="CV"].CV_tens_e0 [data-key="LG_ST_L"] {
 	display: none;
 }
 
-[data-key=CV].CV_tens_e0 .MS_ARE {
+[data-key="CV"].CV_tens_e0 .MS_ARE {
 	left: 2rem;
 	bottom: 6rem;
 	width: calc(100% - (5rem + 2rem + 2rem + 2rem));
@@ -429,29 +407,29 @@
 	height: calc(100% - (1rem + 55%));
 }
 
-[data-key=CV].CV_tens_e0 [data-key*=SQ_] .BT_ARE {
+[data-key="CV"].CV_tens_e0 [data-key*="SQ_"] .BT_ARE {
 	bottom: calc(1.5rem + 2rem + 1rem);
 	left: 2rem;
 	width: calc(100% - (3rem + 5rem + 1rem + 1rem));
 	height: 2.5rem;
 }
 
-[data-key=CV].CV_tens_e0 [data-key=CA] {
+[data-key="CV"].CV_tens_e0 [data-key="CA"] {
 	height: 6rem;
 	bottom: 1rem;
 	left: 2rem;
 }
 
-[data-key=CV].CV_tens_e0  [data-key=WR]:not(.LS_disabled) [data-key=CA] {
+[data-key="CV"].CV_tens_e0 [data-key="WR"]:not(.LS_disabled) [data-key="CA"] {
 	width: calc(100% - (3rem + 5rem + 1rem + 1rem));
 }
 
-[data-key=CV].CV_tens_e0 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]){
+[data-key="CV"].CV_tens_e0 [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
 	margin-top: 0.5em;
 }
 
-[data-key=CV].CV_tens_e0 [data-key=BG].BG_place_fit,
-[data-key=CV].CV_tens_e0 [data-key*=SQ_] [data-key=FG].FG_place_fit {
+[data-key="CV"].CV_tens_e0 [data-key="BG"].BG_place_fit,
+[data-key="CV"].CV_tens_e0 [data-key*="SQ_"] [data-key="FG"].FG_place_fit {
 	bottom: 7rem;
 	right: 0.5rem;
 	width: calc(100% - 1rem);
@@ -463,22 +441,21 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV].CV_tens_w1 [data-key=LG] {
+[data-key="CV"].CV_tens_w1 [data-key="LG"] {
 	right: 2rem;
 	top: 1.5rem;
 }
 
-[data-key=CV].CV_tens_w1 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_partner {
+[data-key="CV"].CV_tens_w1 [data-key*="SQ_"]:not(.SQ_layout_logo) [data-key="LG"].LG_type_partner {
 	width: 7rem;
 }
 
-[data-key=CV].CV_tens_w1 [data-key=LG_ST_R],
-[data-key=CV].CV_tens_w1 [data-key=LG_ST_L]{
+[data-key="CV"].CV_tens_w1 [data-key="LG_ST_R"],
+[data-key="CV"].CV_tens_w1 [data-key="LG_ST_L"] {
 	display: none;
-
 }
 
-[data-key=CV].CV_tens_w1 .MS_ARE {
+[data-key="CV"].CV_tens_w1 .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
 	width: calc(100% - (43% + 9rem));
@@ -486,37 +463,37 @@
 	height: calc(100% - (2rem + 40%));
 }
 
-[data-key=CV].CV_tens_w1 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]) {
+[data-key="CV"].CV_tens_w1 [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
 	margin-top: 0.5rem;
 }
 
-[data-key=CV].CV_tens_w1 [data-key=CN_TXT_0] {
+[data-key="CV"].CV_tens_w1 [data-key="CN_TXT_0"] {
 	margin-bottom: 0.5rem;
 }
 
-[data-key=CV].CV_tens_w1 [data-key=CA] {
+[data-key="CV"].CV_tens_w1 [data-key="CA"] {
 	height: calc(100% - ((100% - (2rem + 42%) + 4.5rem)));
 	bottom: 1rem;
 	left: 1.5rem;
 }
 
-[data-key=CV].CV_tens_w1  [data-key=WR]:not(.LS_disabled) [data-key=CA] {
+[data-key="CV"].CV_tens_w1 [data-key="WR"]:not(.LS_disabled) [data-key="CA"] {
 	width: calc(100% - (4rem + 5rem));
 }
 
-[data-key=CV].CV_tens_w1 [data-key=LS] {
+[data-key="CV"].CV_tens_w1 [data-key="LS"] {
 	bottom: 1.5rem;
 }
 
-[data-key=CV].CV_tens_w1 [data-key*=SQ_] .BT_ARE {
+[data-key="CV"].CV_tens_w1 [data-key*="SQ_"] .BT_ARE {
 	bottom: calc(1.5rem + 2.5rem);
 	left: 1.5rem;
 	width: calc(100% - (9rem + 35%));
 	height: calc(100% - (100% - (2rem + 42%) + (2rem + 4rem)));
 }
 
-[data-key=CV].CV_tens_w1 [data-key=BG].BG_place_fit,
-[data-key=CV].CV_tens_w1 [data-key*=SQ_] [data-key=FG].FG_place_fit {
+[data-key="CV"].CV_tens_w1 [data-key="BG"].BG_place_fit,
+[data-key="CV"].CV_tens_w1 [data-key*="SQ_"] [data-key="FG"].FG_place_fit {
 	top: 1.5rem;
 	bottom: auto;
 	right: 7.5rem;
@@ -524,13 +501,12 @@
 	height: calc(100% - (6rem));
 }
 
-
 /*
  * Layer styles for very wide formats (e.g 980x150, e.t.c.).
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV].CV_tens_w2 [data-key=LG] {
+[data-key="CV"].CV_tens_w2 [data-key="LG"] {
 	right: 2rem;
 	top: 1.5rem;
 	width: 4em;
@@ -538,17 +514,17 @@
 	max-height: 40%;
 }
 
-[data-key=CV].CV_tens_w2 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_partner {
+[data-key="CV"].CV_tens_w2 [data-key*="SQ_"]:not(.SQ_layout_logo) [data-key="LG"].LG_type_partner {
 	width: 7rem;
 	height: 4rem;
 }
 
-[data-key=CV].CV_tens_w2 [data-key=LG_ST_R],
-[data-key=CV].CV_tens_w2 [data-key=LG_ST_L]{
+[data-key="CV"].CV_tens_w2 [data-key="LG_ST_R"],
+[data-key="CV"].CV_tens_w2 [data-key="LG_ST_L"] {
 	display: none;
 }
 
-[data-key=CV].CV_tens_w2 .MS_ARE {
+[data-key="CV"].CV_tens_w2 .MS_ARE {
 	left: 2rem;
 	bottom: 6rem;
 	width: calc(100% - (10rem + 30%));
@@ -556,36 +532,36 @@
 	height: calc(100% - (2rem + 2rem + 1rem));
 }
 
-[data-key=CV].CV_tens_w2 [data-key=CA] {
+[data-key="CV"].CV_tens_w2 [data-key="CA"] {
 	height: 2rem;
 	bottom: 1rem;
 	left: 2rem;
 	/* width: calc(100% - (2rem + 2rem + 5rem)); */
 }
 
-[data-key=CV].CV_tens_w2 [data-key=WR]:not(.LS_disabled) [data-key=CA] {
+[data-key="CV"].CV_tens_w2 [data-key="WR"]:not(.LS_disabled) [data-key="CA"] {
 	width: calc(100% - (4rem + 6rem));
 }
 
-[data-key=CV].CV_tens_w2 [data-key=LS] {
+[data-key="CV"].CV_tens_w2 [data-key="LS"] {
 	bottom: 1.5rem;
-	height: calc( 100% - ((1.5rem * 2) + 4rem + 1.5rem));
+	height: calc(100% - ((1.5rem * 2) + 4rem + 1.5rem));
 	max-height: 2.5rem;
 }
 
-[data-key=CV].CV_tens_w2 [data-key*=MS_TXT_]:not([data-key=MS_TXT_0]) {
+[data-key="CV"].CV_tens_w2 [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
 	margin-top: 0.5rem;
 }
 
-[data-key=CV].CV_tens_w2 [data-key=CA_TXT_0] {
+[data-key="CV"].CV_tens_w2 [data-key="CA_TXT_0"] {
 	display: none;
 }
 
-[data-key=CV].CV_tens_w2 [data-key=CA_TXT_1] {
+[data-key="CV"].CV_tens_w2 [data-key="CA_TXT_1"] {
 	display: inline-block;
 }
 
-[data-key=CV].CV_tens_w2 [data-key=CA_TXT_2] {
+[data-key="CV"].CV_tens_w2 [data-key="CA_TXT_2"] {
 	margin: 0;
 	margin-left: 1em;
 	display: inline-block;
@@ -595,23 +571,23 @@
 	display: inline;
 } */
 
-[data-key=CV].CV_tens_w2 [data-key=CA]  [data-key=BT] {
+[data-key="CV"].CV_tens_w2 [data-key="CA"] [data-key="BT"] {
 	display: none;
 }
 
-[data-key=CV].CV_tens_w2 .BT_WIDE{
+[data-key="CV"].CV_tens_w2 .BT_WIDE {
 	display: block;
 }
 
-[data-key=CV].CV_tens_w2 .BT_WIDE{
+[data-key="CV"].CV_tens_w2 .BT_WIDE {
 	bottom: 1.5rem;
 	right: 8rem;
 	width: calc(100% - (100% - (5rem + 2rem + 2rem + 1rem + 30%) + 11rem));
 	height: 2rem;
 }
 
-[data-key=CV].CV_tens_w2 [data-key=BG].BG_place_fit,
-[data-key=CV].CV_tens_w2 [data-key*=SQ_] [data-key=FG].FG_place_fit  {
+[data-key="CV"].CV_tens_w2 [data-key="BG"].BG_place_fit,
+[data-key="CV"].CV_tens_w2 [data-key*="SQ_"] [data-key="FG"].FG_place_fit {
 	top: 1.5rem;
 	bottom: auto;
 	right: 12rem;

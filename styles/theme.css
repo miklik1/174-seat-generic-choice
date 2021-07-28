@@ -1,197 +1,93 @@
-.shadow_white [data-key*=_SHD] {
-	background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 60%);
-}
-
-.shadow_black [data-key*=_SHD] {
-	background: radial-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%);
-}
-
-.shadow_blue [data-key*=_SHD] {
-	background: radial-gradient(rgba(0, 30, 80, 1), rgba(0, 30, 80, 0) 60%);
-}
-
-
 /*
  * Overlay colors.
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV] [data-key=OL].OL_type_default [data-key=OL_ELM] {
-	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
+[data-key="CV"] [data-key="OL"].OL_type_default [data-key="OL_ELM_1"] {
+	background: radial-gradient(rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0) 60%);
 }
 
-[data-key=CV].CV_tens_e0 [data-key=OL].OL_type_default [data-key=OL_ELM] {
-	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 45%);
+[data-key="CV"] [data-key="OL"].OL_type_default [data-key="OL_ELM_0"] {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 28%);
 }
 
-[data-key=CV].CV_tens_w1 [data-key=OL].OL_type_default [data-key=OL_ELM],
-[data-key=CV].CV_tens_w2 [data-key=OL].OL_type_default [data-key=OL_ELM] {
-	background: linear-gradient(44deg, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 50%);
+[data-key="CV"].CV_tens_e0 [data-key="OL"].OL_type_default [data-key="OL_ELM_0"] {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 45%);
 }
 
-[data-key=CV] [data-key=OL].OL_type_circle [data-key=OL_ELM] {
-	background: radial-gradient(circle, rgba(0,0,0,0) 20%, rgba(0,0,0,1) 100%);
+[data-key="CV"].CV_tens_w1 [data-key="OL"].OL_type_default [data-key="OL_ELM_0"],
+[data-key="CV"].CV_tens_w2 [data-key="OL"].OL_type_default [data-key="OL_ELM_0"] {
+	background: linear-gradient(44deg, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 50%);
+}
+
+[data-key="CV"] [data-key="OL"].OL_type_circle [data-key="OL_ELM_0"] {
+	background: radial-gradient(circle, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 100%);
 	left: -20%;
 	right: -20%;
 	width: auto;
 }
 
-[data-key=CV].CV_tens_t2 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+[data-key="CV"].CV_tens_t2 [data-key="OL"].OL_type_circle [data-key="OL_ELM_0"] {
 	padding-top: 10rem;
 }
 
-[data-key=CV].CV_tens_t1 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+[data-key="CV"].CV_tens_t1 [data-key="OL"].OL_type_circle [data-key="OL_ELM_0"] {
 	padding-top: 5rem;
 }
 
-[data-key=CV].CV_tens_e0 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+[data-key="CV"].CV_tens_e0 [data-key="OL"].OL_type_circle [data-key="OL_ELM_0"] {
 	padding-top: 5rem;
-	background: radial-gradient(circle, rgba(0,0,0,0) 30%, rgba(0,0,0,1) 100%);
+	background: radial-gradient(circle, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 1) 100%);
 }
 
-[data-key=CV].CV_tens_w1 [data-key=OL].OL_type_circle [data-key=OL_ELM],
-[data-key=CV].CV_tens_w2 [data-key=OL].OL_type_circle [data-key=OL_ELM] {
+[data-key="CV"].CV_tens_w1 [data-key="OL"].OL_type_circle [data-key="OL_ELM_0"],
+[data-key="CV"].CV_tens_w2 [data-key="OL"].OL_type_circle [data-key="OL_ELM_0"] {
 	padding-left: 30rem;
 	right: -30rem;
 }
 
-/*
- * Shadow styles.
- * ------------------------------------------------------------------------------------------------------------------
- */
-
-
-[data-key=CV] .overlay {
-	/*background: radial-gradient(rgba(0, 255, 0, 1), rgba(0, 255, 0, 0) 60%);*/
+[data-key="CV"] [data-key="OL"].OL_type_top-bot [data-key="OL_ELM_0"] {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 28%);
 }
 
-[data-key=CV] .overlay {
-	width: 300%;
-	height: 300%;
+[data-key="CV"] [data-key="OL"].OL_type_top-bot [data-key="OL_ELM_1"] {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 40%);
 }
-
-[data-key=CV] .overlay.top {
-	top: -150%;
-}
-
-[data-key=CV] .overlay.bottom {
-	bottom: -150%;
-}
-
-[data-key=CV] .overlay.middle {
-	top: -100%;
-}
-
-[data-key=CV] .overlay.left {
-	left: -150%;
-}
-
-[data-key=CV] .overlay.right {
-	right: -150%;
-}
-
-[data-key=CV] .overlay.center {
-	left: -100%;
-}
-
-[data-key=CV] .overlay.wide {
-	width: 400%;
-	height: 200%;
-}
-
-[data-key=CV] .overlay.wide.top {
-	top: calc(-100%);
-}
-
-[data-key=CV] .overlay.wide.bottom {
-	bottom: calc(-100%);
-}
-
-[data-key=CV] .overlay.wide.middle {
-	top: -50%;
-}
-
-[data-key=CV] .overlay.wide.left {
-	left: calc(-200%);
-}
-
-[data-key=CV] .overlay.wide.right {
-	right: -200%;
-}
-
-[data-key=CV] .overlay.wide.center {
-	left: -150%;
-}
-
-[data-key=CV] [data-key=WR].SQ_layout_partner .overlay{
-	display: none;
-}
-
 
 /*
  * Logo colors.
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-/* [data-key=CV] [data-key=LG] svg.text,
-[data-key=CV] [data-key=LG] svg.icon {
-	fill: transparent;
-}
-
-[data-key=CV] [data-key=LG][class*=text_white] svg.text,
-[data-key=CV] [data-key=LG][class*=icon_white] svg.icon {
-	fill: #fff !important;
-}
-
-[data-key=CV] [data-key=LG][class*=text_blue] svg.text,
-[data-key=CV] [data-key=LG][class*=icon_blue] svg.icon {
-	fill: #1b1464 !important;
-}
-
-[data-key=CV] [data-key=LG][class*=text_yellow] svg.text,
-[data-key=CV] [data-key=LG][class*=icon_yellow] svg.icon {
-	fill: #f7b141 !important;
-}
-
-[data-key=CV] [data-key=LG].LG_color_text_blue_icon_yellow svg {
-	filter: drop-shadow(0.1rem 0.1rem 0 rgba(255, 255, 255, 1.0)) !important;
-}
-
-[data-key=CV] [data-key=LG].LG_color_text_white_icon_yellow svg {
-	filter: drop-shadow(0.1rem 0.1rem 0 rgba(0, 0, 0, 1.0)) !important;
-} */
-
-
-
-[data-key=CV].CV_theme_white [data-key*=SQ_] [data-key=LD],
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_white [data-key=LD]  {
+[data-key="CV"].CV_theme_white [data-key*="SQ_"] [data-key="LD"],
+[data-key="CV"] [data-key*="SQ_"]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_white [data-key="LD"] {
 	fill: #000;
 }
 
-[data-key=CV].CV_theme_light-blue [data-key*=SQ_] [data-key=LD],
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_light-blue [data-key=LD] {
+[data-key="CV"].CV_theme_light-blue [data-key*="SQ_"] [data-key="LD"],
+[data-key="CV"] [data-key*="SQ_"]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_light-blue [data-key="LD"] {
 	fill: #001e50;
 }
 
-[data-key=CV].CV_theme_black  [data-key=LG],
-[data-key=CV].CV_theme_black  [data-key=LD],
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_black [data-key=LD],
-[data-key=CV].CV_theme_default [data-key=LG],
-[data-key=CV].CV_theme_default [data-key=LD],
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_default [data-key=LD] {
+[data-key="CV"].CV_theme_black [data-key="LG"],
+[data-key="CV"].CV_theme_black [data-key="LD"],
+[data-key="CV"] [data-key*="SQ_"]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_black [data-key="LD"],
+[data-key="CV"].CV_theme_default [data-key="LG"],
+[data-key="CV"].CV_theme_default [data-key="LD"],
+[data-key="CV"] [data-key*="SQ_"]:not(.SQ_theme_inherit).SQ_layout_logo.SQ_theme_default [data-key="LD"] {
 	fill: #fff;
 }
 
-[data-key=CV].CV_theme_black [data-key*=LG_ST_],
-[data-key=CV].CV_theme_default [data-key*=LG_ST_] {
+[data-key="CV"].CV_theme_black [data-key*="LG_ST_"],
+[data-key="CV"].CV_theme_default [data-key*="LG_ST_"] {
 	background: #fff;
 }
 
-[data-key=CV].CV_theme_white [data-key*=LG_ST_] {
+[data-key="CV"].CV_theme_white [data-key*="LG_ST_"] {
 	background: #000;
 }
 
-[data-key=CV].CV_theme_light-blue [data-key*=LG_ST_] {
+[data-key="CV"].CV_theme_light-blue [data-key*="LG_ST_"] {
 	background: #001e50;
 }
 
@@ -200,28 +96,28 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV].CV_theme_white,
-[data-key=CV].CV_theme_white [data-key*=SQ_].active.SQ_layout_logo,
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_theme_white.SQ_layout_logo.active{
+[data-key="CV"].CV_theme_white,
+[data-key="CV"].CV_theme_white [data-key*="SQ_"].active.SQ_layout_logo,
+[data-key="CV"] [data-key*="SQ_"]:not(.SQ_theme_inherit).SQ_theme_white.SQ_layout_logo.active {
 	background: #ffffff;
 }
 
-[data-key=CV].CV_theme_light-blue,
-[data-key=CV].CV_theme_light-blue [data-key*=SQ_].active.SQ_layout_logo,
-[data-key=CV] [data-key*=SQ_]:not(.SQ_theme_inherit).SQ_theme_light-blue.active.SQ_layout_logo {
+[data-key="CV"].CV_theme_light-blue,
+[data-key="CV"].CV_theme_light-blue [data-key*="SQ_"].active.SQ_layout_logo,
+[data-key="CV"] [data-key*="SQ_"]:not(.SQ_theme_inherit).SQ_theme_light-blue.active.SQ_layout_logo {
 	background: #ffffff;
 }
 
-[data-key=CV].CV_theme_black,
-[data-key=CV].CV_theme_black [data-key*=SQ_].active.SQ_layout_logo,
-[data-key=CV] [data-key*=SQ_]:not(.CV_theme_inherit).SQ_theme_black.active.SQ_layout_logo {
+[data-key="CV"].CV_theme_black,
+[data-key="CV"].CV_theme_black [data-key*="SQ_"].active.SQ_layout_logo,
+[data-key="CV"] [data-key*="SQ_"]:not(.CV_theme_inherit).SQ_theme_black.active.SQ_layout_logo {
 	background: #000;
 }
 
-[data-key=CV].CV_theme_default,
-[data-key=CV].CV_theme_default [data-key*=SQ_].active.SQ_layout_logo,
-[data-key=CV] [data-key*=SQ_]:not(.CV_theme_inherit).SQ_theme_default.active.SQ_layout_logo  {
-	background: #001e50;
+[data-key="CV"].CV_theme_default,
+[data-key="CV"].CV_theme_default [data-key*="SQ_"].active.SQ_layout_logo,
+[data-key="CV"] [data-key*="SQ_"]:not(.CV_theme_inherit).SQ_theme_default.active.SQ_layout_logo {
+	background: #000;
 }
 
 /*
@@ -229,121 +125,76 @@
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV].CV_theme_black p,
-[data-key=CV].CV_theme_default p{
+[data-key="CV"].CV_theme_black p,
+[data-key="CV"].CV_theme_default p {
 	color: #fff;
 }
 
-[data-key=CV].CV_theme_white p {
+[data-key="CV"].CV_theme_white p {
 	color: #000;
 }
 
-[data-key=CV].CV_theme_light-blue p {
+[data-key="CV"].CV_theme_light-blue p {
 	color: #001e50;
 }
-
-/* [data-key=CV].CV_theme_white p,
-[data-key=CV].CV_theme_yellow p,
-[data-key=CV] [data-key*=SQ_].SQ_theme_white p,
-[data-key=CV] [data-key*=SQ_].SQ_theme_yellow p {
-	color: #000;
-	text-shadow: 0.1rem 0.1rem rgba(255, 255, 255, 1.0);
-}
-
-[data-key=CV].CV_theme_black p,
-[data-key=CV].CV_theme_blue p,
-[data-key=CV] [data-key*=SQ_].SQ_theme_black p,
-[data-key=CV] [data-key*=SQ_].SQ_theme_blue p {
-	color: #fff;
-	text-shadow: 0.1rem 0.1rem rgba(0, 0, 0, 1.0);
-}
-
-[data-key=CV].CV_theme_white em,
-[data-key=CV].CV_theme_yellow em,
-[data-key=CV] [data-key*=SQ_].SQ_theme_white em,
-[data-key=CV] [data-key*=SQ_].SQ_theme_yellow em {
-	color: #1b1464;
-}
-
-[data-key=CV].CV_theme_blue em,
-[data-key=CV].CV_theme_black em,
-[data-key=CV] [data-key*=SQ_].SQ_theme_blue em,
-[data-key=CV] [data-key*=SQ_].SQ_theme_black em {
-	color: #f7b141;
-}
-
-[data-key=CV].CV_theme_white q,
-[data-key=CV].CV_theme_yellow q,
-[data-key=CV] [data-key*=SQ_].SQ_theme_white q,
-[data-key=CV] [data-key*=SQ_].SQ_theme_yellow q {
-	color: rgba(0, 0, 0, 0.5);
-}
-
-[data-key=CV].CV_theme_black q,
-[data-key=CV].CV_theme_blue q,
-[data-key=CV] [data-key*=SQ_].SQ_theme_black q,
-[data-key=CV] [data-key*=SQ_].SQ_theme_blue q {
-	color: rgba(255, 255, 255, 0.5);
-} */
 
 /*
  * Button colors.
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV].CV_theme_black button,
-[data-key=CV].CV_theme_default button,
-[data-key=CV] [data-key*=SQ_].SQ_theme_default button,
-[data-key=CV] [data-key*=SQ_].SQ_theme_black button,
-[data-key=CV] .BT_color_white button {
+[data-key="CV"].CV_theme_black button,
+[data-key="CV"].CV_theme_default button,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_default button,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_black button,
+[data-key="CV"] .BT_color_white button {
 	background: #fff;
 	border-color: transparent;
-	color: #001e50;
+	color: #000000;
 }
 
-[data-key=CV].CV_theme_white button,
-[data-key=CV].CV_theme_light-blue button,
-[data-key=CV] [data-key*=SQ_].SQ_theme_white button,
-[data-key=CV] [data-key*=SQ_].SQ_theme_light-blue button,
-[data-key=CV] .BT_color_blue button {
+[data-key="CV"].CV_theme_white button,
+[data-key="CV"].CV_theme_light-blue button,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_white button,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_light-blue button,
+[data-key="CV"] .BT_color_blue button {
 	background: #001e50;
 	border-color: transparent;
 	color: #fff;
 }
 
-[data-key=CV].CV_theme_white button,
-[data-key=CV] [data-key*=SQ_].SQ_theme_white button,
-[data-key=CV] .BT_color_black button {
+[data-key="CV"].CV_theme_white button,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_white button,
+[data-key="CV"] .BT_color_black button {
 	background: #000000;
 	border-color: transparent;
 	color: #fff;
 }
 
-[data-key=CV] .BT_color_white button {
+[data-key="CV"] .BT_color_white button {
 	background: #fff;
 	border-color: transparent;
 	color: #1b1464;
 }
-
 
 /*
  * Asset masking.
  * ------------------------------------------------------------------------------------------------------------------
  */
 
-[data-key=CV] [class*=_mask_] [data-key*=_ASSET] {
+[data-key="CV"] [class*="_mask_"] [data-key*="_ASSET"] {
 	mask-mode: alpha;
 	mask-repeat: no-repeat;
 	mask-position: center;
 	mask-size: 100% 100%;
 }
 
-[data-key=CV] [class*=_mask_circle] [data-key*=_ASSET] {
+[data-key="CV"] [class*="_mask_circle"] [data-key*="_ASSET"] {
 	mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMzIwIDMyMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PHJhZGlhbEdyYWRpZW50IGlkPSJhIiBjeD0iNDAiIGN5PSIzNSIgcj0iMzcuNTgiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAyMCkgc2NhbGUoNCA0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC41Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMzIwIiBzdHlsZT0iZmlsbDp1cmwoI2EpIi8+PC9zdmc+");
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMzIwIDMyMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PHJhZGlhbEdyYWRpZW50IGlkPSJhIiBjeD0iNDAiIGN5PSIzNSIgcj0iMzcuNTgiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAyMCkgc2NhbGUoNCA0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC41Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMzIwIiBzdHlsZT0iZmlsbDp1cmwoI2EpIi8+PC9zdmc+");
 }
 
-[data-key=CV] [class*=_mask_circle_sharp] [data-key*=_ASSET] {
+[data-key="CV"] [class*="_mask_circle_sharp"] [data-key*="_ASSET"] {
 	mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMzIwIDMyMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PHJhZGlhbEdyYWRpZW50IGlkPSJhIiBjeD0iNDAiIGN5PSIzNSIgcj0iMzcuNTgiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAyMCkgc2NhbGUoNCA0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC43NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD48cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgc3R5bGU9ImZpbGw6dXJsKCNhKSIvPjwvc3ZnPg==");
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMzIwIDMyMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PHJhZGlhbEdyYWRpZW50IGlkPSJhIiBjeD0iNDAiIGN5PSIzNSIgcj0iMzcuNTgiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAyMCkgc2NhbGUoNCA0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC43NSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD48cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgc3R5bGU9ImZpbGw6dXJsKCNhKSIvPjwvc3ZnPg==");
 }
@@ -382,16 +233,8 @@ body.mode_debug .debug.active .anchor.active {
 
 body.mode_debug .debug.active.anchor.anchor_fill,
 body.mode_debug .debug.active .anchor.anchor_fill.active {
-	background: radial-gradient(
-		farthest-side at top left,
-		rgba(255, 255, 0, 0.25),
-		transparent
-	),
-	radial-gradient(
-		farthest-corner at bottom right,
-		rgba(255, 255, 0, 0.25),
-		transparent 40rem
-	);
+	background: radial-gradient(farthest-side at top left, rgba(255, 255, 0, 0.25), transparent),
+		radial-gradient(farthest-corner at bottom right, rgba(255, 255, 0, 0.25), transparent 40rem);
 }
 
 body.mode_debug li.active .debug.active.anchor,
@@ -403,16 +246,8 @@ body.mode_debug .debug.active li.active .anchor.active {
 body.mode_debug li.active .debug.active.anchor.anchor_fill,
 body.mode_debug li.active .debug.active .anchor.anchor_fill.active,
 body.mode_debug .debug.active li.active .anchor.anchor_fill.active {
-	background: radial-gradient(
-		farthest-side at bottom left,
-		rgba(0, 255, 255, 0.25),
-		transparent
-	),
-	radial-gradient(
-		farthest-corner at top right,
-		rgba(0, 255, 255, 0.25),
-		transparent 40rem
-	);
+	background: radial-gradient(farthest-side at bottom left, rgba(0, 255, 255, 0.25), transparent),
+		radial-gradient(farthest-corner at top right, rgba(0, 255, 255, 0.25), transparent 40rem);
 }
 
 body.mode_debug .debug.active span,
