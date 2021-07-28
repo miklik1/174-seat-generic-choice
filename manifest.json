@@ -42,7 +42,7 @@
       "name": "250x360",
       "width": 250,
       "height": 360,
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "250x360.png"
       }
@@ -102,7 +102,7 @@
     "editor": {
       "scope": [
         0,
-        "FG",
+        "",
         ""
       ],
       "frame": 0,
@@ -997,7 +997,7 @@
                 },
                 "LS": {
                   "type": "JointLayer",
-                  "enabled": true,
+                  "enabled": false,
                   "macros": {
                     "LS_type": {
                       "value": "default"
@@ -1103,11 +1103,11 @@
                             }
                           ],
                           "excepts": {
-                            "LS_type_other": {
+                            "LS_type_swe": {
                               "data": {
                                 "sources": [
                                   {
-                                    "url": "./assets/logo-white.svg"
+                                    "url": "./assets/sponsor_swe.svg"
                                   }
                                 ]
                               }
@@ -1993,9 +1993,46 @@
                             }
                           },
                           "excepts": {
+                            "LG_type_zero": {
+                              "data": {
+                                "enabled": false
+                              }
+                            },
                             "LG_type_partner": {
                               "data": {
                                 "enabled": false
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "type": "ImageLayer",
+                          "enabled": false,
+                          "attrs": {
+                            "style_SHD": {
+                              "selector": "[data-key*=_SHD]",
+                              "css": {
+                                "opacity": {
+                                  "value":  25,
+                                  "calc": "$[value]/100"
+                                }
+                              }
+                            }
+                          },
+                          "anims": {
+                            "LG_anim": {
+                              "name": "LG_anim"
+                            }
+                          },
+                          "sources": [
+                            {
+                              "url": "./assets/logo_zero.png"
+                            }
+                          ],
+                          "excepts": {
+                            "LG_type_zero": {
+                              "data": {
+                                "enabled": true
                               }
                             }
                           }

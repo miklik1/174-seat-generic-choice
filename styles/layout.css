@@ -141,6 +141,18 @@
 	top: 1rem;
 }
 
+[data-key=CV] [data-key=WR].LG_type_zero [data-key=LG] {
+	width: 71px;
+	height: 21px;
+	top: 2rem;
+	right: 2em;
+}
+
+[data-key=CV] [data-key=WR].LG_type_zero [data-key=LG_ST_R],
+[data-key=CV] [data-key=WR].LG_type_zero [data-key=LG_ST_L] {
+	display: none;
+}
+
 [data-key=CV] [data-key=LD] {
 	opacity: 0;
 }
@@ -279,6 +291,12 @@
 	left: calc(50% - 3.5em);
 }
 
+[data-key=CV].CV_tens_t2 [data-key=WR].LG_type_zero [data-key=LG] {
+	left: unset;
+	top: 2rem;
+	right: 2em;
+}
+
 [data-key=CV].CV_tens_t2 .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
@@ -327,6 +345,12 @@
 [data-key=CV].CV_tens_t1 [data-key=LG] {
 	left: calc(50% - 2em);
 	top: 2rem;
+}
+
+[data-key=CV].CV_tens_t1 [data-key=WR].LG_type_zero [data-key=LG] {
+	left: unset;
+	top: 2rem;
+	right: 2em;
 }
 
 [data-key=CV].CV_tens_t1 [data-key=LG].LG_type_partner {
@@ -380,6 +404,12 @@
 	height: 4em;
 	right: 2rem;
 	top: 2rem;
+}
+
+[data-key=CV].CV_tens_e0 [data-key=WR].LG_type_zero [data-key=LG] {
+	left: unset;
+	top: 1rem;
+	right: 1em;
 }
 
 [data-key=CV].CV_tens_e0 [data-key*=SQ_]:not(.SQ_layout_logo) [data-key=LG].LG_type_partne {
