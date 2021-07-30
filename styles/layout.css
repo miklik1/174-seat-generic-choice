@@ -53,7 +53,7 @@
 
 [data-key="CV"] button {
 	display: inline-block;
-	padding: 0.4rem 1.2rem 0.45rem 1.2rem;
+	padding: 0.3rem 1.2rem 0.5rem 1.2rem;
 	line-height: 1 !important;
 	border-radius: 1em;
 	min-width: 2rem;
@@ -121,8 +121,8 @@
 }
 
 [data-key=CV] [data-key=WR].LG_type_zero [data-key=LG] {
-	width: 71px;
-	height: 21px;
+	width: calc(2 * 3rem);
+	height: calc(2 * 1rem);
 	top: 2rem;
 	right: 2em;
 }
@@ -244,14 +244,11 @@
 }
 
 [data-key="CV"] [data-key="MS"] {
+	line-height: 1.1;
 	text-align: center;
 	vertical-align: middle;
 	max-width: 100%;
 	max-height: 100%;
-}
-
-[data-key="CV"] [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
-	margin-top: 1rem;
 }
 
 /*
@@ -338,9 +335,8 @@
 
 [data-key="CV"].CV_tens_t1 .MS_ARE {
 	left: 1.5rem;
-	bottom: 6rem;
 	width: calc(100% - (1.5rem * 2));
-	top: calc(8rem);
+	top: 7.5rem;
 	height: calc(100% - (6rem + 50%));
 }
 
@@ -360,9 +356,7 @@
 	height: 6rem;
 }
 
-[data-key="CV"].CV_tens_t1 [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
-	margin-top: 0.5em;
-}
+
 
 [data-key="CV"].CV_tens_t1 [data-key="BG"].BG_place_fit,
 [data-key="CV"].CV_tens_t1 [data-key*="SQ_"] [data-key="FG"].FG_place_fit {
@@ -386,7 +380,7 @@
 
 [data-key=CV].CV_tens_e0 [data-key=WR].LG_type_zero [data-key=LG] {
 	left: unset;
-	top: 1rem;
+	top: 2rem;
 	right: 1em;
 }
 
@@ -402,7 +396,7 @@
 [data-key="CV"].CV_tens_e0 .MS_ARE {
 	left: 2rem;
 	bottom: 6rem;
-	width: calc(100% - (5rem + 2rem + 2rem + 2rem));
+	width: calc(100% - (5rem + 2rem + 2rem + 0.5rem));
 	top: 2rem;
 	height: calc(100% - (1rem + 55%));
 }
@@ -424,9 +418,6 @@
 	width: calc(100% - (3rem + 5rem + 1rem + 1rem));
 }
 
-[data-key="CV"].CV_tens_e0 [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
-	margin-top: 0.5em;
-}
 
 [data-key="CV"].CV_tens_e0 [data-key="BG"].BG_place_fit,
 [data-key="CV"].CV_tens_e0 [data-key*="SQ_"] [data-key="FG"].FG_place_fit {
@@ -446,6 +437,10 @@
 	top: 1.5rem;
 }
 
+[data-key=CV].CV_tens_w1 [data-key=WR].LG_type_zero [data-key=LG] {
+	top: 1.5rem;
+}
+
 [data-key="CV"].CV_tens_w1 [data-key*="SQ_"]:not(.SQ_layout_logo) [data-key="LG"].LG_type_partner {
 	width: 7rem;
 }
@@ -458,13 +453,9 @@
 [data-key="CV"].CV_tens_w1 .MS_ARE {
 	left: 1.5rem;
 	bottom: 6rem;
-	width: calc(100% - (43% + 9rem));
+	width: calc(100% - (43% + 7rem));
 	top: 1.5rem;
-	height: calc(100% - (2rem + 40%));
-}
-
-[data-key="CV"].CV_tens_w1 [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
-	margin-top: 0.5rem;
+	height: calc(100% - (2rem + 35%));
 }
 
 [data-key="CV"].CV_tens_w1 [data-key="CN_TXT_0"] {
@@ -527,7 +518,7 @@
 [data-key="CV"].CV_tens_w2 .MS_ARE {
 	left: 2rem;
 	bottom: 6rem;
-	width: calc(100% - (10rem + 30%));
+	width: calc(100% - (8rem + 30%));
 	top: 1.5rem;
 	height: calc(100% - (2rem + 2rem + 1rem));
 }
@@ -547,10 +538,6 @@
 	bottom: 1.5rem;
 	height: calc(100% - ((1.5rem * 2) + 4rem + 1.5rem));
 	max-height: 2.5rem;
-}
-
-[data-key="CV"].CV_tens_w2 [data-key*="MS_TXT_"]:not([data-key="MS_TXT_0"]) {
-	margin-top: 0.5rem;
 }
 
 [data-key="CV"].CV_tens_w2 [data-key="CA_TXT_0"] {
