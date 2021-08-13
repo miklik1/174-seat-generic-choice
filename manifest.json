@@ -42,7 +42,7 @@
       "name": "250x360",
       "width": 250,
       "height": 360,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "250x360.png"
       }
@@ -52,7 +52,7 @@
       "name": "300x250",
       "width": 300,
       "height": 250,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "300x250.png"
       }
@@ -62,7 +62,7 @@
       "name": "300x600",
       "width": 300,
       "height": 600,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "300x600.png"
       }
@@ -72,7 +72,7 @@
       "name": "320x320",
       "width": 320,
       "height": 320,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "320x320.png"
       }
@@ -82,7 +82,7 @@
       "name": "980x240",
       "width": 980,
       "height": 240,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "980x240.png"
       }
@@ -92,7 +92,7 @@
       "name": "RxR",
       "width": "100%",
       "height": "100%",
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "0x0.png"
       }
@@ -163,17 +163,31 @@
           "selector": [".font_A_600 s", ".font_A_400 b"],
           "types": ["woff", "woff2"]
         },
+        "font_B_200": {
+          "name": "font_B_200",
+          "url": "./assets/fonts/vwtext_light",
+          "alt": "Arial",
+          "selector": [".font_B_200 p"],
+          "types": ["woff", "woff2"]
+        },
         "font_B_400": {
           "name": "font_B_400",
           "url": "./assets/fonts/vwtext_regular",
           "alt": "Arial",
           "selector": [".font_B_400 p"],
           "types": ["woff", "woff2"]
+        },
+        "font_B_600": {
+          "name": "font_B_600",
+          "url": "./assets/fonts/vwtext_bold",
+          "alt": "Arial",
+          "selector": [".font_B_600 p"],
+          "types": ["woff", "woff2"]
         }
       },
       "params": {
         "wait": {
-          "fonts": ["font_A_200", "font_A_400", "font_A_600", "font_B_400", ""],
+          "fonts": ["font_A_200", "font_A_400", "font_A_600", "font_B_200", "font_B_400", "font_B_600"],
           "assets": []
         },
         "stop": {
@@ -1690,7 +1704,7 @@
                                   },
                                   "sources": [
                                     {
-                                      "text": "Höj den elektriska"
+                                      "text": "Nya Tiguan."
                                     }
                                   ],
                                   "excepts": {
@@ -1742,14 +1756,14 @@
                                   },
                                   "attrs": {
                                     "DS_font": {
-                                      "name": "font_B_400"
+                                      "name": "font_A_200"
                                     },
                                     "DS_style": {
                                       "selector": "p",
                                       "css": {
                                         "text-transform": "none",
                                         "font-size": {
-                                          "value": 0,
+                                          "value": 2,
                                           "calc": "(1.2+($[value]*$[value]*0.1)) + 'em'"
                                         }
                                       }
@@ -1762,7 +1776,7 @@
                                   },
                                   "sources": [
                                     {
-                                      "text": "<l>test ahoj</l>"
+                                      "text": "Alla dagar i veckan."
                                     }
                                   ],
                                   "excepts": {
