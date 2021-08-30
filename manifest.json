@@ -37,6 +37,10 @@
     {
       "name": "${dest_url}",
       "type": "text"
+    },
+    {
+      "name": "${dealership_source}",
+      "type": "text"
     }
   ],
   "assets": [],
