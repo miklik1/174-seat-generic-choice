@@ -5803,6 +5803,28 @@
 					</block-info>
 				</block-field>
 
+				<block-field title="$[dest_url]">
+					<text-field placeholder="Value" model="$data.banner.macros.dest_url.value"></text-field>
+					<block-info>
+						<p>
+							<small><q>
+								Custom macro, <a ng-click="$data.banner.macros.dest_url.value = '${dest_url}'">set value</a> to default.
+							</q></small>
+						</p>
+					</block-info>
+				</block-field>
+
+				<block-field title="$[dealership_source]">
+					<text-field placeholder="Value" model="$data.banner.macros.dealership_source.value"></text-field>
+					<block-info>
+						<p>
+							<small><q>
+								Custom macro, <a ng-click="$data.banner.macros.dealership_source.value = '${dealership_source}'">set value</a> to default.
+							</q></small>
+						</p>
+					</block-info>
+				</block-field>
+
 			</block-group>
 			<block-group ng-if="($data.editor.scope[2].indexOf('macros') != -1)" ng-class="{disabled: (!$data.banner.feeds[0].enabled)}">
 
