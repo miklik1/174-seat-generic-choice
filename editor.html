@@ -2819,6 +2819,10 @@
 				<data ng-if="$data.editor.frame !== $frames.index" ng-init="$data.editor.frame = $frames.index"></data>
 				<!-- / FRAME INDEX VALIDATION -->
 
+				<!-- DATA PATCH 31.08.2021 -->
+				<data ng-if="!$frame.layers['LD'].layers['LD_TXT']" ng-init="$frame.layers['LD'] = {'enabled':true,'type':'JointLayer','macros':{'LD_type':{'value':'text'}},'attrs':{'LD_type':{'name':'LD_type_$[LD_type]','global':true}},'layers':{'LD_IMG':{'type':'JointLayer','enabled':false,'layers':[{'type':'ImageLayer','macros':{'ratio':{'value':'$[LD_ratio]','calc':'(1 + $[value])'}},'params':{'wrapper':'LD','scale':'fit','polite':false,'ratio':'$[ratio]'},'anims':{'LS_anim':{'name':'LD_anim'}},'sources':[{'url':'$[dealership_source]'}]}],'excepts':{'LD_type_image':{'data':{'enabled':true}}}},'LD_TXT':{'enabled':false,'type':'JointLayer','attrs':{'LS_style':{'css':{'text-align':'$[LD_align]'}}},'layers':[{'type':'TextLayer','params':{'holder':'LD_TXT','wrapper':'LD','tags':['p']},'attrs':{'LS_font':{'name':'font_A_600'},'LS_style':{'selector':'p','css':{'text-transform':'none','font-size':{'value':1,'calc':'(1.2 +($[value]*$[value]*0.1)) + \'em\''}}}},'anims':{'LS_anim':{'name':'LD_anim'}},'sources':[{'text':'$[dealership_source]'}]}],'excepts':{'LD_type_text':{'data':{'enabled':true}}}}},'anims':{'LD_anim':{'name':'LD_anim'}}}"></data>
+				<!-- / DATA PATCH 31.08.2021 -->
+
 				<!-- SECONDARY FOREGROUND IMAGE VALIDATION -->
 				<data ng-if="$frame.layers['ZG'].layers['ZG_IMG'].layers[0] && $frame.layers['ZG'].enabled == false" ng-init="$frame.layers['ZG'].enabled = true"></data>
 				<data ng-if="!$frame.layers['ZG'].layers['ZG_IMG'].layers[0] && $frame.layers['ZG'].enabled == true" ng-init="$frame.layers['ZG'].enabled = false"></data>
