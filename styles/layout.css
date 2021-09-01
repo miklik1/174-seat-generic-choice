@@ -298,7 +298,7 @@
 	left: 1.5rem;
 	bottom: 1rem;
 	width: calc(100% - (1.5rem * 2));
-	height: 9rem;
+	height: 12rem;
 }
 
 [data-key="CV"].CV_tens_t2 [data-key="WR"]:not(.LS_disabled) [data-key="CA"] {
@@ -358,7 +358,7 @@
 	left: 1.5rem;
 	bottom: 1rem;
 	width: calc(100% - (1.5rem * 2));
-	height: 6rem;
+	height: 10rem;
 }
 
 [data-key="CV"].CV_tens_t1 [data-key="WR"]:not(.LS_disabled) [data-key="CA"] {
@@ -417,7 +417,7 @@
 }
 
 [data-key="CV"].CV_tens_e0 [data-key="CA"] {
-	height: 6rem;
+	height: 9rem;
 	bottom: 1rem;
 	left: 2rem;
 }
@@ -470,7 +470,7 @@
 }
 
 [data-key="CV"].CV_tens_w1 [data-key="CA"] {
-	height: calc(100% - ((100% - (2rem + 42%) + 4.5rem)));
+	height: calc(100% - ((100% - (2rem + 42%) + 3.5rem)));
 	bottom: 1rem;
 	left: 1.5rem;
 }
