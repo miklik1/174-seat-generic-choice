@@ -33,6 +33,14 @@
     {
       "name": "${var_5}",
       "type": "text"
+    },
+    {
+      "name": "${dest_url}",
+      "type": "text"
+    },
+    {
+      "name": "${dealership_source}",
+      "type": "text"
     }
   ],
   "assets": [],
@@ -117,7 +125,7 @@
         "override": true,
         "synchronise": false,
         "encode": true,
-        "url": "http://www.vw.com/"
+        "url": "$[dest_url]"
       },
       "macros": {
         "var_1": {
@@ -138,6 +146,14 @@
         },
         "var_5": {
           "value": "${var_5}",
+          "global": true
+        },
+        "dest_url": {
+          "value": "${dest_url}",
+          "global": true
+        },
+        "dealership_source": {
+          "value": "${dealership_source}",
           "global": true
         }
       },
@@ -166,7 +182,11 @@
       },
       "params": {
         "wait": {
-          "fonts": ["font_A_200", "font_A_400", "font_A_600"],
+          "fonts": [
+            "font_A_200",
+            "font_A_400",
+            "font_A_600"
+          ],
           "assets": []
         },
         "stop": {
@@ -1097,30 +1117,106 @@
                           "enabled": true,
                           "macros": {
                             "LD_type": {
-                              "value": "custom"
+                              "value": "text"
                             }
                           },
                           "attrs": {
                             "LD_type": {
-                              "name": "LD_type_$[LD_type]"
+                              "name": "LD_type_$[LD_type]",
+                              "global": true
                             }
                           },
                           "layers": {
                             "LD_IMG": {
                               "type": "JointLayer",
+                              "enabled": false,
                               "layers": [
                                 {
-                                  "type": "JointLayer"
-                                },
-                                {
+                                  "type": "ImageLayer",
+                                  "macros": {
+                                    "ratio": {
+                                      "value": "$[LD_ratio]",
+                                      "calc": "(1 + $[value])"
+                                    }
+                                  },
                                   "params": {
                                     "wrapper": "LD",
                                     "scale": "fit",
                                     "polite": false,
                                     "ratio": "$[ratio]"
+                                  },
+                                  "anims": {
+                                    "LS_anim": {
+                                      "name": "LD_anim"
+                                    }
+                                  },
+                                  "sources": [
+                                    {
+                                      "url": "$[dealership_source]"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "excepts": {
+                                "LD_type_image": {
+                                  "data": {
+                                    "enabled": true
                                   }
                                 }
-                              ]
+                              }
+                            },
+                            "LD_TXT": {
+                              "enabled": false,
+                              "type": "JointLayer",
+                              "attrs": {
+                                "LS_style": {
+                                  "css": {
+                                    "text-align": "$[LD_align]"
+                                  }
+                                }
+                              },
+                              "layers": [
+                                {
+                                  "type": "TextLayer",
+                                  "params": {
+                                    "holder": "LD_TXT",
+                                    "wrapper": "LD",
+                                    "tags": ["p"]
+                                  },
+                                  "attrs": {
+                                    "LS_font": {
+                                      "name": "font_A_600"
+                                    },
+                                    "LS_style": {
+                                      "selector": "p",
+                                      "css": {
+                                        "text-transform": "none",
+                                        "font-size": {
+                                          "value": 1,
+                                          "calc": "(1.2 +($[value]*$[value]*0.1)) + 'em'"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "anims": {
+                                    "LS_anim": {
+                                      "name": "LD_anim"
+                                    }
+                                  },
+                                  "sources": [
+                                    {
+                                      "text": "$[dealership_source]"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "excepts": {
+                                "LD_type_text": {
+                                  "data": {
+                                    "enabled": true
+                                  }
+                                }
+                              }
                             }
                           },
                           "anims": {
@@ -1846,7 +1942,7 @@
                               "selector": "[data-key*=_SHD]",
                               "css": {
                                 "opacity": {
-                                  "value":  25,
+                                  "value": 25,
                                   "calc": "$[value]/100"
                                 }
                               }

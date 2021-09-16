@@ -856,6 +856,7 @@
 									// Look for layers key.
 									switch (layer.key) {
 
+
 										// Look for message layer.
 										case 'MS':
 
@@ -896,6 +897,21 @@
 											} catch (e) {
 											}
 
+											break;
+
+										case 'LD':
+
+											try {
+													var
+														/**
+															* @type {String}
+														*/
+													LD_macros_local = layer.macros.local;
+
+													LD_macros_local.LD_type = utils.isUrl(layer.root.macros.global.dealership_source) ? 'image' : 'text';
+
+											} catch (e) {
+											}
 											break;
 
 									}

@@ -126,15 +126,19 @@
  */
 
 [data-key="CV"].CV_theme_black p,
-[data-key="CV"].CV_theme_default p {
+[data-key="CV"].CV_theme_default p,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_default p,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_black p {
 	color: #fff;
 }
 
-[data-key="CV"].CV_theme_white p {
+[data-key="CV"].CV_theme_white p,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_white p {
 	color: #000;
 }
 
-[data-key="CV"].CV_theme_light-blue p {
+[data-key="CV"].CV_theme_light-blue p,
+[data-key="CV"] [data-key*="SQ_"].SQ_theme_light-blue p {
 	color: #001e50;
 }
 
