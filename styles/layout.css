@@ -53,7 +53,7 @@
 
 [data-key="CV"] button {
 	display: inline-block;
-	padding: 0.3rem 1.2rem 0.55rem 1.2rem;
+	padding: 0.4rem 1.2rem 0.525rem 1.2rem;
 	line-height: 1 !important;
 	border-radius: 1em;
 	min-width: 2rem;
@@ -74,14 +74,6 @@
 
 [data-key="CV"] [data-key="CA_TXT_1"] {
 	text-align: left;
-}
-
-[data-key="CV"]:not(.CV_tens_w2) [data-key="MS_TXT_2"] {
-	display: none;
-}
-
-[data-key="CV"]:not(.CV_tens_w2) [data-key="MS_TXT_2"] {
-	display: none;
 }
 
 [data-key="CV"] .BT_WIDE {
@@ -115,49 +107,11 @@
  */
 
 [data-key="CV"] [data-key="LG"] {
-	width: 4em;
-	height: 4em;
-	top: 1rem;
+	height: 4rem;
+  	width: 5rem;
 }
 
-[data-key="CV"] [data-key="WR"].LG_type_zero [data-key="LG"] {
-	width: calc(2 * 3rem);
-	height: calc(2 * 1rem);
-	top: 2rem;
-	right: 2em;
-}
-
-[data-key="CV"] [data-key="WR"].LG_type_zero [data-key="LG_ST_R"],
-[data-key="CV"] [data-key="WR"].LG_type_zero [data-key="LG_ST_L"] {
-	display: none;
-}
-
-[data-key="CV"] [data-key="LD"] {
-	opacity: 0;
-}
-
-[data-key="CV"] [data-key="LD"].LD_anim_in {
-	opacity: 1;
-}
-
-[data-key="CV"] [data-key="LG_ST_R"],
-[data-key="CV"] [data-key="LG_ST_L"] {
-	width: 300%;
-	height: 0.2em;
-	top: calc(50% - 0.1em);
-	display: block;
-}
-
-[data-key="CV"] [data-key="LG_ST_R"] {
-	left: calc(100% + 1em);
-}
-
-[data-key="CV"] [data-key="LG_ST_L"] {
-	right: calc(100% + 1em);
-}
-
-[data-key="CV"] [data-key="LG"] [data-key*="LG_IMG_"] svg,
-[data-key="CV"] [data-key="LD"] svg {
+[data-key="CV"] [data-key="LG"] [data-key*="LG_IMG_"] svg {
 	right: 0;
 	bottom: 0;
 	width: 100%;
@@ -380,45 +334,33 @@
  */
 
 [data-key="CV"].CV_tens_e0 [data-key="LG"] {
-	width: 4em;
-	height: 4em;
 	right: 2rem;
-	top: 2rem;
-}
-
-[data-key="CV"].CV_tens_e0 [data-key="WR"].LG_type_zero [data-key="LG"] {
-	left: unset;
-	top: 2rem;
-	right: 1em;
-}
-
-[data-key="CV"].CV_tens_e0 [data-key*="SQ_"]:not(.SQ_layout_logo) [data-key="LG"].LG_type_partne {
-	width: 6.5rem;
-}
-
-[data-key="CV"].CV_tens_e0 [data-key="LG_ST_R"],
-[data-key="CV"].CV_tens_e0 [data-key="LG_ST_L"] {
-	display: none;
+	bottom: 6rem;
 }
 
 [data-key="CV"].CV_tens_e0 .MS_ARE {
 	left: 2rem;
 	bottom: 6rem;
 	width: calc(100% - (5rem + 2rem + 2rem + 0.5rem));
-	top: 2rem;
-	height: calc(100% - (1rem + 55%));
+	height: 8rem;
 }
 
-[data-key="CV"].CV_tens_e0 [data-key*="SQ_"] .BT_ARE {
-	bottom: calc(1.5rem + 2rem + 1rem);
-	left: 2rem;
-	width: calc(100% - (3rem + 5rem + 1rem + 1rem));
-	height: 2.5rem;
+[data-key="CV"].CV_tens_e0 [data-key=MS_TXT_1] {
+	width: 100%;
 }
+
+[data-key="CV"].CV_tens_e0 [data-key=MS_TXT_2] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: -1rem;
+	margin-right: -1rem;
+}
+
 
 [data-key="CV"].CV_tens_e0 [data-key="CA"] {
-	height: 9rem;
-	bottom: 1rem;
+	height: 3.5rem;
+	bottom: 2rem;
 	left: 2rem;
 }
 
@@ -428,10 +370,10 @@
 
 [data-key="CV"].CV_tens_e0 [data-key="BG"].BG_place_fit,
 [data-key="CV"].CV_tens_e0 [data-key*="SQ_"] [data-key="FG"].FG_place_fit {
-	bottom: 7rem;
-	right: 0.5rem;
-	width: calc(100% - 1rem);
-	height: calc(100% - (10rem + 30%));
+	top: 1rem;
+	left: 1rem;
+	width: calc(100% - 2rem);
+	height: 13rem;
 }
 
 /*

@@ -173,6 +173,11 @@ big {
     font-size: 1.2em;
 }
 
+li {
+    list-style-type: disc;
+    position: static;
+}
+
 sup {
     font-size: 0.5em;
     vertical-align: super;

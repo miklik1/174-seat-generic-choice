@@ -47,52 +47,12 @@
   "sizes": [
     {
       "type": "FIXED",
-      "name": "250x360",
-      "width": 250,
-      "height": 360,
-      "index": "0x0.min.html",
-      "fallback": {
-        "static": "250x360.png"
-      }
-    },
-    {
-      "type": "FIXED",
-      "name": "300x250",
-      "width": 300,
-      "height": 250,
-      "index": "0x0.min.html",
-      "fallback": {
-        "static": "300x250.png"
-      }
-    },
-    {
-      "type": "FIXED",
-      "name": "300x600",
-      "width": 300,
-      "height": 600,
-      "index": "0x0.min.html",
-      "fallback": {
-        "static": "300x600.png"
-      }
-    },
-    {
-      "type": "FIXED",
       "name": "320x320",
       "width": 320,
       "height": 320,
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "320x320.png"
-      }
-    },
-    {
-      "type": "FIXED",
-      "name": "980x240",
-      "width": 980,
-      "height": 240,
-      "index": "0x0.min.html",
-      "fallback": {
-        "static": "980x240.png"
       }
     },
     {
@@ -158,32 +118,32 @@
         }
       },
       "fonts": {
-        "font_A_200": {
-          "name": "font_A_200",
-          "url": "./assets/fonts/vwhead_light",
+        "font_A_300": {
+          "name": "font_A_300",
+          "url": "./assets/fonts/Light",
           "alt": "Arial",
-          "selector": [".font_A_200", ".font_A_400 l"],
+          "selector": [".font_A_300 s"],
           "types": ["woff", "woff2"]
         },
         "font_A_400": {
           "name": "font_A_400",
-          "url": "./assets/fonts/vwhead_regular",
+          "url": "./assets/fonts/Regular",
           "alt": "Arial",
           "selector": [".font_A_400 s"],
           "types": ["woff", "woff2"]
         },
-        "font_A_600": {
+        "font_A_500": {
           "name": "font_A_600",
-          "url": "./assets/fonts/vwhead_bold",
+          "url": "./assets/fonts/Bold",
           "alt": "Arial",
-          "selector": [".font_A_600 s", ".font_A_400 b"],
+          "selector": [".font_A_500 s"],
           "types": ["woff", "woff2"]
         }
       },
       "params": {
         "wait": {
           "fonts": [
-            "font_A_200",
+            "font_A_300",
             "font_A_400",
             "font_A_600"
           ],
@@ -203,10 +163,10 @@
           "type": "JointLayer",
           "macros": {
             "CV_theme": {
-              "value": "default"
+              "value": "white"
             },
             "CV_logo_color": {
-              "value": "white",
+              "value": "black",
               "global": true
             }
           },
@@ -879,7 +839,7 @@
                   }
                 },
                 "OL": {
-                  "enabled": true,
+                  "enabled": false,
                   "type": "JointLayer",
                   "macros": {
                     "OL_type": {
@@ -1766,7 +1726,7 @@
                                       "css": {
                                         "text-transform": "none",
                                         "font-size": {
-                                          "value": 3,
+                                          "value": 2,
                                           "calc": "(1 +($[value]*$[value]*0.1)) + 'em'"
                                         }
                                       }
@@ -1779,7 +1739,7 @@
                                   },
                                   "sources": [
                                     {
-                                      "text": "Nya Tiguan."
+                                      "text": "SEAT ARONA 2018\nfrån XXX kr/månvvvvvvvvvvv"
                                     }
                                   ],
                                   "excepts": {
@@ -1831,7 +1791,7 @@
                                   },
                                   "attrs": {
                                     "DS_font": {
-                                      "name": "font_A_200"
+                                      "name": "font_A_600"
                                     },
                                     "DS_style": {
                                       "selector": "p",
@@ -1839,7 +1799,7 @@
                                         "text-transform": "none",
                                         "font-size": {
                                           "value": 2,
-                                          "calc": "(1.2+($[value]*$[value]*0.1)) + 'em'"
+                                          "calc": "(0.8+($[value]*$[value]*0.1)) + 'em'"
                                         }
                                       }
                                     }
@@ -1851,7 +1811,7 @@
                                   },
                                   "sources": [
                                     {
-                                      "text": "Alla dagar i veckan."
+                                      "text": "<ul><li>Garanterat restvärde</li><li>Garanterat restvärde</li><li>Garanterat restvärde</li></ul>"
                                     }
                                   ],
                                   "excepts": {
@@ -1875,6 +1835,73 @@
                                       }
                                     }
                                   }
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "BT": {
+                          "type": "JointLayer",
+                          "enabled": true,
+                          "layers": {
+                            "BT_TXT": {
+                              "type": "JointLayer",
+                              "layers": [
+                                {
+                                  "type": "TextLayer",
+                                  "clone": [
+                                    {
+                                      "key": "MS_TXT_2",
+                                      "wrapper": "MS",
+                                      "holder": "MS_TXT"
+                                    }
+                                  ],
+                                  "macros": {
+                                    "BT_color": {
+                                      "value": "default"
+                                    }
+                                  },
+                                  "params": {
+                                    "holder": "BT_TXT",
+                                    "wrapper": "BT",
+                                    "tags": ["p", "button"]
+                                  },
+                                  "attrs": {
+                                    "BT_font": {
+                                      "name": "font_A_600"
+                                    },
+                                    "BT_style": {
+                                      "selector": "button",
+                                      "css": {
+                                        "font-size": {
+                                          "value": 0,
+                                          "calc": "(1+($[value]*$[value]*0.1)) + 'em'"
+                                        }
+                                      }
+                                    },
+                                    "BT_color": {
+                                      "name": "BT_color_$[BT_color]"
+                                    },
+                                    "style_SHD": {
+                                      "selector": "[data-key*=_SHD]",
+                                      "css": {
+                                        "opacity": {
+                                          "value": 25,
+                                          "calc": "$[value]/100"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "anims": {
+                                    "BT_anim": {
+                                      "name": "BT_anim"
+                                    }
+                                  },
+                                  "sources": [
+                                    {
+                                      "text": "Läs mer"
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -2089,79 +2116,7 @@
                           },
                           "sources": [
                             {
-                              "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offigcia deserunt mollit anim id est laborum."
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                },
-                "BT": {
-                  "type": "JointLayer",
-                  "enabled": true,
-                  "layers": {
-                    "BT_TXT": {
-                      "type": "JointLayer",
-                      "layers": [
-                        {
-                          "type": "TextLayer",
-                          "clone": [
-                            {
-                              "key": "CA_TXT_0",
-                              "wrapper": "CA",
-                              "holder": "CA_TXT"
-                            },
-                            {
-                              "key": "CA_TXT_2",
-                              "wrapper": "CA",
-                              "holder": "CA_TXT"
-                            }
-                          ],
-                          "macros": {
-                            "BT_color": {
-                              "value": "default"
-                            }
-                          },
-                          "params": {
-                            "holder": "BT_TXT",
-                            "wrapper": "BT",
-                            "tags": ["p", "button"]
-                          },
-                          "attrs": {
-                            "BT_font": {
-                              "name": "font_A_600"
-                            },
-                            "BT_style": {
-                              "selector": "button",
-                              "css": {
-                                "font-size": {
-                                  "value": 0,
-                                  "calc": "(1+($[value]*$[value]*0.1)) + 'em'"
-                                }
-                              }
-                            },
-                            "BT_color": {
-                              "name": "BT_color_$[BT_color]"
-                            },
-                            "style_SHD": {
-                              "selector": "[data-key*=_SHD]",
-                              "css": {
-                                "opacity": {
-                                  "value": 25,
-                                  "calc": "$[value]/100"
-                                }
-                              }
-                            }
-                          },
-                          "anims": {
-                            "BT_anim": {
-                              "name": "BT_anim"
-                            }
-                          },
-                          "sources": [
-                            {
-                              "text": "Boka provkörning"
+                              "text": "SEAT Choice: Billån 36 mån, 1 500 mil/år, XX % kontant, garanterat restvärde alternativt XX% restskuld, rörlig ränta baserad på VWFS basränta (effektiv ränta från X,XX april 2021). Serviceavtal 36 mån 4 500 mil."
                             }
                           ]
                         }

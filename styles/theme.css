@@ -142,6 +142,9 @@
 	color: #001e50;
 }
 
+
+
+
 /*
  * Button colors.
  * ------------------------------------------------------------------------------------------------------------------
@@ -170,9 +173,9 @@
 [data-key="CV"].CV_theme_white button,
 [data-key="CV"] [data-key*="SQ_"].SQ_theme_white button,
 [data-key="CV"] .BT_color_black button {
-	background: #000000;
+	background: #ff6400;
 	border-color: transparent;
-	color: #fff;
+	color: #ffffff;
 }
 
 [data-key="CV"] .BT_color_white button {
@@ -231,7 +234,12 @@
  */
 
 body.mode_debug .debug.active.anchor,
-body.mode_debug .debug.active .anchor.active {
+body.mode_debug .debug.active .anchor.active,
+[data-key=MS],
+[data-key=CA],
+[data-key=BT],
+[data-key=LG],
+[data-key=FG] {
 	box-shadow: inset 0 0 0 0.5rem rgba(255, 255, 0, 0.25);
 }
 
