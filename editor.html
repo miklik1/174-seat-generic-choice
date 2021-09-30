@@ -1199,865 +1199,6 @@
 
 			</block-group>
 
-			<block-toggle title="Overlay" class="toggle" ng-class="{selected: ($data.editor.scope[1].indexOf('OL') != -1)}"
-						  ng-click="$data.editor.scope[1] = (($data.editor.scope[1] == 'OL') ? '' : 'OL')"></block-toggle>
-			<block-group ng-if="($data.editor.scope[1].indexOf('OL') != -1)">
-
-				<data ng-if="$frame = $data.banner.layers.CV.layers.WR"></data>
-
-				<!-- TABS -->
-				<data ng-init="$tab_setup = [['appear'], 'appear', ['appear'], 'appear']"></data>
-				<!-- / TABS -->
-
-				<!-- STATE VALIDATION -->
-				<data ng-if="$nav[$data.editor.scope[0]][0] = 'OL'"></data>
-				<data ng-if="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]] == undefined" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]] = [$tab_setup[0], $tab_setup[1], {}]"></data>
-				<!-- / STATE VALIDATION -->
-
-				<!-- TAB VALIDATION -->
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled == false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][0] = $tab_setup[2]"></data>
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled == false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][1] = $tab_setup[3]"></data>
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled != false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][0] = $tab_setup[0]"></data>
-				<!-- TAB VALIDATION -->
-
-				<!-- SHORTCUTS -->
-				<data ng-if="$scope = $nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]]"></data>
-				<data ng-if="$wrapper_key = $nav[$data.editor.scope[0]][0]"></data>
-				<data ng-if="$wrapper = $frame.layers[$nav[$data.editor.scope[0]][0]]"></data>
-				<!-- / SHORTCUTS -->
-
-				<block-menu class="tabs">
-					<a ng-repeat="$tab in $tab_setup[0]" ng-click="$scope[1] = $tab" ng-class="{selected: ($scope[1] == $tab), disabled: (_.indexOf($scope[0], $tab) == -1)}">{{ ::  $dict['label_' + $tab] }}</a>
-				</block-menu>
-
-				<div ng-if="($scope[1] == 'appear')">
-
-
-					<!-- STATE VALIDATION -->
-					<data ng-if="$nav[$data.editor.scope[0]][2] = 'ELM'"></data>
-					<data ng-if="$nav[$data.editor.scope[0]][3] = 1"></data>
-					<!-- / STATE VALIDATION -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$holder_key = $nav[$data.editor.scope[0]][2]"></data>
-					<data ng-if="$holder = $wrapper.layers[$wrapper_key + '_' + $holder_key]"></data>
-					<data ng-if="$target_key = 1"></data>
-					<data ng-if="$target = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key]"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$exceptions = $wrapper.macros.excepts"></data>
-					<data ng-if="$exception_preset = $wrapper.macros.excepts.preset"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- VARIATIONS -->
-					<data ng-init="$variation_setup = [_.concat(['default'], $variations[$wrapper_key + '_orient'], $variations['CV_tens'], $variations['CV_scale'], $variations['CV_size']), 'default', _.concat(['default'])]"></data>
-					<!-- VARIATIONS -->
-
-
-					<!-- VARIATION PICKER -->
-					<block-group ng-class="{disabled: (_.size($scope[2][$scope[1]][0]) <= 1)}">
-
-						<block-field title="{{ :: $dict.label_variation }} @" class="label">
-
-							<!-- VARIATION VALIDATION -->
-							<data ng-if="$scope[2][$scope[1]] == undefined" ng-init="$scope[2][$scope[1]] = [$variation_setup[0], $variation_setup[1]]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] != undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[0]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] == undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[2]"></data>
-							<!-- VARIATION VALIDATION -->
-
-							<!-- CLONE PRESET AS NEW EXCEPTION -->
-							<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
-							<!-- / CLONE PRESET AS NEW EXCEPTION -->
-
-							<dropdown-select model="$scope[2][$scope[1]][1]" ng-class="{'col-1-2' : ($exceptions && $scope[2][$scope[1]][1] != 'default')}">
-								<optgroup label="{{ :: $dict.label_default }}">
-									<option value="default">{{ :: $dict.label_default }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_element_orientation }}" ng-if="$variations[$wrapper_key + '_orient']">
-									<option ng-repeat="$variation in $variations[$wrapper_key + '_orient']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_tension }}" ng-if="$variations['CV_tens']">
-									<option ng-repeat="$variation in $variations['CV_tens']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_scale }}" ng-if="$variations['CV_scale']">
-									<option ng-repeat="$variation in $variations['CV_scale']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_size }}" ng-if="$variations['CV_size']">
-									<option ng-repeat="$variation in $variations['CV_size']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] ? $dict['label_' + $variation] : _.replace($variation, 'CV_size_', '') }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-							</dropdown-select>
-
-							<div ng-if="$exceptions && $scope[2][$scope[1]][1] != 'default'">
-								<toggle-button model="$exceptions[$scope[2][$scope[1]][1]].enabled" on="On" off="Off"></toggle-button>
-							</div>
-
-							<block-info ng-if="(_.size($variation_setup[0]) <= 1)">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_not_available }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_required }} {{ :: $dict.hint_variation_default_is }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p>
-									<small>
-										<q>{{ :: $dict.hint_variations_active }}</q>
-										<span ng-repeat="($key, $exceptions) in $exceptions">
-											<q ng-if="$exceptions.enabled && $exceptions.data"><a ng-click="$scope[2][$scope[1]][1] = $key">{{ $dict['label_' + $key] ? $dict['label_' + $key] : _.replace($key, 'CV_size_', '') }}</a>, </q>
-										</span>
-										<q><a ng-click="$scope[2][$scope[1]][1] = 'default'">{{ :: $dict.label_default }}</a></q>
-									</small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p ng-if="$relations[$scope[2][$scope[1]][1]]">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_apply_asterisks }}
-										</q>
-									</small>
-									<small>
-										<q ng-repeat="$relation in $relations[$scope[2][$scope[1]][1]]"><a ng-click="$editor.changePreviewSize($relation)">{{ :: $relation }}</a>, </q>
-										<q><a ng-click="$editor.changePreviewSize('RxR')">RxR</a></q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] == 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_default_is }}
-										</q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] != 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_dynamic }}
-										</q>
-									</small>
-								</p>
-							</block-info>
-
-						</block-field>
-
-					</block-group>
-					<!-- / VARIATION PICKER -->
-
-					<!-- VISIBILITY PICKER -->
-					<block-group ng-class="{disabled: ($scope[2][$scope[1]][1] != 'default')}">
-
-						<block-field title="Element Visibility">
-							<toggle-button model="$wrapper.enabled" on="Visible" off="Hidden"></toggle-button>
-						</block-field>
-
-					</block-group>
-					<!-- / VISIBILITY PICKER -->
-
-					<!-- APPEARANCE SETTINGS -->
-					<block-group ng-class="{disabled: (!$wrapper.enabled)}">
-
-						<!--<block-field title="Element Angle" ng-if="$wrapper.attrs[$wrapper_key + '_type'].name == $wrapper_key + '_type_custom'">
-							<number-slider model="$target.macros[$wrapper_key + '_angle'].value"
-										   min="0" max="360" length="3" index="deg" left="Min" center="|" right="Max"
-										   pattern="^\d+"></number-slider>
-						</block-field>-->
-
-						<block-field title="Element Type" ng-if="($scope[2][$scope[1]][1] == 'default')">
-							<dropdown-select model="$wrapper.macros[$wrapper_key + '_type'].value">
-								<option value="default">Default</option>
-								<option value="top-bot">Top and Bottom</option>
-								<option value="circle">Circle</option>
-							</dropdown-select>
-						</block-field>
-
-						<block-field title="Element Opacity" ng-if="($scope[2][$scope[1]][1] == 'default')">
-							<number-slider model="$wrapper.macros[$wrapper_key + '_opacity'].value"
-										   min="0" max="10" length="2" index="x" left="Transparent" center="|" right="Visible"
-										   pattern="^([0-9]|10)$"></number-slider>
-						</block-field>
-
-						<block-field title="Element Type *" ng-if="($scope[2][$scope[1]][1] != 'default')">
-							<dropdown-select model="$exceptions[$scope[2][$scope[1]][1]].data.OL_type.value">
-								<option value="default">Default</option>
-								<option value="top-bot">Top and Bottom</option>
-								<option value="circle">Circle</option>
-							</dropdown-select>
-						</block-field>
-
-						<block-field title="Element Opacity *" ng-if="($scope[2][$scope[1]][1] != 'default')">
-							<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data.OL_opacity.value"
-										   min="0" max="10" length="2" index="x" left="Transparent" center="|" right="Visible"
-										   pattern="^([0-9]|10)$"></number-slider>
-						</block-field>
-
-						<!-- <block-field title="Message Opacity">
-							<number-slider model="$wrapper.macros[$wrapper_key + '_opacity'].value"
-										   min="0" max="10" length="2" index="x" left="Transparent" center="|" right="Visible"
-										   pattern="^([0-9]|10)$"></number-slider>
-						</block-field> -->
-
-					</block-group>
-					<!-- / APPEARANCE SETTINGS -->
-
-				</div>
-
-			</block-group>
-
-			<block-toggle title="Main Logo" class="toggle" ng-class="{selected: ($data.editor.scope[1].indexOf('LG') != -1)}"
-								ng-click="$data.editor.scope[1] = (($data.editor.scope[1] == 'LG') ? '' : 'LG')">
-			</block-toggle>
-			<block-group ng-if="($data.editor.scope[1].indexOf('LG') != -1)">
-
-				<data ng-if="$frame = $data.banner.layers.CV.layers.WR"></data>
-
-				<!-- TABS -->
-				<data ng-init="$tab_setup = [['image', 'appear'], 'image', ['appear'], 'appear']"></data>
-				<!-- / TABS -->
-
-				<!-- STATE VALIDATION -->
-				<data ng-if="$nav[$data.editor.scope[0]][0] = 'LG'"></data>
-				<data ng-if="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]] == undefined" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]] = [$tab_setup[0], $tab_setup[1], {}]"></data>
-				<!-- / STATE VALIDATION -->
-
-				<!-- TAB VALIDATION -->
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled == false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][0] = $tab_setup[2]"></data>
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled == false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][1] = $tab_setup[3]"></data>
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled != false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][0] = $tab_setup[0]"></data>
-				<!-- TAB VALIDATION -->
-
-				<!-- SHORTCUTS -->
-				<data ng-if="$scope = $nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]]"></data>
-				<data ng-if="$wrapper_key = $nav[$data.editor.scope[0]][0]"></data>
-				<data ng-if="$wrapper = $frame.layers[$nav[$data.editor.scope[0]][0]]"></data>
-				<!-- / SHORTCUTS -->
-
-				<block-menu class="tabs">
-					<a ng-repeat="$tab in $tab_setup[0]" ng-click="$scope[1] = $tab" ng-class="{selected: ($scope[1] == $tab), disabled: (_.indexOf($scope[0], $tab) == -1)}">{{ ::  $dict['label_' + $tab] }}</a>
-				</block-menu>
-
-				<div ng-if="($scope[1] == 'image')">
-
-					<!-- STATE VALIDATION -->
-					<data ng-if="$nav[$data.editor.scope[0]][2] = 'IMG'"></data>
-					<data ng-if="$nav[$data.editor.scope[0]][3] = 0"></data>
-					<!-- / STATE VALIDATION -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$holder_key = $nav[$data.editor.scope[0]][2]"></data>
-					<data ng-if="$holder = $wrapper.layers[$wrapper_key + '_' + $holder_key]"></data>
-					<data ng-if="$target_key = $nav[$data.editor.scope[0]][3]"></data>
-					<data ng-if="$target = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key]"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$exceptions = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key].excepts"></data>
-					<data ng-if="$exception_preset = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key].excepts.preset"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- VARIATIONS -->
-					<data ng-init="$variation_setup = [_.concat(['default']), 'default', _.concat(['default'])]"></data>
-					<!-- VARIATIONS -->
-
-					<!-- VARIATION PICKER -->
-					<block-group ng-class="{disabled: (_.size($scope[2][$scope[1]][0]) <= 1)}">
-
-						<block-field title="{{ :: $dict.label_variation }} @" class="label">
-
-							<!-- VARIATION VALIDATION -->
-							<data ng-if="$scope[2][$scope[1]] == undefined" ng-init="$scope[2][$scope[1]] = [$variation_setup[0], $variation_setup[1]]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] != undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[0]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] == undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[2]"></data>
-							<!-- VARIATION VALIDATION -->
-
-							<!-- CLONE PRESET AS NEW EXCEPTION -->
-							<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
-							<!-- / CLONE PRESET AS NEW EXCEPTION -->
-
-							<dropdown-select model="$scope[2][$scope[1]][1]" ng-class="{'col-2-3' : ($exceptions && $scope[2][$scope[1]][1] != 'default')}">
-								<optgroup label="{{ :: $dict.label_default }}">
-									<option value="default">{{ :: $dict.label_default }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_element_orientation }}" ng-if="$variations[$wrapper_key + '_orient']">
-									<option ng-repeat="$variation in $variations[$wrapper_key + '_orient']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_tension }}" ng-if="$variations['CV_tens']">
-									<option ng-repeat="$variation in $variations['CV_tens']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_scale }}" ng-if="$variations['CV_scale']">
-									<option ng-repeat="$variation in $variations['CV_scale']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_size }}" ng-if="$variations['CV_size']">
-									<option ng-repeat="$variation in $variations['CV_size']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] ? $dict['label_' + $variation] : _.replace($variation, 'CV_size_', '') }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-							</dropdown-select>
-
-							<div ng-if="$exceptions && $scope[2][$scope[1]][1] != 'default'" class="col-1-3">
-								<toggle-button model="$exceptions[$scope[2][$scope[1]][1]].enabled" on="On" off="Off"></toggle-button>
-							</div>
-
-							<block-info ng-if="(_.size($variation_setup[0]) <= 1)">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_not_available }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_required }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_is }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p>
-									<small>
-										<q>{{ :: $dict.hint_variations_active }}</q>
-										<span ng-repeat="($key, $exceptions) in $exceptions">
-											<q ng-if="$exceptions.enabled && $exceptions.data"><a ng-click="$scope[2][$scope[1]][1] = $key">{{ $dict['label_' + $key] ? $dict['label_' + $key] : _.replace($key, 'CV_size_', '') }}</a>, </q>
-										</span>
-										<q><a ng-click="$scope[2][$scope[1]][1] = 'default'">{{ :: $dict.label_default }}</a></q>
-									</small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p ng-if="$relations[$scope[2][$scope[1]][1]]">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_apply_asterisks }}
-										</q>
-									</small>
-									<small>
-										<q ng-repeat="$relation in $relations[$scope[2][$scope[1]][1]]"><a ng-click="$editor.changePreviewSize($relation)">{{ :: $relation }}</a>, </q>
-										<q><a ng-click="$editor.changePreviewSize('RxR')">RxR</a></q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] == 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_default_is }}
-										</q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] != 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_dynamic }}
-										</q>
-									</small>
-								</p>
-							</block-info>
-
-						</block-field>
-
-					</block-group>
-					<!-- / VARIATION PICKER -->
-
-
-					<block-field title="Logo type">
-						<dropdown-select model="$frame.layers[$nav[$data.editor.scope[0]][0]].macros.LG_type.value">
-							<option value="default">Default</option>
-							<option value="zero">Zero</option>
-							<option value="partner">Partner</option>
-						</dropdown-select>
-					</block-field>
-
-					<!-- CLONE PRESET AS NEW EXCEPTION -->
-					<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
-					<!-- / CLONE PRESET AS NEW EXCEPTION -->
-
-				</div>
-
-				<div ng-if="($scope[1] == 'appear')">
-
-					<!-- STATE VALIDATION -->
-					<data ng-if="$nav[$data.editor.scope[0]][2] = null"></data>
-					<data ng-if="$nav[$data.editor.scope[0]][3] = null"></data>
-					<!-- / STATE VALIDATION -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$holder_key = null"></data>
-					<data ng-if="$holder = null"></data>
-					<data ng-if="$target_key = null"></data>
-					<data ng-if="$target = null"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$exceptions = $wrapper.macros.excepts"></data>
-					<data ng-if="$exception_preset = $wrapper.macros.excepts.preset"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- VARIATIONS -->
-					<data ng-init="$variation_setup = [_.concat(['default']), 'default', _.concat(['default'])]"></data>
-					<!-- VARIATIONS -->
-
-					<!-- VARIATION PICKER -->
-					<block-group ng-class="{disabled: (_.size($scope[2][$scope[1]][0]) <= 1)}">
-
-						<block-field title="{{ :: $dict.label_variation }} @" class="label">
-
-							<!-- VARIATION VALIDATION -->
-							<data ng-if="$scope[2][$scope[1]] == undefined" ng-init="$scope[2][$scope[1]] = [$variation_setup[0], $variation_setup[1]]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] != undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[0]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] == undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[2]"></data>
-							<!-- VARIATION VALIDATION -->
-
-							<!-- CLONE PRESET AS NEW EXCEPTION -->
-							<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
-							<!-- / CLONE PRESET AS NEW EXCEPTION -->
-
-							<dropdown-select model="$scope[2][$scope[1]][1]" ng-class="{'col-2-3' : ($exceptions && $scope[2][$scope[1]][1] != 'default')}">
-								<optgroup label="{{ :: $dict.label_default }}">
-									<option value="default">{{ :: $dict.label_default }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_element_orientation }}" ng-if="$variations[$wrapper_key + '_orient']">
-									<option ng-repeat="$variation in $variations[$wrapper_key + '_orient']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_tension }}" ng-if="$variations['CV_tens']">
-									<option ng-repeat="$variation in $variations['CV_tens']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_scale }}" ng-if="$variations['CV_scale']">
-									<option ng-repeat="$variation in $variations['CV_scale']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_size }}" ng-if="$variations['CV_size']">
-									<option ng-repeat="$variation in $variations['CV_size']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] ? $dict['label_' + $variation] : _.replace($variation, 'CV_size_', '') }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-							</dropdown-select>
-
-							<div ng-if="$exceptions && $scope[2][$scope[1]][1] != 'default'" class="col-1-3">
-								<toggle-button model="$exceptions[$scope[2][$scope[1]][1]].enabled" on="On" off="Off"></toggle-button>
-							</div>
-
-							<block-info ng-if="(_.size($variation_setup[0]) <= 1)">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_not_available }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_required }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_is }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p>
-									<small>
-										<q>{{ :: $dict.hint_variations_active }}</q>
-										<span ng-repeat="($key, $exceptions) in $exceptions">
-											<q ng-if="$exceptions.enabled && $exceptions.data"><a ng-click="$scope[2][$scope[1]][1] = $key">{{ $dict['label_' + $key] ? $dict['label_' + $key] : _.replace($key, 'CV_size_', '') }}</a>, </q>
-										</span>
-										<q><a ng-click="$scope[2][$scope[1]][1] = 'default'">{{ :: $dict.label_default }}</a></q>
-									</small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p ng-if="$relations[$scope[2][$scope[1]][1]]">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_apply_asterisks }}
-										</q>
-									</small>
-									<small>
-										<q ng-repeat="$relation in $relations[$scope[2][$scope[1]][1]]"><a ng-click="$editor.changePreviewSize($relation)">{{ :: $relation }}</a>, </q>
-										<q><a ng-click="$editor.changePreviewSize('RxR')">RxR</a></q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] == 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_default_is }}
-										</q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] != 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_dynamic }}
-										</q>
-									</small>
-								</p>
-							</block-info>
-
-						</block-field>
-
-					</block-group>
-					<!-- / VARIATION PICKER -->
-
-					<!-- UPDATE DEFAULT PRESET VALUES -->
-					<data ng-repeat="$item in [$wrapper_key + '_place_type', $wrapper_key + '_limit_min', $wrapper_key + '_limit_max', $wrapper_key + '_mask_type', $wrapper_key + '_margin']" ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exception_preset.data[$item].value != $wrapper.macros[$item].value" ng-init="$exception_preset.data[$item].value = $wrapper.macros[$item].value"></data>
-					<!-- / UPDATE DEFAULT PRESET VALUES -->
-
-					<!-- VISIBILITY PICKER -->
-					<block-group ng-class="{disabled: ($scope[2][$scope[1]][1] != 'default')}">
-
-						<block-field title="Element Visibility">
-							<toggle-button model="$wrapper.enabled" on="Visible" off="Hidden"></toggle-button>
-						</block-field>
-
-					</block-group>
-					<!-- / VISIBILITY PICKER -->
-
-				</div>
-
-			</block-group>
-
-			<block-toggle title="Additional Logo" class="toggle" ng-class="{selected: ($data.editor.scope[1].indexOf('LS') != -1)}"
-								ng-click="$data.editor.scope[1] = (($data.editor.scope[1] == 'LS') ? '' : 'LS')">
-			</block-toggle>
-			<block-group ng-if="($data.editor.scope[1].indexOf('LS') != -1)">
-
-				<data ng-if="$frame = $data.banner.layers.CV.layers.WR"></data>
-
-				<!-- TABS -->
-				<data ng-init="$tab_setup = [['image', 'appear'], 'image', ['appear'], 'appear']"></data>
-				<!-- / TABS -->
-
-				<!-- STATE VALIDATION -->
-				<data ng-if="$nav[$data.editor.scope[0]][0] = 'LS'"></data>
-				<data ng-if="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]] == undefined" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]] = [$tab_setup[0], $tab_setup[1], {}]"></data>
-				<!-- / STATE VALIDATION -->
-
-				<!-- TAB VALIDATION -->
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled == false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][0] = $tab_setup[2]"></data>
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled == false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][1] = $tab_setup[3]"></data>
-				<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled != false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][0] = $tab_setup[0]"></data>
-				<!-- TAB VALIDATION -->
-
-				<!-- SHORTCUTS -->
-				<data ng-if="$scope = $nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]]"></data>
-				<data ng-if="$wrapper_key = $nav[$data.editor.scope[0]][0]"></data>
-				<data ng-if="$wrapper = $frame.layers[$nav[$data.editor.scope[0]][0]]"></data>
-				<!-- / SHORTCUTS -->
-
-				<block-menu class="tabs">
-					<a ng-repeat="$tab in $tab_setup[0]" ng-click="$scope[1] = $tab" ng-class="{selected: ($scope[1] == $tab), disabled: (_.indexOf($scope[0], $tab) == -1)}">{{ ::  $dict['label_' + $tab] }}</a>
-				</block-menu>
-
-				<div ng-if="($scope[1] == 'image')">
-
-					<!-- STATE VALIDATION -->
-					<data ng-if="$nav[$data.editor.scope[0]][2] = 'IMG'"></data>
-					<data ng-if="$nav[$data.editor.scope[0]][3] = 0"></data>
-					<!-- / STATE VALIDATION -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$holder_key = $nav[$data.editor.scope[0]][2]"></data>
-					<data ng-if="$holder = $wrapper.layers[$wrapper_key + '_' + $holder_key]"></data>
-					<data ng-if="$target_key = $nav[$data.editor.scope[0]][3]"></data>
-					<data ng-if="$target = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key]"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$exceptions = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key].excepts"></data>
-					<data ng-if="$exception_preset = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key].excepts.preset"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- VARIATIONS -->
-					<data ng-init="$variation_setup = [_.concat(['default']), 'default', _.concat(['default'])]"></data>
-					<!-- VARIATIONS -->
-
-					<!-- VARIATION PICKER -->
-					<block-group ng-class="{disabled: (_.size($scope[2][$scope[1]][0]) <= 1)}">
-
-						<block-field title="{{ :: $dict.label_variation }} @" class="label">
-
-							<!-- VARIATION VALIDATION -->
-							<data ng-if="$scope[2][$scope[1]] == undefined" ng-init="$scope[2][$scope[1]] = [$variation_setup[0], $variation_setup[1]]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] != undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[0]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] == undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[2]"></data>
-							<!-- VARIATION VALIDATION -->
-
-							<!-- CLONE PRESET AS NEW EXCEPTION -->
-							<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
-							<!-- / CLONE PRESET AS NEW EXCEPTION -->
-
-							<dropdown-select model="$scope[2][$scope[1]][1]" ng-class="{'col-2-3' : ($exceptions && $scope[2][$scope[1]][1] != 'default')}">
-								<optgroup label="{{ :: $dict.label_default }}">
-									<option value="default">{{ :: $dict.label_default }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_element_orientation }}" ng-if="$variations[$wrapper_key + '_orient']">
-									<option ng-repeat="$variation in $variations[$wrapper_key + '_orient']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_tension }}" ng-if="$variations['CV_tens']">
-									<option ng-repeat="$variation in $variations['CV_tens']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_scale }}" ng-if="$variations['CV_scale']">
-									<option ng-repeat="$variation in $variations['CV_scale']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_size }}" ng-if="$variations['CV_size']">
-									<option ng-repeat="$variation in $variations['CV_size']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] ? $dict['label_' + $variation] : _.replace($variation, 'CV_size_', '') }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-							</dropdown-select>
-
-							<div ng-if="$exceptions && $scope[2][$scope[1]][1] != 'default'" class="col-1-3">
-								<toggle-button model="$exceptions[$scope[2][$scope[1]][1]].enabled" on="On" off="Off"></toggle-button>
-							</div>
-
-							<block-info ng-if="(_.size($variation_setup[0]) <= 1)">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_not_available }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_required }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_is }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p>
-									<small>
-										<q>{{ :: $dict.hint_variations_active }}</q>
-										<span ng-repeat="($key, $exceptions) in $exceptions">
-											<q ng-if="$exceptions.enabled && $exceptions.data"><a ng-click="$scope[2][$scope[1]][1] = $key">{{ $dict['label_' + $key] ? $dict['label_' + $key] : _.replace($key, 'CV_size_', '') }}</a>, </q>
-										</span>
-										<q><a ng-click="$scope[2][$scope[1]][1] = 'default'">{{ :: $dict.label_default }}</a></q>
-									</small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p ng-if="$relations[$scope[2][$scope[1]][1]]">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_apply_asterisks }}
-										</q>
-									</small>
-									<small>
-										<q ng-repeat="$relation in $relations[$scope[2][$scope[1]][1]]"><a ng-click="$editor.changePreviewSize($relation)">{{ :: $relation }}</a>, </q>
-										<q><a ng-click="$editor.changePreviewSize('RxR')">RxR</a></q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] == 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_default_is }}
-										</q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] != 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_dynamic }}
-										</q>
-									</small>
-								</p>
-							</block-info>
-
-						</block-field>
-
-					</block-group>
-					<!-- / VARIATION PICKER -->
-
-
-					<block-field title="Logo Type">
-						<dropdown-select model="$frame.layers[$nav[$data.editor.scope[0]][0]].macros.LS_type.value">
-							<option value="default">Default</option>
-							<option value="swe">SWE</option>
-						</dropdown-select>
-					</block-field>
-
-					<!-- CLONE PRESET AS NEW EXCEPTION -->
-					<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
-					<!-- / CLONE PRESET AS NEW EXCEPTION -->
-
-				</div>
-
-				<div ng-if="($scope[1] == 'appear')">
-
-					<!-- STATE VALIDATION -->
-					<data ng-if="$nav[$data.editor.scope[0]][2] = null"></data>
-					<data ng-if="$nav[$data.editor.scope[0]][3] = null"></data>
-					<!-- / STATE VALIDATION -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$holder_key = null"></data>
-					<data ng-if="$holder = null"></data>
-					<data ng-if="$target_key = null"></data>
-					<data ng-if="$target = null"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- SHORTCUTS -->
-					<data ng-if="$exceptions = $wrapper.macros.excepts"></data>
-					<data ng-if="$exception_preset = $wrapper.macros.excepts.preset"></data>
-					<!-- / SHORTCUTS -->
-
-					<!-- VARIATIONS -->
-					<data ng-init="$variation_setup = [_.concat(['default']), 'default', _.concat(['default'])]"></data>
-					<!-- VARIATIONS -->
-
-					<!-- VARIATION PICKER -->
-					<block-group ng-class="{disabled: (_.size($scope[2][$scope[1]][0]) <= 1)}">
-
-						<block-field title="{{ :: $dict.label_variation }} @" class="label">
-
-							<!-- VARIATION VALIDATION -->
-							<data ng-if="$scope[2][$scope[1]] == undefined" ng-init="$scope[2][$scope[1]] = [$variation_setup[0], $variation_setup[1]]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] != undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[0]"></data>
-							<data ng-if="$holder && $holder.layers[$target_key] == undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[2]"></data>
-							<!-- VARIATION VALIDATION -->
-
-							<!-- CLONE PRESET AS NEW EXCEPTION -->
-							<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
-							<!-- / CLONE PRESET AS NEW EXCEPTION -->
-
-							<dropdown-select model="$scope[2][$scope[1]][1]" ng-class="{'col-2-3' : ($exceptions && $scope[2][$scope[1]][1] != 'default')}">
-								<optgroup label="{{ :: $dict.label_default }}">
-									<option value="default">{{ :: $dict.label_default }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_element_orientation }}" ng-if="$variations[$wrapper_key + '_orient']">
-									<option ng-repeat="$variation in $variations[$wrapper_key + '_orient']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_tension }}" ng-if="$variations['CV_tens']">
-									<option ng-repeat="$variation in $variations['CV_tens']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_scale }}" ng-if="$variations['CV_scale']">
-									<option ng-repeat="$variation in $variations['CV_scale']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-								<optgroup label="{{ :: $dict.label_creative_size }}" ng-if="$variations['CV_size']">
-									<option ng-repeat="$variation in $variations['CV_size']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] ? $dict['label_' + $variation] : _.replace($variation, 'CV_size_', '') }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
-								</optgroup>
-							</dropdown-select>
-
-							<div ng-if="$exceptions && $scope[2][$scope[1]][1] != 'default'" class="col-1-3">
-								<toggle-button model="$exceptions[$scope[2][$scope[1]][1]].enabled" on="On" off="Off"></toggle-button>
-							</div>
-
-							<block-info ng-if="(_.size($variation_setup[0]) <= 1)">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_not_available }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_required }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
-								<p>
-									<small><q>
-										{{ :: $dict.hint_variation_default_is }}
-									</q></small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p>
-									<small>
-										<q>{{ :: $dict.hint_variations_active }}</q>
-										<span ng-repeat="($key, $exceptions) in $exceptions">
-											<q ng-if="$exceptions.enabled && $exceptions.data"><a ng-click="$scope[2][$scope[1]][1] = $key">{{ $dict['label_' + $key] ? $dict['label_' + $key] : _.replace($key, 'CV_size_', '') }}</a>, </q>
-										</span>
-										<q><a ng-click="$scope[2][$scope[1]][1] = 'default'">{{ :: $dict.label_default }}</a></q>
-									</small>
-								</p>
-							</block-info>
-
-							<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
-								<p ng-if="$relations[$scope[2][$scope[1]][1]]">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_apply_asterisks }}
-										</q>
-									</small>
-									<small>
-										<q ng-repeat="$relation in $relations[$scope[2][$scope[1]][1]]"><a ng-click="$editor.changePreviewSize($relation)">{{ :: $relation }}</a>, </q>
-										<q><a ng-click="$editor.changePreviewSize('RxR')">RxR</a></q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] == 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_default_is }}
-										</q>
-									</small>
-								</p>
-								<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] != 'default'">
-									<small>
-										<q>
-											{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_dynamic }}
-										</q>
-									</small>
-								</p>
-							</block-info>
-
-						</block-field>
-
-					</block-group>
-					<!-- / VARIATION PICKER -->
-
-					<!-- UPDATE DEFAULT PRESET VALUES -->
-					<data ng-repeat="$item in [$wrapper_key + '_place_type', $wrapper_key + '_limit_min', $wrapper_key + '_limit_max', $wrapper_key + '_mask_type', $wrapper_key + '_margin']" ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exception_preset.data[$item].value != $wrapper.macros[$item].value" ng-init="$exception_preset.data[$item].value = $wrapper.macros[$item].value"></data>
-					<!-- / UPDATE DEFAULT PRESET VALUES -->
-
-					<!-- VISIBILITY PICKER -->
-					<block-group ng-class="{disabled: ($scope[2][$scope[1]][1] != 'default')}">
-
-						<block-field title="Element Visibility">
-							<toggle-button model="$wrapper.enabled" on="Visible" off="Hidden"></toggle-button>
-						</block-field>
-
-					</block-group>
-					<!-- / VISIBILITY PICKER -->
-
-				</div>
-
-			</block-group>
-
 			<block-toggle title="Button" class="toggle" ng-class="{selected: ($data.editor.scope[1].indexOf('BT') != -1)}"
 									ng-click="$data.editor.scope[1] = (($data.editor.scope[1] == 'BT') ? '' : 'BT')"></block-toggle>
 			<block-group ng-if="($data.editor.scope[1].indexOf('BT') != -1)">
@@ -4549,6 +3690,679 @@
 
 					</block-group>
 
+					<block-toggle title="Splash" class="toggle" ng-class="{selected: ($data.editor.scope[1].indexOf('LS') != -1)}"
+						  ng-click="$data.editor.scope[1] = (($data.editor.scope[1] == 'LS') ? '' : 'LS')"></block-toggle>
+					<block-group ng-if="($data.editor.scope[1].indexOf('LS') != -1)">
+
+						<data ng-if="$frame = $data.banner.layers.CV.layers.WR"></data>
+
+						<!-- TABS -->
+						<data ng-init="$tab_setup = [['image', 'anim', 'appear'], 'image', ['appear'], 'appear']"></data>
+						<!-- / TABS -->
+
+						<!-- STATE VALIDATION -->
+						<data ng-if="$nav[$data.editor.scope[0]][0] = 'LS'"></data>
+						<data ng-if="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]] == undefined" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]] = [$tab_setup[0], $tab_setup[1], {}]"></data>
+						<!-- / STATE VALIDATION -->
+
+						<!-- TAB VALIDATION -->
+						<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled == false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][0] = $tab_setup[2]"></data>
+						<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled == false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][1] = $tab_setup[3]"></data>
+						<data ng-if="$frame.layers[$nav[$data.editor.scope[0]][0]].enabled != false" ng-init="$nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]][0] = $tab_setup[0]"></data>
+						<!-- TAB VALIDATION -->
+
+						<!-- SHORTCUTS -->
+						<data ng-if="$scope = $nav[$data.editor.scope[0]][1][$nav[$data.editor.scope[0]][0]]"></data>
+						<data ng-if="$wrapper_key = $nav[$data.editor.scope[0]][0]"></data>
+						<data ng-if="$wrapper = $frame.layers[$nav[$data.editor.scope[0]][0]]"></data>
+						<!-- / SHORTCUTS -->
+
+						<block-menu class="tabs">
+							<a ng-repeat="$tab in $tab_setup[0]" ng-click="$scope[1] = $tab" ng-class="{selected: ($scope[1] == $tab), disabled: (_.indexOf($scope[0], $tab) == -1)}">{{ ::  $dict['label_' + $tab] }}</a>
+						</block-menu>
+
+						<div ng-if="($scope[1] == 'image')">
+
+							<!-- STATE VALIDATION -->
+							<data ng-if="$nav[$data.editor.scope[0]][2] = 'IMG'"></data>
+							<data ng-if="$nav[$data.editor.scope[0]][3] = 0"></data>
+							<!-- / STATE VALIDATION -->
+
+							<!-- SHORTCUTS -->
+							<data ng-if="$holder_key = $nav[$data.editor.scope[0]][2]"></data>
+							<data ng-if="$holder = $wrapper.layers[$wrapper_key + '_' + $holder_key]"></data>
+							<data ng-if="$target_key = $nav[$data.editor.scope[0]][3]"></data>
+							<data ng-if="$target = $wrapper.layers[$wrapper_key + '_' + $holder_key].layers[$target_key]"></data>
+							<!-- / SHORTCUTS -->
+
+							<!-- SHORTCUTS -->
+							<data ng-if="$exceptions = $target.excepts"></data>
+							<data ng-if="$exception_preset = $target.excepts.preset"></data>
+							<!-- / SHORTCUTS -->
+
+							<!-- VARIATIONS -->
+							<data ng-init="$variation_setup = [_.concat(['default'], $variations[$wrapper_key + '_orient'], $variations['CV_tens']), 'default', _.concat(['default'])]"></data>
+							<!-- VARIATIONS -->
+
+							<!-- VARIATION PICKER -->
+							<block-group ng-class="{disabled: (_.size($scope[2][$scope[1]][0]) <= 1)}">
+
+								<block-field title="{{ :: $dict.label_variation }} @" class="label">
+
+									<!-- VARIATION VALIDATION -->
+									<data ng-if="$scope[2][$scope[1]] == undefined" ng-init="$scope[2][$scope[1]] = [$variation_setup[0], $variation_setup[1]]"></data>
+									<data ng-if="$holder && $holder.layers[$target_key] != undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[0]"></data>
+									<data ng-if="$holder && $holder.layers[$target_key] == undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[2]"></data>
+									<!-- VARIATION VALIDATION -->
+
+									<!-- CLONE PRESET AS NEW EXCEPTION -->
+									<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
+									<!-- / CLONE PRESET AS NEW EXCEPTION -->
+
+									<dropdown-select model="$scope[2][$scope[1]][1]" ng-class="{'col-2-3' : ($exceptions && $scope[2][$scope[1]][1] != 'default')}">
+										<optgroup label="{{ :: $dict.label_default }}">
+											<option value="default">{{ :: $dict.label_default }}</option>
+										</optgroup>
+										<optgroup label="{{ :: $dict.label_element_orientation }}" ng-if="$variations[$wrapper_key + '_orient']">
+											<option ng-repeat="$variation in $variations[$wrapper_key + '_orient']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
+										</optgroup>
+										<optgroup label="{{ :: $dict.label_creative_tension }}" ng-if="$variations['CV_tens']">
+											<option ng-repeat="$variation in $variations['CV_tens']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
+										</optgroup>
+										<optgroup label="{{ :: $dict.label_creative_scale }}" ng-if="$variations['CV_scale']">
+											<option ng-repeat="$variation in $variations['CV_scale']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
+										</optgroup>
+										<optgroup label="{{ :: $dict.label_creative_size }}" ng-if="$variations['CV_size']">
+											<option ng-repeat="$variation in $variations['CV_size']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] ? $dict['label_' + $variation] : _.replace($variation, 'CV_size_', '') }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
+										</optgroup>
+									</dropdown-select>
+
+									<div ng-if="$exceptions && $scope[2][$scope[1]][1] != 'default'">
+										<toggle-button model="$exceptions[$scope[2][$scope[1]][1]].enabled" on="On" off="Off"></toggle-button>
+									</div>
+
+									<block-info ng-if="(_.size($variation_setup[0]) <= 1)">
+										<p>
+											<small><q>
+												{{ :: $dict.hint_variation_not_available }}
+											</q></small>
+										</p>
+									</block-info>
+
+									<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
+										<p>
+											<small><q>
+												{{ :: $dict.hint_variation_default_required }} {{ :: $dict.hint_variation_default_is }}
+											</q></small>
+										</p>
+									</block-info>
+
+									<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
+										<p>
+											<small>
+												<q>{{ :: $dict.hint_variations_active }}</q>
+												<span ng-repeat="($key, $exceptions) in $exceptions">
+													<q ng-if="$exceptions.enabled && $exceptions.data"><a ng-click="$scope[2][$scope[1]][1] = $key">{{ $dict['label_' + $key] ? $dict['label_' + $key] : _.replace($key, 'CV_size_', '') }}</a>, </q>
+												</span>
+												<q><a ng-click="$scope[2][$scope[1]][1] = 'default'">{{ :: $dict.label_default }}</a></q>
+											</small>
+										</p>
+									</block-info>
+
+									<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
+										<p ng-if="$relations[$scope[2][$scope[1]][1]]">
+											<small>
+												<q>
+													{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_apply_asterisks }}
+												</q>
+											</small>
+											<small>
+												<q ng-repeat="$relation in $relations[$scope[2][$scope[1]][1]]"><a ng-click="$editor.changePreviewSize($relation)">{{ :: $relation }}</a>, </q>
+												<q><a ng-click="$editor.changePreviewSize('RxR')">RxR</a></q>
+											</small>
+										</p>
+										<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] == 'default'">
+											<small>
+												<q>
+													{{ :: $dict.hint_variation_default_is }}
+												</q>
+											</small>
+										</p>
+										<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] != 'default'">
+											<small>
+												<q>
+													{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_dynamic }}
+												</q>
+											</small>
+										</p>
+									</block-info>
+
+								</block-field>
+
+							</block-group>
+							<!-- / VARIATION PICKER -->
+
+							<!-- ELEMENT SOURCE -->
+							<block-group>
+
+								<block-field title="Image Source" ng-if="$scope[2][$scope[1]][1] == 'default'">
+									<image-picker model="$holder.layers[0]"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+								</block-field>
+
+								<block-field title="Image Source *" ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled)}">
+									<image-picker model="$exceptions['BG_orient_p'].data" ng-if="$scope[2][$scope[1]][1] == 'BG_orient_p'"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+									<image-picker model="$exceptions['BG_orient_s'].data" ng-if="$scope[2][$scope[1]][1] == 'BG_orient_s'"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+									<image-picker model="$exceptions['BG_orient_l'].data" ng-if="$scope[2][$scope[1]][1] == 'BG_orient_l'"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+									<image-picker model="$exceptions['CV_tens_t2'].data" ng-if="$scope[2][$scope[1]][1] == 'CV_tens_t2'"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+									<image-picker model="$exceptions['CV_tens_t1'].data" ng-if="$scope[2][$scope[1]][1] == 'CV_tens_t1'"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+									<image-picker model="$exceptions['CV_tens_e0'].data" ng-if="$scope[2][$scope[1]][1] == 'CV_tens_e0'"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+									<image-picker model="$exceptions['CV_tens_w1'].data" ng-if="$scope[2][$scope[1]][1] == 'CV_tens_w1'"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+									<image-picker model="$exceptions['CV_tens_w2'].data" ng-if="$scope[2][$scope[1]][1] == 'CV_tens_w2'"
+												settings="{defaults: $holder.presets[$nav[$data.editor.scope[0]][3]], cropping: { ratios: ($ratios[$wrapper_key + '_' + $wrapper.macros[$wrapper_key + '_place_type'].value]) } }"
+												no-crop="false" no-align="true" no-cover="true" no-load="false" no-excepts="false" no-excepts-orientation="true"></image-picker>
+									<block-info ng-class="{disabled: ($exceptions[$scope[2][$scope[1]][1]].data)}">
+										<p>
+											<small><q><a ng-click="$exceptions[$scope[2][$scope[1]][1]].data = _.omit(_.cloneDeep($target), ['excepts', 'preset'])">Clone</a> asset source from default variation. {{ $dict.hint_asset_area }}</q></small>
+										</p>
+										<!--<p>
+											<small><q>Element placement: <a ng-click="$holder.macros[$wrapper_key + '_place_type'] = 'fit'" ng-class="">fit</a> or <a ng-click="$holder.macros[$wrapper_key + '_place_type'] = 'fill'">fill</a>.</q></small>
+										</p>-->
+									</block-info>
+								</block-field>
+
+							</block-group>
+							<!-- / ELEMENT SOURCE -->
+
+						</div>
+
+						<div ng-if="($scope[1] == 'appear')">
+
+							<!-- STATE VALIDATION -->
+							<data ng-if="$nav[$data.editor.scope[0]][2] = null"></data>
+							<data ng-if="$nav[$data.editor.scope[0]][3] = null"></data>
+							<!-- / STATE VALIDATION -->
+
+							<!-- SHORTCUTS -->
+							<data ng-if="$holder_key = null"></data>
+							<data ng-if="$holder = null"></data>
+							<data ng-if="$target_key = null"></data>
+							<data ng-if="$target = null"></data>
+							<!-- / SHORTCUTS -->
+
+							<!-- SHORTCUTS -->
+							<data ng-if="$macros = $wrapper.macros"></data>
+							<data ng-if="$exceptions = $wrapper.macros.excepts"></data>
+							<data ng-if="$exception_preset = $wrapper.macros.excepts.preset"></data>
+							<!-- / SHORTCUTS -->
+
+							<!-- VARIATIONS -->
+							<data ng-init="$variation_setup = [_.concat(['default'], $variations[$wrapper_key + '_orient'], $variations['CV_tens'], $variations['CV_scale'], $variations['CV_size']), 'default', _.concat(['default'])]"></data>
+							<!-- VARIATIONS -->
+
+							<!-- VARIATION PICKER -->
+							<block-group ng-class="{disabled: (_.size($scope[2][$scope[1]][0]) <= 1)}">
+
+								<block-field title="{{ :: $dict.label_variation }} @" class="label">
+
+									<!-- VARIATION VALIDATION -->
+									<data ng-if="$scope[2][$scope[1]] == undefined" ng-init="$scope[2][$scope[1]] = [$variation_setup[0], $variation_setup[1]]"></data>
+									<data ng-if="$holder && $holder.layers[$target_key] != undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[0]"></data>
+									<data ng-if="$holder && $holder.layers[$target_key] == undefined" ng-init="$scope[2][$scope[1]][0] = $variation_setup[2]"></data>
+									<!-- VARIATION VALIDATION -->
+
+									<!-- CLONE PRESET AS NEW EXCEPTION -->
+									<data ng-if="$scope[2][$scope[1]][1] != 'default' && $exceptions && $exception_preset && $exceptions[$scope[2][$scope[1]][1]] == undefined" ng-init="$exceptions[$scope[2][$scope[1]][1]] = _.cloneDeep($exception_preset)"></data>
+									<!-- / CLONE PRESET AS NEW EXCEPTION -->
+
+									<dropdown-select model="$scope[2][$scope[1]][1]" ng-class="{'col-2-3' : ($exceptions && $scope[2][$scope[1]][1] != 'default')}">
+										<optgroup label="{{ :: $dict.label_default }}">
+											<option value="default">{{ :: $dict.label_default }}</option>
+										</optgroup>
+										<optgroup label="{{ :: $dict.label_element_orientation }}" ng-if="$variations[$wrapper_key + '_orient']">
+											<option ng-repeat="$variation in $variations[$wrapper_key + '_orient']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
+										</optgroup>
+										<optgroup label="{{ :: $dict.label_creative_tension }}" ng-if="$variations['CV_tens']">
+											<option ng-repeat="$variation in $variations['CV_tens']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
+										</optgroup>
+										<optgroup label="{{ :: $dict.label_creative_scale }}" ng-if="$variations['CV_scale']">
+											<option ng-repeat="$variation in $variations['CV_scale']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
+										</optgroup>
+										<optgroup label="{{ :: $dict.label_creative_size }}" ng-if="$variations['CV_size']">
+											<option ng-repeat="$variation in $variations['CV_size']" value="{{ $variation }}" ng-disabled="_.indexOf($scope[2][$scope[1]][0], $variation) == -1">{{ :: $dict['label_' + $variation] ? $dict['label_' + $variation] : _.replace($variation, 'CV_size_', '') }} {{ ($exceptions[$variation].enabled ? '*' : '') }}</option>
+										</optgroup>
+									</dropdown-select>
+
+									<div ng-if="$exceptions && $scope[2][$scope[1]][1] != 'default'" class="col-1-3">
+										<toggle-button model="$exceptions[$scope[2][$scope[1]][1]].enabled" on="On" off="Off"></toggle-button>
+									</div>
+
+									<block-info ng-if="(_.size($variation_setup[0]) <= 1)">
+										<p>
+											<small><q>
+												{{ :: $dict.hint_variation_not_available }}
+											</q></small>
+										</p>
+									</block-info>
+
+									<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
+										<p>
+											<small><q>
+												{{ :: $dict.hint_variation_default_required }}
+											</q></small>
+										</p>
+									</block-info>
+
+									<block-info ng-if="(_.size($variation_setup[0]) > 1 && _.size($scope[2][$scope[1]][0]) <= 1) && $scope[2][$scope[1]][1] == 'default'">
+										<p>
+											<small><q>
+												{{ :: $dict.hint_variation_default_is }}
+											</q></small>
+										</p>
+									</block-info>
+
+									<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
+										<p>
+											<small>
+												<q>{{ :: $dict.hint_variations_active }}</q>
+												<span ng-repeat="($key, $exceptions) in $exceptions">
+														<q ng-if="$exceptions.enabled && $exceptions.data"><a ng-click="$scope[2][$scope[1]][1] = $key">{{ $dict['label_' + $key] ? $dict['label_' + $key] : _.replace($key, 'CV_size_', '') }}</a>, </q>
+													</span>
+												<q><a ng-click="$scope[2][$scope[1]][1] = 'default'">{{ :: $dict.label_default }}</a></q>
+											</small>
+										</p>
+									</block-info>
+
+									<block-info ng-if="($exceptions && _.size($scope[2][$scope[1]][0]) > 1)">
+										<p ng-if="$relations[$scope[2][$scope[1]][1]]">
+											<small>
+												<q>
+													{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_apply_asterisks }}
+												</q>
+											</small>
+											<small>
+												<q ng-repeat="$relation in $relations[$scope[2][$scope[1]][1]]"><a ng-click="$editor.changePreviewSize($relation)">{{ :: $relation }}</a>, </q>
+												<q><a ng-click="$editor.changePreviewSize('RxR')">RxR</a></q>
+											</small>
+										</p>
+										<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] == 'default'">
+											<small>
+												<q>
+													{{ :: $dict.hint_variation_default_is }}
+												</q>
+											</small>
+										</p>
+										<p ng-if="!$relations[$scope[2][$scope[1]][1]] && $scope[2][$scope[1]][1] != 'default'">
+											<small>
+												<q>
+													{{ :: $dict.hint_variation_override }} {{ :: $dict.hint_variation_dynamic }}
+												</q>
+											</small>
+										</p>
+									</block-info>
+
+								</block-field>
+
+							</block-group>
+							<!-- / VARIATION PICKER -->
+
+							<!-- UPDATE VARIATION PRESET VALUES -->
+							<data ng-repeat="($key, $item) in $exception_preset.data" ng-if="$macros && $exceptions && $item.value != $macros[$key].value" ng-init="$item.value = $macros[$key].value"></data>
+							<!-- / UPDATE VARIATION PRESET VALUES -->
+
+							<!-- VISIBILITY PICKER -->
+							<block-group ng-class="{disabled: ($scope[2][$scope[1]][1] != 'default')}">
+
+								<block-field title="Element Visibility">
+									<toggle-button model="$wrapper.enabled" on="Visible" off="Hidden"></toggle-button>
+								</block-field>
+
+							</block-group>
+							<!-- / VISIBILITY PICKER -->
+
+							<!-- APPEARANCE PICKER -->
+							<block-group ng-class="{disabled: (!$wrapper.enabled)}">
+
+								<block-field title="Element Mask" ng-if="$scope[2][$scope[1]][1] == 'default'">
+									<dropdown-select model="$macros[$wrapper_key + '_mask_type'].value">
+										<option value="circle">Circle</option>
+										<option value="circle_sharp">Sharp Circle</option>
+										<option value="none">None</option>
+									</dropdown-select>
+								</block-field>
+
+								<block-field title="Element Mask * " ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled)}">
+									<dropdown-select model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_mask_type'].value">
+										<option value="circle">Circle</option>
+										<option value="circle_sharp">Sharp Circle</option>
+										<option value="none">None</option>
+									</dropdown-select>
+								</block-field>
+
+								<block-field title="Element Overflow" ng-if="$scope[2][$scope[1]][1] == 'default'">
+									<dropdown-select model="$wrapper.attrs[$wrapper_key + '_style'].css.overflow">
+										<option value="hidden">Hidden</option>
+										<option value="visible">Visible</option>
+									</dropdown-select>
+								</block-field>
+
+								<block-field title="Element Opacity" ng-class="{disabled: ($scope[2][$scope[1]][1] != 'default')}">
+									<number-slider model="$wrapper.attrs[$wrapper_key + '_style'].css.opacity.value"
+												min="0" max="10" length="2" index="x" left="Transparent" center="|" right="Visible"
+												pattern="^([0-9]|10)$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<!-- / APPEARANCE PICKER -->
+
+							<!-- ALIGNMENT PICKER -->
+							<block-group ng-if="$scope[2][$scope[1]][1] == 'default'" ng-class="{disabled: (!$wrapper.enabled)}">
+
+								<block-field title="Element X-Align">
+									<dropdown-select model="$wrapper.macros[$wrapper_key + '_align_x'].value">
+										<option value="inherit">Auto</option>
+										<option value="left">Left</option>
+										<option value="center">Center</option>
+										<option value="right">Right</option>
+									</dropdown-select>
+								</block-field>
+
+								<block-field title="Element Y-Align">
+									<dropdown-select model="$wrapper.macros[$wrapper_key + '_align_y'].value">
+										<option value="inherit">Auto</option>
+										<option value="top">Top</option>
+										<option value="middle">Middle</option>
+										<option value="bottom">Bottom</option>
+									</dropdown-select>
+								</block-field>
+
+							</block-group>
+							<block-group ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled)}">
+
+								<block-field title="Element X-Align *">
+									<dropdown-select model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_align_x'].value">
+										<option value="inherit">Auto</option>
+										<option value="left">Left</option>
+										<option value="center">Center</option>
+										<option value="right">Right</option>
+									</dropdown-select>
+								</block-field>
+
+								<block-field title="Element Y-Align *">
+									<dropdown-select model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_align_y'].value">
+										<option value="inherit">Auto</option>
+										<option value="top">Top</option>
+										<option value="middle">Middle</option>
+										<option value="bottom">Bottom</option>
+									</dropdown-select>
+								</block-field>
+
+							</block-group>
+							<!-- / ALIGNMENT PICKER -->
+
+							<!-- PLACEMENT AND POSITION PICKER -->
+							<block-group ng-if="$scope[2][$scope[1]][1] == 'default'" ng-class="{disabled: (!$wrapper.enabled)}">
+
+								<block-field title="Element Placement">
+									<dropdown-select model="$macros[$wrapper_key + '_place_type'].value">
+										<option value="fill">Fill Entire Container</option>
+										<option value="fit">Fit into Focus Area</option>
+									</dropdown-select>
+									<block-info ng-class="{disabled: ($exceptions[$scope[2][$scope[1]][1]].data)}">
+										<p>
+											<small><q>{{ $dict.hint_asset_placement }}</q></small>
+										</p>
+									</block-info>
+								</block-field>
+
+								<block-field title="Element Position" ng-class="{disabled: ($macros[$wrapper_key + '_place_type'].value != 'fit')}">
+									<dropdown-select model="$macros[$wrapper_key + '_position'].value">
+										<!-- width_height_top_left -->
+										<optgroup label="Default">
+											<option value="100_100_0_0">Full Fit</option>
+											<option value="0_0_0_0">Optimal Fit</option>
+											<option value="custom">Custom Fit</option>
+										</optgroup>
+										<optgroup label="Predefined Positions">
+											<option value="100_50_-100_0">Half Height to Top</option>
+											<option value="100_50_0_0">Half Height to Center</option>
+											<option value="100_50_100_0">Half Height to Bottom</option>
+											<option value="50_100_0_-100">Half Width to Left</option>
+											<option value="50_100_0_0">Half Width to Middle</option>
+											<option value="50_100_0_100">Half Width to Right</option>
+										</optgroup>
+									</dropdown-select>
+								</block-field>
+
+								<!-- POSITION VALIDATION -->
+								<data ng-if="$macros[$wrapper_key + '_position'].value != 'custom' && $macros[$wrapper_key + '_position'].value.split('_')[$index] != $macros[$key].value"
+									ng-repeat="($index, $key) in [$wrapper_key + '_width', $wrapper_key + '_height', $wrapper_key + '_top', $wrapper_key + '_left']"
+									ng-init="$macros[$key].value = $macros[$wrapper_key + '_position'].value.split('_')[$index];"></data>
+								<!-- / POSITION VALIDATION -->
+
+							</block-group>
+							<block-group ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled)}">
+
+								<block-field title="Element Placement * ">
+									<dropdown-select model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_place_type'].value">
+										<option value="fill">Fill Entire Container</option>
+										<option value="fit">Fit into Focus Area</option>
+									</dropdown-select>
+									<block-info ng-class="{disabled: ($exceptions[$scope[2][$scope[1]][1]].data)}">
+										<p>
+											<small><q>{{ $dict.hint_asset_placement }}</q></small>
+										</p>
+									</block-info>
+								</block-field>
+
+								<block-field title="Element Position *" ng-class="{disabled: ($exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_place_type'].value != 'fit')}">
+									<dropdown-select model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_position'].value">
+										<!-- width_height_top_left -->
+										<optgroup label="Default">
+											<option value="100_100_0_0">Full Fit</option>
+											<option value="0_0_0_0">Optimal Fit</option>
+											<option value="custom">Custom Fit</option>
+										</optgroup>
+										<optgroup label="Predefined Positions">
+											<option value="100_50_-100_0">Half Height to Top</option>
+											<option value="100_50_0_0">Half Height to Center</option>
+											<option value="100_50_100_0">Half Height to Bottom</option>
+											<option value="50_100_0_-100">Half Width to Left</option>
+											<option value="50_100_0_0">Half Width to Middle</option>
+											<option value="50_100_0_100">Half Width to Right</option>
+										</optgroup>
+									</dropdown-select>
+								</block-field>
+
+								<!-- POSITION VALIDATION -->
+								<data ng-if="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_position'].value != 'custom' &&  $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_position'].value.split('_')[$index] != $exceptions[$scope[2][$scope[1]][1]].data[$key].value"
+									ng-repeat="($index, $key) in [$wrapper_key + '_width', $wrapper_key + '_height', $wrapper_key + '_top', $wrapper_key + '_left']"
+									ng-init="$exceptions[$scope[2][$scope[1]][1]].data[$key].value = $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_position'].value.split('_')[$index];"></data>
+								<!-- / POSITION VALIDATION -->
+
+							</block-group>
+							<!-- / PLACEMENT AND POSITION PICKER -->
+
+							<!-- MARGIN PICKER -->
+							<block-group ng-if="$scope[2][$scope[1]][1] == 'default'" ng-class="{disabled: (!$wrapper.enabled || $macros[$wrapper_key + '_place_type'].value != 'fit')}">
+
+								<block-field title="Element Margin">
+									<number-slider model="$macros[$wrapper_key + '_margin'].value"
+												min="-5" max="5" length="2" index="x" left="Small" center="|" right="Big"
+												pattern="^(-[0-5]|[0-5])$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<block-group ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled || $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_place_type'].value != 'fit')}">
+
+								<block-field title="Element Margin * ">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_margin'].value"
+												min="-5" max="5" length="2" index="x" left="Small" center="|" right="Big"
+												pattern="^(-[0-5]|[0-5])$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<!-- / MARGIN PICKER -->
+
+							<!-- SIZE PICKER -->
+							<block-group ng-if="$scope[2][$scope[1]][1] == 'default'" ng-class="{disabled: (!$wrapper.enabled || $macros[$wrapper_key + '_position'].value != 'custom' || $macros[$wrapper_key + '_place_type'].value != 'fit')}">
+
+								<block-field title="Element Width">
+									<number-slider model="$macros[$wrapper_key + '_width'].value"
+												left="Min" center="|" right="Max" min="0" max="100" length="4" index="%"
+												pattern="^([0-9]|[1-9][0-9]|100)$"></number-slider>
+								</block-field>
+
+								<block-field title="Element Height">
+									<number-slider model="$macros[$wrapper_key + '_height'].value"
+												left="Min" center="|" right="Max" min="0" max="100" length="4" index="%"
+												pattern="^([0-9]|[1-9][0-9]|100)$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<block-group ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled || $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_position'].value != 'custom' || $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_place_type'].value != 'fit')}">
+
+								<block-field title="Element Width *">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_width'].value"
+												left="Min" center="|" right="Max" min="0" max="100" length="4" index="%"
+												pattern="^([0-9]|[1-9][0-9]|100)$"></number-slider>
+								</block-field>
+
+								<block-field title="Element Height *">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_height'].value"
+												left="Min" center="|" right="Max" min="0" max="100" length="4" index="%"
+												pattern="^([0-9]|[1-9][0-9]|100)$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<!-- / SIZE PICKER -->
+
+							<!-- POSITION PICKER -->
+							<block-group ng-if="$scope[2][$scope[1]][1] == 'default'" ng-class="{disabled: (!$wrapper.enabled || $macros[$wrapper_key + '_position'].value != 'custom' || $macros[$wrapper_key + '_place_type'].value != 'fit')}">
+
+								<block-field title="Element X-Axis">
+									<number-slider model="$macros[$wrapper_key + '_left'].value"
+												left="Left" center="|" right="Right" min="-100" max="100" length="4" index="%"
+												pattern="^(-100|-[1-9][0-9]|-[0-9]|[0-9]|[1-9][0-9]|100)$"></number-slider>
+								</block-field>
+
+								<block-field title="Element Y-Axis">
+									<number-slider model="$macros[$wrapper_key + '_top'].value"
+												left="Top" center="|" right="Bottom" min="-100" max="100" length="4" index="%"
+												pattern="^(-100|-[1-9][0-9]|-[0-9]|[0-9]|[1-9][0-9]|100)$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<block-group ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled || $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_position'].value != 'custom' || $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_place_type'].value != 'fit')}">
+
+								<block-field title="Element X-Axis *">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_left'].value"
+												left="Left" center="|" right="Right" min="-100" max="100" length="4" index="%"
+												pattern="^(-100|-[1-9][0-9]|-[0-9]|[0-9]|[1-9][0-9]|100)$"></number-slider>
+								</block-field>
+
+								<block-field title="Element Y-Axis *">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_top'].value"
+												left="Top" center="|" right="Bottom" min="-100" max="100" length="4" index="x"
+												pattern="^(-100|-[1-9][0-9]|-[0-9]|[0-9]|[1-9][0-9]|100)$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<!-- / POSITION PICKER -->
+
+							<!-- OFFSET PICKER -->
+							<block-group ng-if="$scope[2][$scope[1]][1] == 'default'" ng-class="{disabled: (!$wrapper.enabled || $macros[$wrapper_key + '_position'].value == '0_0_0_0' || $macros[$wrapper_key + '_place_type'].value != 'fit')}">
+
+								<block-field title="Element X-Offset">
+									<number-slider model="$macros[$wrapper_key + '_offset_left'].value"
+												min="-10" max="10" length="3" index="x" left="Left" center="|" right="Right"
+												pattern="^(-10|-[0-9]|[0-9]|10)$"></number-slider>
+								</block-field>
+
+								<block-field title="Element Y-offset" ng-if="$scope[2][$scope[1]][1] == 'default'" >
+									<number-slider model="$macros[$wrapper_key + '_offset_top'].value"
+												min="-10" max="10" length="3" index="x" left="Top" center="|" right="Bottom"
+												pattern="^(-10|-[0-9]|[0-9]|10)$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<block-group ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled || $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_position'].value == '0_0_0_0' || $exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_place_type'].value != 'fit')}">
+
+								<block-field title="Element X-Offset *">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_offset_left'].value"
+												min="-10" max="10" length="3" index="x" left="Left" center="|" right="Right"
+												pattern="^(-10|-[0-9]|[0-9]|10)$"></number-slider>
+								</block-field>
+
+								<block-field title="Element Y-Offset *">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_offset_top'].value"
+												min="-10" max="10" length="3" index="x" left="Top" center="|" right="Bottom"
+												pattern="^(-10|-[0-9]|[0-9]|10)$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<!-- / OFFSET PICKER -->
+
+							<!-- ASSET QUALITY PICKER -->
+							<block-group ng-class="{disabled: (!$wrapper.enabled)}">
+
+								<block-field title="Resolution Multiplier" ng-class="{disabled: ($scope[2][$scope[1]][1] != 'default')}">
+									<number-slider model="$macros[$wrapper_key + '_ratio'].value"
+												min="1" max="3" length="1" index="x" left="Min" center="|" right="Max"
+												pattern="^([1-3])$"></number-slider>
+									<block-info>
+										<p>
+											<small><q>{{ $dict.hint_resolution_multiplier }}</q></small>
+										</p>
+									</block-info>
+								</block-field>
+
+								<block-field title="Resolution Min" ng-if="$scope[2][$scope[1]][1] == 'default'">
+									<number-slider model="$macros[$wrapper_key + '_limit_min'].value"
+												min="0" max="8" length="1" index="x" left="160" center="|" right="2560"
+												pattern="^([0-6])$"></number-slider>
+								</block-field>
+
+								<block-field title="Resolution Min *" ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled)}">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_limit_min'].value"
+												min="0" max="8" length="1" index="x" left="160" center="|" right="2560"
+												pattern="^([0-6])$"></number-slider>
+								</block-field>
+
+								<block-field title="Resolution Max" ng-if="$scope[2][$scope[1]][1] == 'default'">
+									<number-slider model="$macros[$wrapper_key + '_limit_max'].value"
+												min="0" max="8" length="1" index="x" left="160" cente	r="|" right="2560"
+												pattern="^([0-8])$"></number-slider>
+								</block-field>
+
+								<block-field title="Resolution Max *" ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled)}">
+									<number-slider model="$exceptions[$scope[2][$scope[1]][1]].data[$wrapper_key + '_limit_max'].value"
+												min="0" max="8" length="1" index="x" left="160" cente	r="|" right="2560"
+												pattern="^([0-8])$"></number-slider>
+								</block-field>
+
+							</block-group>
+							<!-- / ASSET QUALITY PICKER -->
+
+						</div>
+
+					</block-group>
+
 					<block-toggle title="Title" class="toggle" ng-class="{selected: ($data.editor.scope[1].indexOf('TL') != -1)}"
 									ng-click="$data.editor.scope[1] = (($data.editor.scope[1] == 'TL') ? '' : 'TL')"></block-toggle>
 					<block-group ng-if="($data.editor.scope[1].indexOf('TL') != -1)">
@@ -5116,19 +4930,20 @@
 									</block-info>
 								</block-field>
 
-								<block-field title="Text Source *" ng-if="$scope[2][$scope[1]][1] != 'default'" ng-class="{disabled: (!$exceptions[$scope[2][$scope[1]][1]].enabled)}">
-									<text-area placeholder="Value"
-												model="$exceptions[$scope[2][$scope[1]][1]].data.sources[0].text"></text-area>
+								<block-field title="Text Source" ng-if="$scope[2][$scope[1]][1] == 'default'">
+									<text-area model="$holder.layers[1].sources[0].text"></text-area>
 									<block-info>
 										<p>
-											<small><q>
-												<a ng-click="$exceptions[$scope[2][$scope[1]][1]].data.sources[0].text = $target.sources[0].text">Clone</a> asset source from default variation.
-											</q></small>
+											<small><q>{{ :: $dict.hint_text_area }} {{ :: $dict.hint_text_macros }}</q></small>
 										</p>
+									</block-info>
+								</block-field>
+
+								<block-field title="Text Source" ng-if="$scope[2][$scope[1]][1] == 'default'">
+									<text-area model="$holder.layers[2].sources[0].text"></text-area>
+									<block-info>
 										<p>
-											<small><q>
-												<small><q>{{ :: $dict.hint_text_area }} {{ :: $dict.hint_text_macros }}</q></small>
-											</q></small>
+											<small><q>{{ :: $dict.hint_text_area }} {{ :: $dict.hint_text_macros }}</q></small>
 										</p>
 									</block-info>
 								</block-field>

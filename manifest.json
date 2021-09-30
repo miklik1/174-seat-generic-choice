@@ -1,9 +1,9 @@
 {
   "type": "MANIFEST",
   "version": "1.0",
-  "author": "Jan Sedlar",
-  "brand": "163",
-  "name": "VW Generic V2",
+  "author": "Martin Miklik",
+  "brand": "174",
+  "name": "Seat Choice",
   "created": "10/06/2021",
   "updated": "16/06/2021",
   "editor": {
@@ -50,7 +50,7 @@
       "name": "320x320",
       "width": 320,
       "height": 320,
-      "index": "0x0.html",
+      "index": "0x0.min.html",
       "fallback": {
         "static": "320x320.png"
       }
@@ -891,115 +891,6 @@
                     }
                   }
                 },
-                "LS": {
-                  "type": "JointLayer",
-                  "enabled": false,
-                  "macros": {
-                    "LS_type": {
-                      "value": "default"
-                    },
-                    "LS_place_type": {
-                      "value": "fit",
-                      "global": true
-                    },
-                    "LS_margin": {
-                      "value": 0,
-                      "global": true
-                    },
-                    "LS_limit_min": {
-                      "value": 1,
-                      "calc": "(320 * $[value])",
-                      "global": true
-                    },
-                    "LS_limit_max": {
-                      "value": 3,
-                      "calc": "(320 * $[value])",
-                      "global": true
-                    },
-                    "LS_ratio": {
-                      "value": 1,
-                      "global": true
-                    },
-                    "LS_source": {
-                      "value": null,
-                      "global": true
-                    },
-                    "excepts": {
-                      "preset": {
-                        "enabled": false,
-                        "data": {
-                          "LS_margin": {
-                            "value": 0
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "attrs": {
-                    "LS_type": {
-                      "name": "LS_type_$[LS_type]",
-                      "global": true
-                    }
-                  },
-                  "layers": {
-                    "LS_IMG": {
-                      "type": "JointLayer",
-                      "attrs": {
-                        "LS_margin": {
-                          "css": {
-                            "left": "$[LS_margin]rem",
-                            "top": "$[LS_margin]rem",
-                            "width": "calc(100% - ($[LS_margin]rem * 2))",
-                            "height": "calc(100% - ($[LS_margin]rem * 2))"
-                          }
-                        }
-                      },
-                      "layers": [
-                        {
-                          "type": "ImageLayer",
-                          "macros": {
-                            "ratio": {
-                              "value": "$[LS_ratio]",
-                              "calc": "(1 + $[value])"
-                            }
-                          },
-                          "params": {
-                            "wrapper": "LS",
-                            "scale": "$[LS_place_type]",
-                            "polite": false,
-                            "ratio": "$[ratio]",
-                            "align": ["right", "bottom"],
-                            "limit": {
-                              "min": "$[LS_limit_min]",
-                              "max": "$[LS_limit_max]"
-                            }
-                          },
-                          "anims": {
-                            "LS_anim": {
-                              "name": "LS_anim"
-                            }
-                          },
-                          "sources": [
-                            {
-                              "url": "./assets/logo-white.svg"
-                            }
-                          ],
-                          "excepts": {
-                            "LS_type_swe": {
-                              "data": {
-                                "sources": [
-                                  {
-                                    "url": "./assets/sponsor_swe.svg"
-                                  }
-                                ]
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                },
                 "SQ": {
                   "type": "SequenceLayer",
                   "props": {
@@ -1739,7 +1630,7 @@
                                   },
                                   "sources": [
                                     {
-                                      "text": "SEAT ARONA 2018\nfrån XXX kr/månvvvvvvvvvvv"
+                                      "text": "SEAT ARONA 2018\nfrån XXX kr/mån"
                                     }
                                   ],
                                   "excepts": {
@@ -1799,7 +1690,7 @@
                                         "text-transform": "none",
                                         "font-size": {
                                           "value": 2,
-                                          "calc": "(0.8+($[value]*$[value]*0.1)) + 'em'"
+                                          "calc": "(0.6+($[value]*$[value]*0.1)) + 'em'"
                                         }
                                       }
                                     }
@@ -1811,7 +1702,129 @@
                                   },
                                   "sources": [
                                     {
-                                      "text": "<ul><li>Garanterat restvärde</li><li>Garanterat restvärde</li><li>Garanterat restvärde</li></ul>"
+                                      "text": "<li><p>1 års garanti</p></li>"
+                                    }
+                                  ],
+                                  "excepts": {
+                                    "preset": {
+                                      "enabled": false,
+                                      "data": {
+                                        "sources": [
+                                          {
+                                            "text": ""
+                                          }
+                                        ],
+                                        "attrs": {
+                                          "DS_style": {
+                                            "css": {
+                                              "font-size": {
+                                                "value": 0
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "TextLayer",
+                                  "clone": [
+                                    {
+                                      "key": "MS_TXT_2",
+                                      "wrapper": "MS",
+                                      "holder": "MS_TXT"
+                                    }
+                                  ],
+                                  "params": {
+                                    "holder": "DS_TXT",
+                                    "wrapper": "DS",
+                                    "tags": ["p"]
+                                  },
+                                  "attrs": {
+                                    "DS_font": {
+                                      "name": "font_A_600"
+                                    },
+                                    "DS_style": {
+                                      "selector": "p",
+                                      "css": {
+                                        "text-transform": "none",
+                                        "font-size": {
+                                          "value": 2,
+                                          "calc": "(0.6+($[value]*$[value]*0.1)) + 'em'"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "anims": {
+                                    "DS_anim": {
+                                      "name": "DS_anim"
+                                    }
+                                  },
+                                  "sources": [
+                                    {
+                                      "text": "<li><p>Garanterat restvärde</p></li>"
+                                    }
+                                  ],
+                                  "excepts": {
+                                    "preset": {
+                                      "enabled": false,
+                                      "data": {
+                                        "sources": [
+                                          {
+                                            "text": ""
+                                          }
+                                        ],
+                                        "attrs": {
+                                          "DS_style": {
+                                            "css": {
+                                              "font-size": {
+                                                "value": 0
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "TextLayer",
+                                  "clone": [
+                                    {
+                                      "key": "MS_TXT_3",
+                                      "wrapper": "MS",
+                                      "holder": "MS_TXT"
+                                    }
+                                  ],
+                                  "params": {
+                                    "holder": "DS_TXT",
+                                    "wrapper": "DS",
+                                    "tags": ["p"]
+                                  },
+                                  "attrs": {
+                                    "DS_font": {
+                                      "name": "font_A_600"
+                                    },
+                                    "DS_style": {
+                                      "selector": "p",
+                                      "css": {
+                                        "text-transform": "none",
+                                        "font-size": {
+                                          "value": 2,
+                                          "calc": "(0.6+($[value]*$[value]*0.1)) + 'em'"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "anims": {
+                                    "DS_anim": {
+                                      "name": "DS_anim"
+                                    }
+                                  },
+                                  "sources": [
+                                    {
+                                      "text": "<li><p>Service ingår i månadsbetalningen</p></li>"
                                     }
                                   ],
                                   "excepts": {
@@ -1849,13 +1862,6 @@
                               "layers": [
                                 {
                                   "type": "TextLayer",
-                                  "clone": [
-                                    {
-                                      "key": "MS_TXT_2",
-                                      "wrapper": "MS",
-                                      "holder": "MS_TXT"
-                                    }
-                                  ],
                                   "macros": {
                                     "BT_color": {
                                       "value": "default"
@@ -2054,6 +2060,409 @@
                     }
                   }
                 },
+                "SP": {
+                  "type": "JointLayer",
+                  "enabled": true,
+                  "excepts": {
+                    "SQ_layout_message": {
+                      "data": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "macros": {
+                    "SP_type": {
+                      "value": "default"
+                    },
+                    "SP_color": {
+                      "value": "default"
+                    },
+                    "SP_shape": {
+                      "value": "circle"
+                    },
+                    "SP_look": {
+                      "value": "auto"
+                    },
+                    "SP_label": {
+                      "value": "none"
+                    },
+                    "SP_size": {
+                      "value": 8
+                    },
+                    "SP_left": {
+                      "value": -100,
+                      "calc": "$[value]"
+                    },
+                    "SP_top": {
+                      "value": 100,
+                      "calc": "$[value]"
+                    },
+                    "SP_left_offset": {
+                      "value": 0
+                    },
+                    "SP_top_offset": {
+                      "value": 0
+                    },
+                    "excepts": {
+                      "preset": {
+                        "enabled": false,
+                        "data": {
+                          "SP_size": {
+                            "value": 5
+                          },
+                          "SP_left": {
+                            "value": 0
+                          },
+                          "SP_top": {
+                            "value": 0
+                          },
+                          "SP_left_offset": {
+                            "value": 0
+                          },
+                          "SP_top_offset": {
+                            "value": 0
+                          }
+                        }
+                      },
+                      "CV_tens_w1": {
+                        "data": {
+                          "SP_left": {
+                            "value": 0
+                          }
+                        }
+                      },
+                      "CV_tens_w2": {
+                        "data": {
+                          "SP_top": {
+                            "value": 0
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "attrs": {
+                    "SP_type": {
+                      "name": "SP_type_$[SP_type]",
+                      "global": true
+                    },
+                    "SP_shape": {
+                      "name": "SP_shape_$[SP_shape]",
+                      "global": true
+                    },
+                    "SP_look": {
+                      "name": "SP_look_$[SP_look]"
+                    },
+                    "SP_label": {
+                      "name": "SP_label_$[SP_label]"
+                    },
+                    "SP_color": {
+                      "name": "SP_color_$[SP_color]"
+                    },
+                    "SP_style": {
+                      "css": {
+                        "left": "calc((50% - ($[SP_size]rem / 2)) + (($[SP_left]% / 2) + ((-$[SP_size]rem / 2) * ($[SP_left] / 100))) + $[SP_left_offset]rem)",
+                        "top": "calc((50% - ($[SP_size]rem / 2)) + (($[SP_top]% / 2) + ((-$[SP_size]rem / 2) * ($[SP_top] / 100))) + $[SP_top_offset]rem)",
+                        "width": "$[SP_size]rem",
+                        "height": "$[SP_size]rem",
+                        "transform": "rotate($[SP_rotation]deg)"
+                      }
+                    }
+                  },
+                  "layers": {
+                    "SP_IMG": {
+                      "type": "JointLayer",
+                      "layers": [
+                        {
+                          "type": "ImageLayer",
+                          "params": {
+                            "wrapper": "SP_IMG",
+                            "scale": "fit",
+                            "polite": false,
+                            "ratio": 1,
+                            "align": ["center", "middle"],
+                            "limit": {
+                              "min": 1,
+                              "max": 3
+                            },
+                            "excepts": {}
+                          },
+                          "anims": {
+                            "SP_anim": {
+                              "name": "SP_anim"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "LS": {
+                  "type": "JointLayer",
+                  "enabled": true,
+                  "excepts": {
+                    "CV_scale_xs": {
+                      "data": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "props": {
+                    "tension": {
+                      "name": "LS_orient",
+                      "options": [
+                        [
+                          0,
+                          "p"
+                        ],
+                        [
+                          0.75,
+                          "s"
+                        ],
+                        [
+                          1.5,
+                          "l"
+                        ]
+                      ]
+                    }
+                  },
+                  "macros": {
+                    "LS_align_x": {
+                      "value": "center",
+                      "global": true
+                    },
+                    "LS_align_y": {
+                      "value": "middle",
+                      "global": true
+                    },
+                    "LS_position": {
+                      "value": "0_0_0_0"
+                    },
+                    "LS_width": {
+                      "value": 0
+                    },
+                    "LS_height": {
+                      "value": 0
+                    },
+                    "LS_left": {
+                      "value": 0
+                    },
+                    "LS_top": {
+                      "value": 0
+                    },
+                    "LS_offset_left": {
+                      "value": 0
+                    },
+                    "LS_offset_top": {
+                      "value": 0
+                    },
+                    "LS_margin": {
+                      "value": 0,
+                      "global": true
+                    },
+                    "LS_place_type": {
+                      "value": "fit",
+                      "global": true
+                    },
+                    "LS_mask_type": {
+                      "value": "none"
+                    },
+                    "LS_limit_min": {
+                      "value": 1,
+                      "calc": "(320 * $[value])",
+                      "global": true
+                    },
+                    "LS_limit_max": {
+                      "value": 4,
+                      "calc": "(320 * $[value])",
+                      "global": true
+                    },
+                    "LS_ratio": {
+                      "value": 1,
+                      "global": true
+                    },
+                    "excepts": {
+                      "preset": {
+                        "enabled": false,
+                        "data": {
+                          "LS_align_x": {
+                            "value": "center"
+                          },
+                          "LS_align_y": {
+                            "value": "middle"
+                          },
+                          "LS_position": {
+                            "value": "0_0_0_0"
+                          },
+                          "LS_width": {
+                            "value": 0
+                          },
+                          "LS_height": {
+                            "value": 0
+                          },
+                          "LS_left": {
+                            "value": 0
+                          },
+                          "LS_top": {
+                            "value": 0
+                          },
+                          "LS_offset_left": {
+                            "value": 0
+                          },
+                          "LS_offset_top": {
+                            "value": 0
+                          },
+                          "LS_margin": {
+                            "value": 0
+                          },
+                          "LS_place_type": {
+                            "value": "fit"
+                          },
+                          "LS_limit_min": {
+                            "value": 1
+                          },
+                          "LS_limit_max": {
+                            "value": 4
+                          },
+                          "LS_mask_type": {
+                            "value": "none"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "attrs": {
+                    "LS_style": {
+                      "css": {
+                        "opacity": {
+                          "value":  10,
+                          "calc": "$[value]/10"
+                        },
+                        "overflow": "visible"
+                      }
+                    },
+                    "LS_position_name": {
+                      "name": "LS_position_$[LS_position]"
+                    },
+                    "LS_position": {
+                      "selector": [
+                        ":not(.LS_place_fill):not(.LS_position_0_0_0_0)"
+                      ],
+                      "css": {
+                        "left": "calc((50% - ($[LS_width]% / 2)) + (($[LS_left]% / 2) + ((-$[LS_width]% / 2) * ($[LS_left] / 100))) + $[LS_offset_left]rem)",
+                        "top": "calc((50% - ($[LS_height]% / 2)) + (($[LS_top]% / 2) + ((-$[LS_height]% / 2) * ($[LS_top] / 100))) + $[LS_offset_top]rem)",
+                        "width": "$[LS_width]%",
+                        "height": "$[LS_height]%"
+                      }
+                    },
+                    "LS_place_type": {
+                      "name": "LS_place_$[LS_place_type]",
+                      "global": true
+                    },
+                    "LS_mask_type": {
+                      "name": "LS_mask_$[LS_mask_type]"
+                    },
+                    "LS_anim_type": {
+                      "name": "LS_anim_$[LS_anim_type]",
+                      "global": true
+                    }
+                  },
+                  "layers": {
+                    "LS_IMG": {
+                      "type": "JointLayer",
+                      "macros": {
+                        "LS_pan_x_offset_pos": {
+                          "value": "$[LS_anim_in_x]",
+                          "calc": "Math.abs($[value])"
+                        },
+                        "LS_pan_x_offset": {
+                          "value": "$[LS_anim_in_x]",
+                          "calc": "$[value] > 0 ? $[value] : $[LS_pan_x_offset_pos]"
+                        },
+                        "LS_pan_y_offset_pos": {
+                          "value": "$[LS_anim_in_y]",
+                          "calc": "Math.abs($[value])"
+                        },
+                        "LS_pan_y_offset": {
+                          "value": "$[LS_anim_in_y]",
+                          "calc": "$[value] > 0 ? $[value] : $[LS_pan_y_offset_pos]"
+                        }
+                      },
+                      "attrs": {
+                        "LS_margin": {
+                          "enabled": true,
+                          "excepts": {
+                            "LS_place_fill": {
+                              "data": {
+                                "enabled": false
+                              }
+                            }
+                          },
+                          "css": {
+                            "left": "calc($[LS_margin]rem)",
+                            "top": "calc($[LS_margin]rem)",
+                            "width": "calc(100% - ($[LS_margin]rem * 2))",
+                            "height": "calc(100% - ($[LS_margin]rem * 2))",
+                            "excepts": {
+                              "LS_orient_p": {
+                                "data": {
+                                  "top": "calc($[LS_margin]rem * 2)",
+                                  "height": "calc(100% - ($[LS_margin]rem * 4))"
+                                }
+                              },
+                              "LS_orient_l": {
+                                "data": {
+                                  "left": "calc($[LS_margin]rem * 2)",
+                                  "width": "calc(100% - ($[LS_margin]rem * 4))"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "presets": [
+                        {
+                          "macros": {
+                            "ratio": {
+                              "value": "$[LS_ratio]",
+                              "calc": "(1 + ($[LS_anim_in_z] > 1 ? ($[LS_anim_in_z] - 1) : 0) + $[value])"
+                            }
+                          },
+                          "params": {
+                            "wrapper": "LS",
+                            "scale": "$[LS_place_type]",
+                            "polite": false,
+                            "ratio": "$[ratio]",
+                            "align": [
+                              "$[LS_align_x]",
+                              "$[LS_align_y]"
+                            ],
+                            "limit": {
+                              "min": "$[LS_limit_min]",
+                              "max": "$[LS_limit_max]"
+                            },
+                            "excepts": {}
+                          },
+                          "anims": {
+                            "LS_anim": {
+                              "name": "LS_anim",
+                              "skip": "$[LS_anim_skip]"
+                            }
+                          },
+                          "excepts": {
+                            "preset": {
+                              "enabled": false,
+                              "data": {
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "layers": [
+                        null
+                      ]
+                    }
+                  }
+                },
                 "CN": {
                   "type": "JointLayer",
                   "enabled": true,
@@ -2086,7 +2495,7 @@
                           },
                           "attrs": {
                             "CN_TXT_font": {
-                              "name": "font_A_400"
+                              "name": "font_A_600"
                             },
                             "CN_TXT_style": {
                               "selector": "p",

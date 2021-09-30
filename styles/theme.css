@@ -142,7 +142,9 @@
 	color: #001e50;
 }
 
-
+li {
+	color: #ff6400;
+}
 
 
 /*
@@ -234,12 +236,7 @@
  */
 
 body.mode_debug .debug.active.anchor,
-body.mode_debug .debug.active .anchor.active,
-[data-key=MS],
-[data-key=CA],
-[data-key=BT],
-[data-key=LG],
-[data-key=FG] {
+body.mode_debug .debug.active .anchor.active {
 	box-shadow: inset 0 0 0 0.5rem rgba(255, 255, 0, 0.25);
 }
 
