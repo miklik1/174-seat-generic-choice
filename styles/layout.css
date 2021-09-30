@@ -344,7 +344,10 @@
 	width: calc(100% - (5rem + 2rem + 2rem + 0.5rem));
 	height: 8.5rem;
 }
-
+[data-key="CV"].CV_tens_e0 [data-key=MS] li {
+    list-style-type: disc;
+    position: static;
+}
 [data-key="CV"].CV_tens_e0 [data-key=MS_TXT_1],
 [data-key="CV"].CV_tens_e0 [data-key=MS_TXT_2],
 [data-key="CV"].CV_tens_e0 [data-key=MS_TXT_3] {

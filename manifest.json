@@ -60,7 +60,7 @@
       "name": "RxR",
       "width": "100%",
       "height": "100%",
-      "index": "0x0.min.html",
+      "index": "0x0.html",
       "fallback": {
         "static": "0x0.png"
       }
